@@ -1,0 +1,93 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+:root {
+  --ion-color-primary: #e44631;
+  --ion-color-primary-rgb: 228,70,49;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #c93e2b;
+  --ion-color-primary-tint: #e75946;
+
+  --ion-color-secondary: #17a2b8;
+  --ion-color-secondary-rgb: 23,162,184;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255,255,255;
+  --ion-color-secondary-shade: #148fa2;
+  --ion-color-secondary-tint: #2eabbf;
+
+  --ion-color-tertiary: #581d74;
+  --ion-color-tertiary-rgb: 88,29,116;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255,255,255;
+  --ion-color-tertiary-shade: #4d1a66;
+  --ion-color-tertiary-tint: #693482;
+
+  --ion-color-success: #84cf4b;
+  --ion-color-success-rgb: 132,207,75;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255,255,255;
+  --ion-color-success-shade: #74b642;
+  --ion-color-success-tint: #90d45d;
+
+  --ion-color-warning: #ffc107;
+  --ion-color-warning-rgb: 255,193,7;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0,0,0;
+  --ion-color-warning-shade: #e0aa06;
+  --ion-color-warning-tint: #ffc720;
+
+  --ion-color-danger: #dc3545;
+  --ion-color-danger-rgb: 220,53,69;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255,255,255;
+  --ion-color-danger-shade: #c22f3d;
+  --ion-color-danger-tint: #e04958;
+
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34,36,40;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255,255,255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
+
+  --ion-color-medium: #989aa2;
+  --ion-color-medium-rgb: 152,154,162;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255,255,255;
+  --ion-color-medium-shade: #86888f;
+  --ion-color-medium-tint: #a2a4ab;
+
+  --ion-color-light: #f8f9fa;
+  --ion-color-light-rgb: 248,249,250;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0,0,0;
+  --ion-color-light-shade: #dadbdc;
+  --ion-color-light-tint: #f9fafb;
+
+  --ion-color-favorite: #e83e8c;
+  --ion-color-favorite-rgb: 232,62,140;
+  --ion-color-favorite-contrast: #ffffff;
+  --ion-color-favorite-contrast-rgb: 255,255,255;
+  --ion-color-favorite-shade: #cc377b;
+  --ion-color-favorite-tint: #ea5198;
+
+  /** Custom variables **/
+  --ion-font-family: 'Ubuntu', 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /** Application colors **/
+  //--ion-toolbar-background: var(--ion-color-primary);
+  //--ion-toolbar-color: var(--ion-color-primary-contrast);
+  //--ion-toolbar-border-color: var(--ion-color-primary-shade);
+}
+
+// Devices overrides
+.ios {
+
+}
+
+.md {
+
+}
+

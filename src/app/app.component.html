@@ -1,0 +1,40 @@
+<ion-app>
+  <ion-menu side="start">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          My Pote
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content padding-horizontal>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/sites/tabs/to-site" detail>
+            <ion-icon name="navigate" slot="start"></ion-icon>
+            <ion-label>Vers le Site</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/sites/tabs/on-site" detail>
+            <ion-icon name="locate" slot="start"></ion-icon>
+            <ion-label>Sur le Site</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/sites/tabs/from-site" detail>
+            <ion-icon name="map" slot="start"></ion-icon>
+            <ion-label>Depuis le Site</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" (click)="onLogout()" button detail>
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Me déconnecter</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-app>

@@ -1,0 +1,47 @@
+[
+  {
+    "menu": [
+      {
+        "icon": "navigate",
+        "label": "Vers le Site",
+        "id": 1
+      },
+      {
+        "icon": "locate",
+        "label": "Sur le Site",
+        "id": 2
+      },
+      {
+        "icon": "map",
+        "label": "Depuis le Site",
+        "id": 3
+      }
+    ],
+    "sites": [
+      {
+        "name": "Aix enProvence",
+        "position": {
+          "lat": 43.475611,
+          "lon": 5.378759
+        },
+        "phone": "+334.00.00.00.00",
+        "address": "430 rue Pierre Simon Laplace",
+        "address_detail": "",
+        "zipCode": "13592",
+        "city": "Aix-en-Provence"
+      },
+      {
+        "name":"Rennes",
+        "position": {
+          "lat": 48.093130,
+          "lon": -1.704204
+        },
+        "phone": "+332.00.00.00.11",
+        "address": "Immeuble Cap Courrouze, bât. 3",
+        "address_detail": "ZAC de la Courrouze, Secteur Dominos 1C rue Louis Braille",
+        "zipCode": "35136",
+        "city": "Saint-Jacques de la Lande"
+      }
+    ]
+  }
+]
