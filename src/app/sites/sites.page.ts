@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SitesService } from './sites.service';
+import { Site } from '../core/models/site.model';
 
 @Component({
   selector: 'app-sites',
@@ -17,7 +18,9 @@ export class SitesPage implements OnInit {
   ngOnInit() {
     this.sitesService
     .getSites()
-    .subscribe(sites => this.sites = sites)
+    .subscribe((sites: Site[]) => {
+      this.sites = sites;
+    });
   }
 
 }

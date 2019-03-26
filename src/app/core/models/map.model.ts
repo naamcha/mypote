@@ -8,7 +8,7 @@ export class Map implements Deserializable {
   public zones: Zone[]
 
   deserialize(input: any): this {
-    this.zones = input.zones.map(zone => new Zone().deserialize(zone));
+    this.zones = input.map(zone => new Zone().deserialize(input));
     return this;
   }
 }

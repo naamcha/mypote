@@ -1,4 +1,3 @@
-import { Zone } from './zone.model';
 import { Map } from './map.model';
 import { Deserializable } from './deserializable.model';
 
@@ -12,10 +11,10 @@ export class Site implements Deserializable {
   public zipCode: string;
   public city: string;
   public people: any;
-  public zones: any;
   public map: Map;
 
   deserialize(input: any): this {
+    // console.log('input', input);
     Object.assign(this, input);
     this.map = new Map().deserialize(input.map);
     return this;
