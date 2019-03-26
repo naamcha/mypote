@@ -1,0 +1,98 @@
+[
+    {
+        "id":"13",
+        "name":"Aix enProvence",
+        "position": {
+            "lat":43.475611,
+            "long":5.378759
+        },
+        "telephone":"+334.00.00.00.00",
+        "adresse":"430 rue Pierre Simon Laplace",
+        "adresseComp":"",
+        "codePostal":"13592",
+        "ville":"Aix-en-Provence"
+    },
+    {
+        "id":"75",
+        "name":"Paris",
+        "position": {
+            "lat":48.835662,
+            "long":2.372687
+        },
+        "telephone":"+334.00.00.00.00",
+        "adresse":"15 rue Fernand Braudel",
+        "adresseComp":"",
+        "codePostal":"75013",
+        "ville":"Paris",
+        "zones": [
+            {
+                "id":"1",
+                "stageNumber":0,
+                "planLink":"",
+                "nfcTagId":[34,-116,-40,-66],
+                "bleUuid":"",
+                "bleMinor":"",
+                "bleMajor":"",
+                "linkedZonesId": []
+            },
+            {
+                "id":"2",
+                "stageNumber":0,
+                "planLink":"",
+                "nfcTagId":[36,-116,-50,-66],
+                "bleUuid":"",
+                "bleMinor":"",
+                "bleMajor":"",
+                "linkedZonesId": []
+            }
+        ],
+        "personnes": [
+            {
+                "nom":"Panel",
+                "prenom":"Sylvia",
+                "localisation":{
+                    "batiment":"braudel",
+                    "etage":"8",
+                    "zone":"1"
+                }
+            },{
+                "nom":"Penel",
+                "prenom":"Sylvie",
+                "localisation":{
+                    "batiment":"braudel",
+                    "etage":"8",
+                    "zone":"1"
+                }
+            },{
+                "nom":"Senel",
+                "prenom":"Sophie",
+                "localisation":{
+                    "batiment":"braudel",
+                    "etage":"8",
+                    "zone":"1"
+                }
+            },{
+                "nom":"Penel",
+                "prenom":"Sylvie",
+                "localisation":{
+                    "batiment":"braudel",
+                    "etage":"8",
+                    "zone":"1"
+                }
+            }           
+        ]
+    },
+    {
+        "":"35",
+        "name":"Rennes",
+        "position": {
+            "lat":48.093130,
+            "long":-1.704204
+        },
+        "telephone":"+332.00.00.00.11",
+        "adresse":"Immeuble Cap Courrouze, bât. 3",
+        "adresseComp":"ZAC de la Courrouze, Secteur Dominos 1C rue Louis Braille",
+        "codePostal":"35136",   
+        "ville":"Saint-Jacques de la Lande"
+    }
+]
