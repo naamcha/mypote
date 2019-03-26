@@ -11,7 +11,7 @@ export class SitesItceService {
   constructor(private http: HttpClient) {
   }
 
-  public getSites(): Observable<any> {
+  public getSites(): Observable<any[]> {
     return this.http.get("./assets/itceInfo/sitesITCE.json").pipe(
       map((sites: Site[]) => sites.map(
         (site: Site) => new Site().deserialize(site)

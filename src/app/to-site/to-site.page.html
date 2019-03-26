@@ -9,9 +9,9 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let site of sites; index as i; trackBy: name" (click)="site($event, site.id)">
       <ion-icon name="pin"></ion-icon>
-      <ion-label>Aller sur un site</ion-label>
+      <ion-label>ITCE {{site.name}}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>

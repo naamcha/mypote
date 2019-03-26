@@ -17,6 +17,7 @@ export class Site implements Deserializable {
 
 
   deserialize(input: any): this {
+    console.log(input);
     Object.assign(this, input);
     this.map = new Map().deserialize(input.map);
     return this;

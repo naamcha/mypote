@@ -10,7 +10,8 @@
         "adresse":"430 rue Pierre Simon Laplace",
         "adresseComp":"",
         "codePostal":"13592",
-        "ville":"Aix-en-Provence"
+        "ville":"Aix-en-Provence",
+        "map": []
     },
     {
         "id":"75",
@@ -24,7 +25,7 @@
         "adresseComp":"",
         "codePostal":"75013",
         "ville":"Paris",
-        "zones": [
+        "map": [
             {
                 "id":"1",
                 "stageNumber":0,
@@ -93,6 +94,7 @@
         "adresse":"Immeuble Cap Courrouze, bât. 3",
         "adresseComp":"ZAC de la Courrouze, Secteur Dominos 1C rue Louis Braille",
         "codePostal":"35136",   
-        "ville":"Saint-Jacques de la Lande"
+        "ville":"Saint-Jacques de la Lande",
+        "map": []
     }
 ]
