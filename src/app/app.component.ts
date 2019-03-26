@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { NFC } from '@ionic-native/nfc/ngx';
+
+import { Storage } from '@ionic/storage';
+import { Platform, ToastController } from '@ionic/angular';
 
 import { AuthService } from './auth/auth.service';
 
@@ -16,7 +19,10 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private storage: Storage,
+    private toastCtrl: ToastController, 
+    private nfc: NFC
   ) {
     this.initializeApp();
   }

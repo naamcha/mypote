@@ -1,5 +1,7 @@
 {
   "name": "mypote",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
