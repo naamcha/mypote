@@ -22,10 +22,12 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        canLoad: [AuthGuard],
         loadChildren: './sites/sites.module#SitesPageModule',
       },
       {
         path: ':siteId',
+        canLoad: [AuthGuard],
         loadChildren: './sites/site-detail/site-detail.module#SiteDetailPageModule'
       }
     ]
