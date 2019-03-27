@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/sites"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ site?.name }} : Détail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>{{ site?.id }}</p>
+  <p>{{ site?.position | json }}</p>
+  <p>{{ site?.address }}</p>
+  <p>{{ site?.zipCode }}</p>
+</ion-content>

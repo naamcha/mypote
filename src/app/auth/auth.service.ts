@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  // private with get : pattern to make sure you
-  // don't accidently overrite this value from any other place in the app
   private _userIsAuthenticated = false;
 
   get userIsAuthenticated() {

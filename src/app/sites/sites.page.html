@@ -1,16 +1,16 @@
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="to-site">
-      <ion-label>Vers le Site</ion-label>
-      <ion-icon name="navigate"></ion-icon>
-    </ion-tab-button>
-    <ion-tab-button tab="on-site">
-      <ion-label>Sur le Site</ion-label>
-      <ion-icon name="locate"></ion-icon>
-    </ion-tab-button>
-    <ion-tab-button tab="from-site">
-      <ion-label>Depuis le site</ion-label>
-      <ion-icon name="map"></ion-icon>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Liste des Sites IT-CE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngFor="let site of sites">
+    <ion-item [routerLink]="['/', 'sites', site.id]">
+      <ion-label>{{ site.id }} - {{ site.name }}</ion-label>
+    </ion-item>
+  </div>
+</ion-content>

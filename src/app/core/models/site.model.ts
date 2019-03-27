@@ -1,5 +1,6 @@
 export class Site {
   constructor(
+    public id: string,
     public name: string,
     public position: {
       lat: number
@@ -7,8 +8,10 @@ export class Site {
     },
     public phone: string,
     public address: string,
-    public address_detail: string,
+    public addressDetail: string,
     public zipCode: string,
-    public city: string
+    public city: string,
+    public people: [],
+    public zones: [],
   ) {}
 }

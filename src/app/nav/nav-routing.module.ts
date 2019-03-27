@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { SitesPage } from './sites.page';
+import { NavPage } from './nav.page';
 
 const routes: Routes = [
   {
     path: 'tabs',
-    component: SitesPage,
+    component: NavPage,
     children: [
       {
         path: 'to-site',
@@ -37,14 +37,15 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/sites/tabs/on-site',
+        redirectTo: '/nav/tabs/to-site',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/sites/tabs/on-site'
+    // redirectTo: '/nav/tabs/on-site'
+    redirectTo: '/nav/tabs/to-site'
   }
 ];
 
@@ -52,4 +53,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SitesRoutingModule {}
+export class NavRoutingModule {}

@@ -10,19 +10,25 @@
     <ion-content padding-horizontal>
       <ion-list>
         <ion-menu-toggle>
-          <ion-item lines="none" routerLink="/sites/tabs/to-site" detail>
+          <ion-item lines="none" routerLink="/sites" detail>
+            <ion-icon name="business" slot="start"></ion-icon>
+            <ion-label>Liste des Sites</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/nav/tabs/to-site" detail>
             <ion-icon name="navigate" slot="start"></ion-icon>
             <ion-label>Vers le Site</ion-label>
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item lines="none" routerLink="/sites/tabs/on-site" detail>
+          <ion-item lines="none" routerLink="/nav/tabs/on-site" detail>
             <ion-icon name="locate" slot="start"></ion-icon>
             <ion-label>Sur le Site</ion-label>
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item lines="none" routerLink="/sites/tabs/from-site" detail>
+          <ion-item lines="none" routerLink="/nav/tabs/from-site" detail>
             <ion-icon name="map" slot="start"></ion-icon>
             <ion-label>Depuis le Site</ion-label>
           </ion-item>

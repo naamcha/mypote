@@ -13,9 +13,22 @@ const routes: Routes = [
     loadChildren: './auth/auth.module#AuthPageModule'
   },
   {
-    path: 'sites',
-    loadChildren: './sites/sites.module#SitesPageModule',
+    path: 'nav',
+    loadChildren: './nav/nav.module#NavPageModule',
     canLoad: [AuthGuard]
+  },
+  {
+    path: 'sites',
+    children: [
+      {
+        path: '',
+        loadChildren: './sites/sites.module#SitesPageModule',
+      },
+      {
+        path: ':siteId',
+        loadChildren: './sites/site-detail/site-detail.module#SiteDetailPageModule'
+      }
+    ]
   }
 ];
 

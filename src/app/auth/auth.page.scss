@@ -29,21 +29,21 @@ h1 {
 }
 
 .login-zone {
-  margin-top: 30px;
+  margin-top: 16px;
   padding: 10px 16px 30px 16px;
   background: var(--ion-color-light);
+
+  ion-item {
+    --background: var(--ion-color-light);
+  }
 
   ion-button {
     margin-top: 30px;
   }
 }
 
-ion-item {
-  --background: var(--ion-color-light);
-}
-
 .guest-zone {
-  margin-top: 48px;
+  margin-top: 36px;
   padding-bottom: 40px;
 
   ion-button {
