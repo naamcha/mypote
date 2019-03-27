@@ -15,10 +15,10 @@ export class ToSitePage implements OnInit {
   constructor(private router: Router, private serv: SitesItceService) { }
 
   ngOnInit() {
-    this.serv.getSites().subscribe((sites: Site[]) => {
-      console.log('sites', sites);
-      this.sites = sites;
-    });
+    // this.serv.getSites().subscribe((sites: Site[]) => {
+    //   console.log('sites', sites);
+    //   this.sites = sites;
+    // });
   }
 
 }

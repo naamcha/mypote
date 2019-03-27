@@ -9,8 +9,8 @@
 
 <ion-content padding>
   <div *ngFor="let site of sites">
-    <ion-item [routerLink]="['/', 'sites', site.id]">
-      <ion-label>{{ site.id }} - {{ site.name }}</ion-label>
+    <ion-item [routerLink]="['/', 'sites', site.id]" detail>
+      <ion-label>{{ site.name }} ({{ site.id }})</ion-label>
     </ion-item>
   </div>
 </ion-content>

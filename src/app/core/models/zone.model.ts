@@ -12,9 +12,10 @@ export class Zone implements Deserializable  {
   deserialize(input: any): this {
     console.log(input);
     Object.assign(this, input);
-    if(input.linkedZones)
+    if (input.linkedZones) {
       this.linkedZones = input.linkedZones.map(zone => new Zone().deserialize(zone));
+    }
     return this;
-  } 
+  }
 
 }
