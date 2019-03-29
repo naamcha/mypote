@@ -1,100 +1,102 @@
-[
-  {
-    "id": "13",
-    "name": "Aix en Provence",
-    "position": {
-      "lat": 43.475611,
-      "lon": 5.378759
-    },
-    "phone": "+334.00.00.00.00",
-    "address": "430 rue Pierre Simon Laplace",
-    "addressDetail": "",
-    "zipCode": "13592",
-    "city": "Aix-en-Provence",
-    "map": []
-  },
-  {
-    "id": "35",
-    "name":"Rennes",
-    "position": {
-      "lat": 48.093130,
-      "lon": -1.704204
-    },
-    "phone": "+332.00.00.00.11",
-    "address": "Immeuble Cap Courrouze, bât. 3",
-    "addressDetail": "ZAC de la Courrouze, Secteur Dominos 1C rue Louis Braille",
-    "zipCode": "35136",
-    "city": "Saint-Jacques de la Lande",
-    "map": []
-  },
-  {
-    "id": "75",
-    "name": "Paris",
-    "position": {
-      "lat": 48.835662,
-      "lon": 2.372687
-    },
-    "phone": "+334.00.00.00.00",
-    "adress": "15 rue Fernand Braudel",
-    "adressDetail": "",
-    "zipCode": "75013",
-    "city": "Paris",
-    "map": [
-      {
-        "id": "1",
-        "stageNumber": 0,
-        "planLink": "",
-        "nfcTagId": [34,-116,-40,-66],
-        "bleUuid": "",
-        "bleMinor": "",
-        "bleMajor": "",
-        "linkedZonesId":  []
+{
+  "sites": [
+    {
+      "id": "13",
+      "name": "Aix en Provence",
+      "position": {
+        "lat": 43.475611,
+        "lon": 5.378759
       },
-      {
-        "id": "2",
-        "stageNumber": 0,
-        "planLink": "",
-        "nfcTagId": [36,-116,-50,-66],
-        "bleUuid": "",
-        "bleMinor": "",
-        "bleMajor": "",
-        "linkedZonesId":  []
-      }
-    ],
-    "people": [
-      {
-        "lastName": "Panel",
-        "firstName": "Sylvia",
-        "localization": {
-          "building": "braudel",
-          "floor": "8",
-          "zone": "1"
+      "phone": "+334.00.00.00.00",
+      "address": "430 rue Pierre Simon Laplace",
+      "addressDetail": "",
+      "zipCode": "13592",
+      "city": "Aix-en-Provence",
+      "map": []
+    },
+    {
+      "id": "35",
+      "name":"Rennes",
+      "position": {
+        "lat": 48.093130,
+        "lon": -1.704204
+      },
+      "phone": "+332.00.00.00.11",
+      "address": "Immeuble Cap Courrouze, bât. 3",
+      "addressDetail": "ZAC de la Courrouze, Secteur Dominos 1C rue Louis Braille",
+      "zipCode": "35136",
+      "city": "Saint-Jacques de la Lande",
+      "map": []
+    },
+    {
+      "id": "75",
+      "name": "Paris",
+      "position": {
+        "lat": 48.835662,
+        "lon": 2.372687
+      },
+      "phone": "+334.00.00.00.00",
+      "adress": "15 rue Fernand Braudel",
+      "adressDetail": "",
+      "zipCode": "75013",
+      "city": "Paris",
+      "map": [
+        {
+          "id": "1",
+          "stageNumber": 0,
+          "planLink": "",
+          "nfcTagId": [34,-116,-40,-66],
+          "bleUuid": "",
+          "bleMinor": "",
+          "bleMajor": "",
+          "linkedZonesId":  []
+        },
+        {
+          "id": "2",
+          "stageNumber": 0,
+          "planLink": "",
+          "nfcTagId": [36,-116,-50,-66],
+          "bleUuid": "",
+          "bleMinor": "",
+          "bleMajor": "",
+          "linkedZonesId":  []
         }
-      },{
-        "lastName": "Penel",
-        "firstName": "Sylvie",
-        "localization": {
-          "building": "braudel",
-          "floor": "8",
-          "zone": "1"
+      ],
+      "people": [
+        {
+          "lastName": "Panel",
+          "firstName": "Sylvia",
+          "localization": {
+            "building": "braudel",
+            "floor": "8",
+            "zone": "1"
+          }
+        },{
+          "lastName": "Penel",
+          "firstName": "Sylvie",
+          "localization": {
+            "building": "braudel",
+            "floor": "8",
+            "zone": "1"
+          }
+        },{
+          "lastName":"Senel",
+          "firstName":"Sophie",
+          "localization":{
+            "building":"braudel",
+            "floor":"8",
+            "zone":"1"
+          }
+        },{
+          "lastName":"Penel",
+          "firstName":"Sylvie",
+          "localization":{
+            "building":"braudel",
+            "floor":"8",
+            "zone":"1"
+          }
         }
-      },{
-        "lastName":"Senel",
-        "firstName":"Sophie",
-        "localization":{
-          "building":"braudel",
-          "floor":"8",
-          "zone":"1"
-        }
-      },{
-        "lastName":"Penel",
-        "firstName":"Sylvie",
-        "localization":{
-          "building":"braudel",
-          "floor":"8",
-          "zone":"1"
-        }
-      }
-    ]
-  }
-]
+      ]
+    }
+  ]
+}

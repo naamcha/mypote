@@ -31,7 +31,13 @@ const routes: Routes = [
         loadChildren: './sites/site-detail/site-detail.module#SiteDetailPageModule'
       }
     ]
-  }
+  },
+  { path: 'travel', loadChildren: './travel/travel.module#TravelPageModule' },
+  { path: 'find', loadChildren: './find/find.module#FindPageModule' },
+  { path: 'eat', loadChildren: './eat/eat.module#EatPageModule' },
+  { path: 'progress', loadChildren: './progress/progress.module#ProgressPageModule' },
+  { path: 'add-place', loadChildren: './eat/add-place/add-place.module#AddPlacePageModule' },
+  { path: 'place-detail', loadChildren: './eat/place-detail/place-detail.module#PlaceDetailPageModule' }
 ];
 
 @NgModule({

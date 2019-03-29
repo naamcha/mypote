@@ -14,16 +14,19 @@ export class SitesService {
 
   public getSites(): Observable<Site[]> {
     return this.http.get('./assets/data/sites.json').pipe(
-      map((sites: Site[]) => sites.map(
-        (site: Site) => new Site().deserialize(site)
-      )
-      )
+      take(1),
+      map(response => {
+        return response['sites'];
+      })
     );
   }
 
-  getSite(id: string) {
-    return this.getSites().pipe(take(1), map(sites => {
-      return sites.find(site => site.id === id);
-    }));
+  getSite(id: string): Observable<Site> {
+    return this.getSites().pipe(
+      take(1),
+      map((sites: Site[]) => {
+        return sites.find((site: Site) => site.id === id);
+      })
+    );
   }
 }

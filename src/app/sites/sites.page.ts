@@ -17,10 +17,8 @@ export class SitesPage implements OnInit {
 
   ngOnInit() {
     this.sitesService
-    .getSites()
-    .subscribe((sites: Site[]) => {
-      this.sites = sites;
-    });
+      .getSites()
+      .subscribe((sites: Site[]) => this.sites = sites);
   }
 
 }

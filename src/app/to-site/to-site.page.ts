@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { SitesItceService } from '../../services/sites-itce.service'
+import { SitesItceService } from '../../services/sites-itce.service';
 import { Site } from '../core/models/site.model';
 
 @Component({
@@ -15,10 +15,10 @@ export class ToSitePage implements OnInit {
   constructor(private router: Router, private serv: SitesItceService) { }
 
   ngOnInit() {
-    // this.serv.getSites().subscribe((sites: Site[]) => {
-    //   console.log('sites', sites);
-    //   this.sites = sites;
-    // });
+    this.serv.getSites().subscribe((sites: Site[]) => {
+      this.sites = sites;
+      console.log(sites);
+    });
   }
 
 }
