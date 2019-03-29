@@ -12,12 +12,12 @@
 <ion-content padding>
   <div *ngFor="let taxi of taxis">
     <ion-item >
-      
-      <ion-thumbmail img:"{{taxi.img}}" slot:"start"></ion-thumbmail>
+      <ion-thumbnail  slot="start">
+        <img [src]="taxi.img">
+      </ion-thumbnail>
       <ion-label><h3>{{ taxi.name }}</h3>
         <p>{{taxi.description}}</p>
       </ion-label>
-      ion-button
     </ion-item>
   </div>
 </ion-content>
