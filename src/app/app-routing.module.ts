@@ -31,7 +31,11 @@ const routes: Routes = [
         loadChildren: './sites/site-detail/site-detail.module#SiteDetailPageModule'
       }
     ]
-  }
+  },
+  { path: 'taxi', 
+  canLoad: [AuthGuard],
+  loadChildren: './taxi/taxi.module#TaxiPageModule' }
+
 ];
 
 @NgModule({

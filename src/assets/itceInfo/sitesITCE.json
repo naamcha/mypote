@@ -81,6 +81,15 @@
                     "zone":"1"
                 }
             }           
+        ],
+        "taxi":[
+            {
+                "nom":"Uber",
+                "téléphone":"06 98 85 28 14", 
+                "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
+                "appli":"",
+                "img":""
+            }
         ]
     },
     {
