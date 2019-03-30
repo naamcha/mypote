@@ -5,7 +5,7 @@ import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'tabs',
     pathMatch: 'full'
   },
   {
@@ -31,26 +31,6 @@ const routes: Routes = [
         loadChildren: './sites/site-detail/site-detail.module#SiteDetailPageModule'
       }
     ]
-  },
-  {
-    path: 'travel',
-    loadChildren: './travel/travel.module#TravelPageModule'
-  },
-  {
-    path: 'find',
-    loadChildren: './find/find.module#FindPageModule'
-  },
-  {
-    path: 'eat',
-    loadChildren: './eat/eat.module#EatPageModule'
-  },
-  {
-    path: 'add-place',
-    loadChildren: './eat/add-place/add-place.module#AddPlacePageModule'
-  },
-  {
-    path: 'place-detail',
-    loadChildren: './eat/place-detail/place-detail.module#PlaceDetailPageModule'
   },
   {
     path: 'journey',

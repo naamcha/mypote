@@ -32,7 +32,15 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../eat/eat.module#EatPageModule'
-          }
+          },
+          {
+            path: 'add-place',
+            loadChildren: '../eat/add-place/add-place.module#AddPlacePageModule'
+          },
+          {
+            path: 'place-detail',
+            loadChildren: '../eat/place-detail/place-detail.module#PlaceDetailPageModule'
+          },
         ]
       },
       {

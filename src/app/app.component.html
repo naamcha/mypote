@@ -16,6 +16,15 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/journey">
+            <ion-icon name="walk" slot="start"></ion-icon>
+            <ion-label>Mon Parcours</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <div class="separation"></div>
+
+        <ion-menu-toggle>
           <ion-item lines="none" routerLink="/tabs/tab-bar/home" detail>
             <ion-icon name="home" slot="start"></ion-icon>
             <ion-label>Mon Site</ion-label>
@@ -39,8 +48,11 @@
             <ion-label>Me déplacer</ion-label>
           </ion-item>
         </ion-menu-toggle>
+
+        <div class="separation"></div>
+
         <ion-menu-toggle>
-          <ion-item lines="none" (click)="onLogout()" button class="disconnect">
+          <ion-item lines="none" (click)="onLogout()" button>
             <ion-icon name="exit" slot="start"></ion-icon>
             <ion-label>Me déconnecter</ion-label>
           </ion-item>

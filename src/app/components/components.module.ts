@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
-import { TabsPage } from './tabs.page';
-import { TabsRoutingModule } from './tabs-routing.module';
+import { NewsItemComponent } from './news-item/news-item.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    IonicModule,
-    TabsRoutingModule
+    IonicModule
   ],
   declarations: [
-    TabsPage
+    NewsItemComponent
+  ],
+  exports: [
+    NewsItemComponent
   ]
 })
-export class TabsPageModule {}
+export class ComponentsModule {}

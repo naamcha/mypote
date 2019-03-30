@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.illustration {
+  flex-basis: 40%;
+  margin-right: 16px;
+}
+
+.title {
+  font-size: 1.125em;
+}
+
+.description {
+  color: var(--ion-color-medium);
+  padding-top: 4px;
+}
