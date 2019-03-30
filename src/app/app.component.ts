@@ -9,17 +9,23 @@ import { Storage } from '@ionic/storage';
 import { Platform } from '@ionic/angular';
 
 import { AuthService } from './auth/auth.service';
+import { SitesService } from './sites/sites.service';
+import { Site } from './core/models/site.model';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  activeSite: Site;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private authService: AuthService,
+    private sitesService: SitesService,
     private router: Router,
     private storage: Storage,
     private toast: Toast,
@@ -29,6 +35,10 @@ export class AppComponent {
   }
 
   initializeApp() {
+    this.authService.siteId.subscribe(site => {
+      this.activeSite = this.sitesService.getSite(site);
+    });
+
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
@@ -46,7 +56,7 @@ export class AppComponent {
                 }
               });
             } else {
-              this.router.navigateByUrl('/sites/tabs/sites');
+              this.router.navigateByUrl('/sites/tab-bar/sites');
             }
           });
         });

@@ -1,0 +1,38 @@
+h1 {
+  font-weight: 300;
+  text-align: center;
+  font-size: 2em;
+}
+
+
+ion-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: darkcyan;
+
+  ion-icon {
+    width: 60%;
+    height: 60%;
+    color: white;
+  }
+}
+
+.app-links {
+
+  ion-item {
+    font-weight: 300;
+  }
+
+  .color-1 {
+    background: var(--ion-color-secondary);
+  }
+
+  .color-2 {
+    background: var(--ion-color-tertiary);
+  }
+
+  .color-3 {
+    background: var(--ion-color-primary);
+  }
+}

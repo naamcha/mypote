@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,18 +15,24 @@ import { Toast } from '@ionic-native/toast/ngx';
 
 import { IonicStorageModule } from '@ionic/storage';
 
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { AppComponent } from './app.component';
+import { ComponentsModule } from './components/components.module';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,
     AppRoutingModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ComponentsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     StatusBar,

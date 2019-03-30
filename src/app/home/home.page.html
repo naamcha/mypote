@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mon site <small>({{ activeSite.name }})</small></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item-sliding #slidingMeeting *ngIf="!closed" @fadeOut>
+    <ion-item-options side="start">
+      <ion-item-option color="secondary" (click)="postpone(slidingMeeting)">
+        <ion-icon name="alarm" slot="icon-only"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item class="meeting-item">
+      <section class="next-meeting">
+        <div class="title">
+          <span>Ma prochaine réunion</span>
+          <ion-button
+            size="small"
+            shape="round"
+            fill="outline">Détails</ion-button>
+        </div>
+
+        <div class="meeting">
+          <div class="info">
+            <div class="subject">Démonstration de l'assistant collaborateur</div>
+            <div class="place">Salle Médiascape</div>
+          </div>
+          <div class="schedule">
+            14:30
+          </div>
+        </div>
+      </section>
+    </ion-item>
+
+    <ion-item-options side="end" color="danger">
+      <ion-item-option color="success" (click)="cancelReminder(slidingMeeting)">
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+  <section class="news">
+    <div class="title">L'Actu à {{ activeSite.name }}</div>
+    <app-news-item></app-news-item>
+  </section>
+
+
+
+</ion-content>

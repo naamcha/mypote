@@ -5,7 +5,7 @@ import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'sites',
+    redirectTo: 'tabs',
     pathMatch: 'full'
   },
   {
@@ -13,29 +13,34 @@ const routes: Routes = [
     loadChildren: './auth/auth.module#AuthPageModule'
   },
   {
-    path: 'nav',
-    loadChildren: './nav/nav.module#NavPageModule',
+    path: 'tabs',
+    loadChildren: './tabs/tabs.module#TabsPageModule',
     canLoad: [AuthGuard]
   },
   {
     path: 'sites',
+    canLoad: [AuthGuard],
     children: [
       {
         path: '',
-        canLoad: [AuthGuard],
         loadChildren: './sites/sites.module#SitesPageModule',
       },
       {
         path: ':siteId',
-        canLoad: [AuthGuard],
         loadChildren: './sites/site-detail/site-detail.module#SiteDetailPageModule'
       }
     ]
   },
-  { path: 'taxi', 
-  canLoad: [AuthGuard],
-  loadChildren: './taxi/taxi.module#TaxiPageModule' }
-
+  {
+    path: 'taxi',
+    canLoad: [AuthGuard],
+    loadChildren: './taxi/taxi.module#TaxiPageModule'
+  },
+  {
+    path: 'journey',
+    canLoad: [AuthGuard],
+    loadChildren: './journey/journey.module#JourneyPageModule'
+  }
 ];
 
 @NgModule({

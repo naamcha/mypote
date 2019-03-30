@@ -9,18 +9,14 @@ import { Site } from '../core/models/site.model';
   styleUrls: ['./sites.page.scss'],
 })
 export class SitesPage implements OnInit {
-  sites;
+  sites: Site[];
 
   constructor(
     private sitesService: SitesService
   ) { }
 
   ngOnInit() {
-    this.sitesService
-    .getSites()
-    .subscribe((sites: Site[]) => {
-      this.sites = sites;
-    });
+    this.sites = this.sitesService.getSites();
   }
 
 }
