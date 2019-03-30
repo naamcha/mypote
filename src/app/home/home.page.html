@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Mon Site</ion-title>
+    <ion-title>Mon site <small>({{ activeSite.name }})</small></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -46,7 +46,7 @@
   </ion-item-sliding>
 
   <section class="news">
-    <div class="title">L'Actu à XXXXXXXX</div>
+    <div class="title">L'Actu à {{ activeSite.name }}</div>
     <app-news-item></app-news-item>
   </section>
 

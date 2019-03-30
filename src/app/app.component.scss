@@ -2,3 +2,23 @@
   margin: 20px 0;
   border-top: 1px solid var(--ion-border-color);
 }
+
+.change-site {
+  display: block;
+  padding: 16px 0 0 0;
+
+  p {
+    font-weight: 300;
+    margin-bottom: 0;
+
+    span {
+      font-weight: 500;
+      font-size: 1.125em;
+    }
+  }
+
+  ion-button {
+    margin-top: 10px;
+    margin-left: auto;
+  }
+}

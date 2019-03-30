@@ -9,6 +9,14 @@
     </ion-header>
     <ion-content padding-horizontal>
       <ion-list>
+
+        <ion-menu-toggle class="change-site">
+          <p>Mon site : <span>{{ activeSite.name }}</span></p>
+          <ion-button color="primary" shape="round" size="small" routerLink="/sites">Changer de site</ion-button>
+        </ion-menu-toggle>
+
+        <div class="separation"></div>
+
         <ion-menu-toggle>
           <ion-item lines="none" routerLink="/sites">
             <ion-icon name="business" slot="start"></ion-icon>

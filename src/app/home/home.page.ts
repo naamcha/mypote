@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { IonItemSliding, LoadingController } from '@ionic/angular';
+import { AuthService } from '../auth/auth.service';
+import { SitesService } from '../sites/sites.service';
+import { Site } from '../core/models/site.model';
 
 @Component({
   selector: 'app-home',
@@ -19,12 +22,18 @@ import { IonItemSliding, LoadingController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
   closed = false;
+  activeSite: Site;
 
   constructor(
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private authService: AuthService,
+    private sitesService: SitesService
   ) { }
 
   ngOnInit() {
+    this.authService.siteId.subscribe(site => {
+      this.activeSite = this.sitesService.getSite(site);
+    });
   }
 
   postpone(el: IonItemSliding) {

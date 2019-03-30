@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 
 import * as sitesData from '../../assets/data/sites.json';
 import { Site } from '../core/models/site.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SitesService {
+
   constructor() {}
 
   public getSites(): Site[] {
