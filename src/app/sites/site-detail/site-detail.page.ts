@@ -11,7 +11,6 @@ import { Subscription } from 'rxjs';
 })
 export class SiteDetailPage implements OnInit, OnDestroy {
   site;
-  siteSub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,16 +24,11 @@ export class SiteDetailPage implements OnInit, OnDestroy {
         this.navCtrl.navigateBack('/sites');
         return;
       }
-      this.siteSub = this.sitesService
-        .getSite(paramMap.get('siteId'))
-        .subscribe(site => this.site = site);
+      this.site = this.sitesService
+        .getSite(paramMap.get('siteId'));
     })
   }
 
-  ngOnDestroy(): void {
-    if (this.siteSub) {
-      this.siteSub.unsubscribe();
-    }
-  }
+  ngOnDestroy(): void { }
 
 }
