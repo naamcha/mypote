@@ -12,7 +12,8 @@ import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss']
 })
 export class AppComponent {
   constructor(
@@ -46,7 +47,7 @@ export class AppComponent {
                 }
               });
             } else {
-              this.router.navigateByUrl('/sites/tabs/sites');
+              this.router.navigateByUrl('/sites/tab-bar/sites');
             }
           });
         });

@@ -5,7 +5,7 @@ import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'sites',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -13,8 +13,8 @@ const routes: Routes = [
     loadChildren: './auth/auth.module#AuthPageModule'
   },
   {
-    path: 'nav',
-    loadChildren: './nav/nav.module#NavPageModule',
+    path: 'tabs',
+    loadChildren: './tabs/tabs.module#TabsPageModule',
     canLoad: [AuthGuard]
   },
   {
@@ -32,12 +32,30 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'travel', loadChildren: './travel/travel.module#TravelPageModule' },
-  { path: 'find', loadChildren: './find/find.module#FindPageModule' },
-  { path: 'eat', loadChildren: './eat/eat.module#EatPageModule' },
-  { path: 'progress', loadChildren: './progress/progress.module#ProgressPageModule' },
-  { path: 'add-place', loadChildren: './eat/add-place/add-place.module#AddPlacePageModule' },
-  { path: 'place-detail', loadChildren: './eat/place-detail/place-detail.module#PlaceDetailPageModule' }
+  {
+    path: 'travel',
+    loadChildren: './travel/travel.module#TravelPageModule'
+  },
+  {
+    path: 'find',
+    loadChildren: './find/find.module#FindPageModule'
+  },
+  {
+    path: 'eat',
+    loadChildren: './eat/eat.module#EatPageModule'
+  },
+  {
+    path: 'add-place',
+    loadChildren: './eat/add-place/add-place.module#AddPlacePageModule'
+  },
+  {
+    path: 'place-detail',
+    loadChildren: './eat/place-detail/place-detail.module#PlaceDetailPageModule'
+  },
+  {
+    path: 'journey',
+    loadChildren: './journey/journey.module#JourneyPageModule'
+  }
 ];
 
 @NgModule({
