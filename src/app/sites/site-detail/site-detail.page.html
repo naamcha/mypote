@@ -3,14 +3,33 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/sites"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ site?.name }} : Détail</ion-title>
+    <ion-title>{{ site.name }} : Détail</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <p>{{ site?.id }}</p>
-  <p>{{ site?.position | json }}</p>
-  <p>{{ site?.address }}</p>
-  <p>{{ site?.zipCode }}</p>
-  <ion-button  [routerLink]="['/taxi']"><ion-icon slot="start" name="car"></ion-icon> Taxi</ion-button>
+  <ion-grid>
+    <ion-row padding>
+      <ion-col>
+
+        <p>{{ site.id }}</p>
+        <p>{{ site.position | json }}</p>
+        <p>{{ site.address }}</p>
+        <p>{{ site.zipCode }}</p>
+
+        <ion-button
+          shape="round"
+          margin-top
+          (click)="onSetSite(site.id)">Choisir ce site</ion-button>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button  [routerLink]="['/taxi']"><ion-icon slot="start" name="car"></ion-icon> Taxi</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>

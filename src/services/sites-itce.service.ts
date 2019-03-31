@@ -3,10 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Storage } from '@ionic/storage';
 
-import { Site } from '../app/core/models/site.model';
-import { map, mergeMap } from 'rxjs/operators';
-import { Coordinate } from 'tsgeo/Coordinate';
-import { Sites } from 'src/app/core/models/sites.model';
+import { DSite } from '../app/core/models/d-site.model';
 
 
 @Injectable({

@@ -9,32 +9,58 @@
     </ion-header>
     <ion-content padding-horizontal>
       <ion-list>
+
+        <ion-menu-toggle class="change-site">
+          <p>Mon site : <span>{{ activeSite.name }}</span></p>
+          <ion-button color="primary" shape="round" size="small" routerLink="/sites">Changer de site</ion-button>
+        </ion-menu-toggle>
+
+        <div class="separation"></div>
+
         <ion-menu-toggle>
-          <ion-item lines="none" routerLink="/sites" detail>
+          <ion-item lines="none" routerLink="/sites">
             <ion-icon name="business" slot="start"></ion-icon>
             <ion-label>Liste des Sites</ion-label>
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item lines="none" routerLink="/nav/tabs/to-site" detail>
+          <ion-item lines="none" routerLink="/journey">
+            <ion-icon name="walk" slot="start"></ion-icon>
+            <ion-label>Mon Parcours</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <div class="separation"></div>
+
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/tabs/tab-bar/home" detail>
+            <ion-icon name="home" slot="start"></ion-icon>
+            <ion-label>Mon Site</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/tabs/tab-bar/find" detail>
+            <ion-icon name="search" slot="start"></ion-icon>
+            <ion-label>Rechercher</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/tabs/tab-bar/eat" detail>
+            <ion-icon name="restaurant" slot="start"></ion-icon>
+            <ion-label>Me restaurer</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/tabs/tab-bar/travel" detail>
             <ion-icon name="navigate" slot="start"></ion-icon>
-            <ion-label>Vers le Site</ion-label>
+            <ion-label>Me déplacer</ion-label>
           </ion-item>
         </ion-menu-toggle>
+
+        <div class="separation"></div>
+
         <ion-menu-toggle>
-          <ion-item lines="none" routerLink="/nav/tabs/on-site" detail>
-            <ion-icon name="locate" slot="start"></ion-icon>
-            <ion-label>Sur le Site</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
-          <ion-item lines="none" routerLink="/nav/tabs/from-site" detail>
-            <ion-icon name="map" slot="start"></ion-icon>
-            <ion-label>Depuis le Site</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
-          <ion-item lines="none" (click)="onLogout()" button detail>
+          <ion-item lines="none" (click)="onLogout()" button>
             <ion-icon name="exit" slot="start"></ion-icon>
             <ion-label>Me déconnecter</ion-label>
           </ion-item>

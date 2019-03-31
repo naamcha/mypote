@@ -1,10 +1,18 @@
-[
-  {
-    "id": "13",
-    "name": "Aix en Provence",
-    "position": {
-      "lat": 43.475611,
-      "lon": 5.378759
+{
+  "sites": [
+    {
+      "id": "13",
+      "name": "Aix en Provence",
+      "position": {
+        "lat": 43.475611,
+        "lon": 5.378759
+      },
+      "phone": "+334.00.00.00.00",
+      "address": "430 rue Pierre Simon Laplace",
+      "addressDetail": "",
+      "zipCode": "13592",
+      "city": "Aix-en-Provence",
+      "map": []
     },
     "phone": "+334.00.00.00.00",
     "address": "430 rue Pierre Simon Laplace",
@@ -54,51 +62,68 @@
         "relatedPage": "ParisNiv0Accueil",
         "linkedZonesId":  []
       },
-      {
-        "id": "2",
-        "stageNumber": 0,
-        "planLink": "",
-        "nfcTagId": [36,-116,-50,-66],
-        "bleUuid": "",
-        "bleMinor": "",
-        "bleMajor": "",
-        "linkedZonesId":  []
-      }
-    ],
-    "people": [
-      {
-        "lastName": "Panel",
-        "firstName": "Sylvia",
-        "localization": {
-          "building": "braudel",
-          "floor": "8",
-          "zone": "1"
+      "phone": "+334.00.00.00.00",
+      "address": "15 rue Fernand Braudel",
+      "addressDetail": "",
+      "zipCode": "75013",
+      "city": "Paris",
+      "map": [
+        {
+          "id": "1",
+          "stageNumber": 0,
+          "planLink": "",
+          "nfcTagId": [34,-116,-40,-66],
+          "bleUuid": "",
+          "bleMinor": "",
+          "bleMajor": "",
+          "linkedZonesId":  []
+        },
+        {
+          "id": "2",
+          "stageNumber": 0,
+          "planLink": "",
+          "nfcTagId": [36,-116,-50,-66],
+          "bleUuid": "",
+          "bleMinor": "",
+          "bleMajor": "",
+          "linkedZonesId":  []
         }
-      },{
-        "lastName": "Penel",
-        "firstName": "Sylvie",
-        "localization": {
-          "building": "braudel",
-          "floor": "8",
-          "zone": "1"
+      ],
+      "people": [
+        {
+          "lastName": "Panel",
+          "firstName": "Sylvia",
+          "localization": {
+            "building": "braudel",
+            "floor": "8",
+            "zone": "1"
+          }
+        },{
+          "lastName": "Penel",
+          "firstName": "Sylvie",
+          "localization": {
+            "building": "braudel",
+            "floor": "8",
+            "zone": "1"
+          }
+        },{
+          "lastName":"Senel",
+          "firstName":"Sophie",
+          "localization":{
+            "building":"braudel",
+            "floor":"8",
+            "zone":"1"
+          }
+        },{
+          "lastName":"Penel",
+          "firstName":"Sylvie",
+          "localization":{
+            "building":"braudel",
+            "floor":"8",
+            "zone":"1"
+          }
         }
-      },{
-        "lastName":"Senel",
-        "firstName":"Sophie",
-        "localization":{
-          "building":"braudel",
-          "floor":"8",
-          "zone":"1"
-        }
-      },{
-        "lastName":"Penel",
-        "firstName":"Sylvie",
-        "localization":{
-          "building":"braudel",
-          "floor":"8",
-          "zone":"1"
-        }
-      }
-    ]
-  }
-]
+      ]
+    }
+  ]
+}

@@ -5,12 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ToSitePage } from './to-site.page';
+import { AddPlacePage } from './add-place.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ToSitePage
+    component: AddPlacePage
   }
 ];
 
@@ -21,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ToSitePage]
+  declarations: [AddPlacePage]
 })
-export class ToSitePageModule {}
+export class AddPlacePageModule {}

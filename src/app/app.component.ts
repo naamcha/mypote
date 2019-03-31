@@ -11,22 +11,25 @@ import { Storage } from '@ionic/storage';
 import { Platform } from '@ionic/angular';
 
 import { AuthService } from './auth/auth.service';
-// import { IBeacon } from '@ionic-native/IBeacon/ngx';
-import { SitesItceService } from 'src/services/sites-itce.service';
 import { Site } from './core/models/site.model';
+import { SitesService } from './sites/sites.service';
 import { Coordinate } from 'tsgeo/Coordinate';
-import { Sites } from './core/models/sites.model';
+// import { IBeacon } from '@ionic-native/IBeacon/ngx';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  activeSite: Site;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private authService: AuthService,
+    private sitesService: SitesService,
     private router: Router,
     private storage: Storage,
     private toast: Toast,
@@ -40,6 +43,10 @@ export class AppComponent {
   }
 
   initializeApp() {
+    this.authService.siteId.subscribe(site => {
+      this.activeSite = this.sitesService.getSite(site);
+    });
+
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();

@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { SitesService } from '../sites.service';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-site-detail',
@@ -11,12 +12,13 @@ import { Subscription } from 'rxjs';
 })
 export class SiteDetailPage implements OnInit, OnDestroy {
   site;
-  siteSub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
     private navCtrl: NavController,
-    private sitesService: SitesService
+    private sitesService: SitesService,
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -25,16 +27,16 @@ export class SiteDetailPage implements OnInit, OnDestroy {
         this.navCtrl.navigateBack('/sites');
         return;
       }
-      this.siteSub = this.sitesService
-        .getSite(paramMap.get('siteId'))
-        .subscribe(site => this.site = site);
+      this.site = this.sitesService
+        .getSite(paramMap.get('siteId'));
     })
   }
 
-  ngOnDestroy(): void {
-    if (this.siteSub) {
-      this.siteSub.unsubscribe();
-    }
+  onSetSite(site) {
+    this.authService.setSite(site);
+    this.router.navigateByUrl('/tabs/tab-bar/home');
   }
+
+  ngOnDestroy(): void { }
 
 }
