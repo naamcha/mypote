@@ -14,14 +14,6 @@
       "city": "Aix-en-Provence",
       "map": []
     },
-    "phone": "+334.00.00.00.00",
-    "address": "430 rue Pierre Simon Laplace",
-    "addressDetail": "",
-    "zipCode": "13592",
-    "city": "Aix-en-Provence",
-    "homeWifiBSSID": "64:7c:34:70:0a:cc",
-    "map": []
-  },
   {
     "id": "35",
     "name":"Rennes",
@@ -62,12 +54,6 @@
         "relatedPage": "ParisNiv0Accueil",
         "linkedZonesId":  []
       },
-      "phone": "+334.00.00.00.00",
-      "address": "15 rue Fernand Braudel",
-      "addressDetail": "",
-      "zipCode": "75013",
-      "city": "Paris",
-      "map": [
         {
           "id": "1",
           "stageNumber": 0,

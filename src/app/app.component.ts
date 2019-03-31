@@ -14,6 +14,7 @@ import { AuthService } from './auth/auth.service';
 import { Site } from './core/models/site.model';
 import { SitesService } from './sites/sites.service';
 import { Coordinate } from 'tsgeo/Coordinate';
+import { Sites } from './core/models/sites.model';
 // import { IBeacon } from '@ionic-native/IBeacon/ngx';
 
 @Component({
@@ -36,7 +37,7 @@ export class AppComponent {
     // private ibeacon: IBeacon,
     private nfc: NFC,
     private hotspot: Hotspot,
-    private siteItceService: SitesItceService,
+    private siteService: SitesService,
     private geolocation: Geolocation
   ) {
     this.initializeApp();
@@ -56,19 +57,13 @@ export class AppComponent {
       this.geolocation.getCurrentPosition().then((resp) => {
         // let coordinate1 = new Coordinate(resp.coords.latitude, resp.coords.longitude);
         let coordinate1 = new Coordinate(43.325608, 5.445956);
-        this.siteItceService.getSites().subscribe(
-          (sites : Sites) => {
-            console.log(sites.getNearestSite(coordinate1))
-          }
-        )
+        let sites : Sites = this.siteService.getSites();
+        console.log(sites.getNearestSite(coordinate1));
       }).catch((error) => {
         console.log('Error getting location', error);
         let coordinate1 = new Coordinate(43.325608, 5.445956);
-        this.siteItceService.getSites().subscribe(
-          (sites : Sites) => {
-            console.log('nearest',sites.getNearestSite(coordinate1))
-          }
-        )
+        let sites : Sites = this.siteService.getSites();
+        console.log(sites.getNearestSite(coordinate1));
       });
        
        let watch = this.geolocation.watchPosition();
@@ -85,9 +80,8 @@ export class AppComponent {
       this.sesReadNFC(nfcEvent)).subscribe(data => {
         // vérifier le site
         console.log('nfc data', data);
-        this.siteItceService.getSites().subscribe(sites=>{
-          console.log('nearestNfc',sites.getSiteFromScannedNFC(data.tag));
-        });
+        let sites : Sites = this.siteService.getSites();
+        console.log('nearestNfc',sites.getSiteFromScannedNFC(data.tag));
         this.storage.get('searchType').then(searchType => {
           if (searchType) {
             this.storage.get('searchIdentifier').then(searchIdentifier => {
@@ -108,11 +102,8 @@ export class AppComponent {
   scanWifi(): void{ 
     this.hotspot.scanWifi().then((networks: HotspotNetwork[]) => {
       console.log(networks);
-      this.siteItceService.getSites().subscribe(
-        (sites : Sites) => {
-          console.log(sites.getSiteFromScannedWifi(networks))
-        }
-      )
+      let sites : Sites = this.siteService.getSites();
+      console.log(sites.getSiteFromScannedWifi(networks));
     });
   }
   

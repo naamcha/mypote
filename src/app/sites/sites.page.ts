@@ -16,7 +16,7 @@ export class SitesPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sites = this.sitesService.getSites();
+    this.sites = this.sitesService.getSites().sites;
   }
 
 }
