@@ -16,10 +16,21 @@ export class Sites implements Deserializable {
     let minDist = 1000000;
     let retSite:Site;
     this.sites.forEach(site => {
-      let dist = site.getDistanceFromCoordinate(coord);
+      let dist = site.getDistanceToSite(coord);
       if(dist<minDist){ minDist = dist; retSite = site;}  
     });
     return retSite;
+  }
+
+  getDistanceToNearestSite(coord: Coordinate) : number{
+    // console.log(coord);
+    let minDist = 1000000;
+    let retSite:Site;
+    this.sites.forEach(site => {
+      let dist = site.getDistanceToSite(coord);
+      if(dist<minDist){ minDist = dist; retSite = site;}  
+    });
+    return minDist;
   }
 
   getSiteFromScannedNetwork(networks):Site{

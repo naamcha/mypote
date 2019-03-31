@@ -23,8 +23,8 @@ export class Site implements Deserializable {
     return this;
   }
 
-  getDistanceFromCoordinate(coord: Coordinate) : number{
-    console.log(coord);
+  getDistanceToSite(coord: Coordinate) : number{
+    // console.log(coord);
     let calculator = new Vincenty();
     return (this.position)?  calculator.getDistance(this.position, coord): undefined;
   }
@@ -35,7 +35,7 @@ class Map implements Deserializable {
   public zones: Zone[]
 
   deserialize(input: any): this {
-    console.log(input)
+    // console.log(input)
     this.zones = input.map(zone => new Zone().deserialize(zone));
     return this;
   }
@@ -49,6 +49,7 @@ class Map implements Deserializable {
     );
     return filteredZones[0];
   }
+
 }
 
 class Zone implements Deserializable  {

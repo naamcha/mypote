@@ -4,6 +4,8 @@ import { IonItemSliding, LoadingController } from '@ionic/angular';
 import { AuthService } from '../auth/auth.service';
 import { SitesService } from '../sites/sites.service';
 import { Site } from '../core/models/site.model';
+import { Geolocation } from '@ionic-native/geolocation/ngx'
+import { Coordinate } from 'tsgeo/Coordinate';
 
 @Component({
   selector: 'app-home',
@@ -23,16 +25,19 @@ import { Site } from '../core/models/site.model';
 export class HomePage implements OnInit {
   closed = false;
   activeSite: Site;
+  distanceToSite: number;
 
   constructor(
     private loadingCtrl: LoadingController,
     private authService: AuthService,
-    private sitesService: SitesService
+    private sitesService: SitesService,
+    private geolocation : Geolocation
   ) { }
 
   ngOnInit() {
-    this.authService.siteId.subscribe(site => {
+    this.sitesService.currentSiteId.subscribe(site => {
       this.activeSite = this.sitesService.getSite(site);
+      this.watchDistanceToSite(this.activeSite);
     });
   }
 
@@ -44,10 +49,19 @@ export class HomePage implements OnInit {
     this.closeSlidingElement(el);
   }
 
-
   closeSlidingElement(element): void {
     element.closeOpened();
     this.closed = true;
+  }
+
+
+  watchDistanceToSite(site:Site): void{
+    this.distanceToSite = 0;
+    let watch = this.geolocation.watchPosition();
+    watch.subscribe((data) => {
+      console.log(data);
+      this.distanceToSite = site.getDistanceToSite(new Coordinate(data.coords.latitude,data.coords.longitude));
+    });
   }
 
 }
