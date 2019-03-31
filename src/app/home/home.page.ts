@@ -6,6 +6,7 @@ import { SitesService } from '../sites/sites.service';
 import { Site } from '../core/models/site.model';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 import { Coordinate } from 'tsgeo/Coordinate';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -26,12 +27,14 @@ export class HomePage implements OnInit {
   closed = false;
   activeSite: Site;
   distanceToSite: number;
+  proposedOnce: any;
 
   constructor(
     private loadingCtrl: LoadingController,
     private authService: AuthService,
     private sitesService: SitesService,
-    private geolocation : Geolocation
+    private geolocation : Geolocation,
+    private alertController : AlertController
   ) { }
 
   ngOnInit() {
@@ -60,8 +63,27 @@ export class HomePage implements OnInit {
     let watch = this.geolocation.watchPosition();
     watch.subscribe((data) => {
       console.log(data);
-      this.distanceToSite = site.getDistanceToSite(new Coordinate(data.coords.latitude,data.coords.longitude));
+      let currentCoordinate = new Coordinate(data.coords.latitude,data.coords.longitude);
+      this.distanceToSite = site.getDistanceToSite(currentCoordinate);
+      let nearestSite = this.sitesService.getSites().getNearestSite(currentCoordinate);
+      if(this.activeSite !== nearestSite && this.proposedOnce !== true){
+        this.presentAlertMultipleButtons(nearestSite).then(success =>{
+          this.sitesService.setSite(nearestSite.id);
+          this.proposedOnce = true;
+        })
+      }
+     
     });
+  }
+
+  async presentAlertMultipleButtons(site:Site) {
+    const alert = await this.alertController.create({
+      header: 'Etes vous au bon androit?',
+      subHeader: '',
+      message: `Le site de ${site.name} semble plus proche de vous, voulez vous changer?`,
+      buttons: ['Annuler', 'Changer de Site']
+    });
+    await alert.present();
   }
 
 }

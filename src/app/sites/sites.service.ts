@@ -20,8 +20,7 @@ export class SitesService {
         // let coordinate1 = new Coordinate(43.325608, 5.445956);
         let sites : Sites = this.getSites();
         let currentSiteId = sites.getNearestSite(coordinate1).id;
-        this.setSite(currentSiteId);
-        console.log(sites.getNearestSite(coordinate1));
+        console.log(sites.getNearestSite(coordinate1),sites.getDistanceToNearestSite(coordinate1));
     }).catch((error) => {
       console.log('Error getting location', error);
     });;
