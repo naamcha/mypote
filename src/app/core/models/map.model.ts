@@ -8,7 +8,18 @@ export class Map implements Deserializable {
   public zones: Zone[]
 
   deserialize(input: any): this {
-    this.zones = input.map(zone => new Zone().deserialize(input));
+    console.log(input)
+    this.zones = input.map(zone => new Zone().deserialize(zone));
     return this;
+  }
+
+  getZoneFromScannedNFCTag(tag):Zone{
+    let filteredZones = this.zones.filter(zone=>
+        {
+            if(tag.id = zone.nfcTagId) return true;
+            return false;
+        }
+    );
+    return filteredZones[0];
   }
 }

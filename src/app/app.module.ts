@@ -11,8 +11,14 @@ import { File } from '@ionic-native/file/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
+// import { IBeacon } from '@ionic-native/IBeacon/ngx';
+import { Hotspot, HotspotNetwork } from '@ionic-native/hotspot/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx'
 
 import { IonicStorageModule } from '@ionic/storage';
+
+// import {Coordinate} from "tsgeo/Coordinate";
+// import {Vincenty}   from "tsgeo/Distance/Vincenty";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -37,6 +43,11 @@ import { AppRoutingModule } from './app-routing.module';
     NFC,
     Ndef,
     Toast,
+    // IBeacon,
+    Hotspot,
+    Geolocation,
+    // Coordinate,
+    // Vincenty,
     {
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy

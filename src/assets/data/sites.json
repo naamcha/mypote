@@ -11,6 +11,7 @@
     "addressDetail": "",
     "zipCode": "13592",
     "city": "Aix-en-Provence",
+    "homeWifiBSSID": "64:7c:34:70:0a:cc",
     "map": []
   },
   {
@@ -25,6 +26,7 @@
     "addressDetail": "ZAC de la Courrouze, Secteur Dominos 1C rue Louis Braille",
     "zipCode": "35136",
     "city": "Saint-Jacques de la Lande",
+    "homeWifiBSSID": "64:7c:34:70:0a:cd",
     "map": []
   },
   {
@@ -39,6 +41,7 @@
     "adressDetail": "",
     "zipCode": "75013",
     "city": "Paris",
+    "homeWifiBSSID": "64:7c:34:70:0a:ce",
     "map": [
       {
         "id": "1",
@@ -48,6 +51,7 @@
         "bleUuid": "",
         "bleMinor": "",
         "bleMajor": "",
+        "relatedPage": "ParisNiv0Accueil",
         "linkedZonesId":  []
       },
       {
