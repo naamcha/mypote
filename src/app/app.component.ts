@@ -45,7 +45,8 @@ export class AppComponent {
 
   initializeApp() {
     this.sitesService.currentSiteId.subscribe(siteId => {
-      console.log('initializeApp',siteId)
+      this.activeSite = this.sitesService.getSite(siteId);
+      console.log('initializeApp', siteId)
     });
 
     this.platform.ready().then(() => {
@@ -54,7 +55,7 @@ export class AppComponent {
       // this.initBeacon();
       this.initNfc();
       this.scanWifi();
-    });  
+    });
   }
 
   initNfc(): void{
@@ -67,15 +68,15 @@ export class AppComponent {
     });
   }
 
-  
-  scanWifi(): void{ 
+
+  scanWifi(): void{
     this.hotspot.scanWifi().then((networks: HotspotNetwork[]) => {
       console.log(networks);
       let sites : Sites = this.siteService.getSites();
       console.log(sites.getSiteFromScannedWifi(networks));
     });
   }
-  
+
   sesReadNFC(data): void {
     const toast = this.toast.show(
       'NFC_WORKING',
@@ -98,7 +99,7 @@ export class AppComponent {
                         });
                         // create a new delegate and register it with the native layer
                         let delegate = this.ibeacon.Delegate();
-                    
+
                         // Subscribe to some of the delegate's event handlers
                         delegate.didRangeBeaconsInRegion()
                           .subscribe(

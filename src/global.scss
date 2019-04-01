@@ -20,3 +20,18 @@ ion-item {
 ion-button {
   font-weight: 300;
 }
+
+
+.tertiary-bg {
+  background: var(--ion-color-tertiary);
+  color: white;
+}
+
+.light-bg {
+  background: var(--ion-color-light);
+}
+
+.secondary-bg {
+  background: var(--ion-color-secondary);
+  color: white;
+}

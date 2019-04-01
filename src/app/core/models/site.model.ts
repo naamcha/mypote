@@ -8,13 +8,14 @@ export class Site implements Deserializable {
   public position: Coordinate;
   public phone: string;
   public address: string;
-  public addressDetail: string;
+  public addressDetail: string[];
   public zipCode: string;
   public city: string;
   public people: any;
   public map: Map;
+  public parkings: string[];
   public homeWifiBSSID: string;
-  
+
   deserialize(input: any): this {
     // console.log('input', input,input.position);
     Object.assign(this, input);

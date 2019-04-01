@@ -72,15 +72,15 @@ export class HomePage implements OnInit {
           this.proposedOnce = true;
         })
       }
-     
+
     });
   }
 
   async presentAlertMultipleButtons(site:Site) {
     const alert = await this.alertController.create({
-      header: 'Etes vous au bon androit?',
+      header: 'Etes-vous au bon endroit ?',
       subHeader: '',
-      message: `Le site de ${site.name} semble plus proche de vous, voulez vous changer?`,
+      message: `Le site de ${site.name} semble plus proche de vous, voulez-vous changer ?`,
       buttons: ['Annuler', 'Changer de Site']
     });
     await alert.present();

@@ -12,9 +12,9 @@ import { Geolocation } from '@ionic-native/geolocation/ngx'
   styleUrls: ['./site-detail.page.scss'],
 })
 export class SiteDetailPage implements OnInit, OnDestroy {
-  site: import("d:/CODE/myNewPote/mypote/src/app/core/models/site.model").Site;
+  site: import('../../core/models/site.model').Site;
   distanceToSite: number;
- 
+
   constructor(
     private route: ActivatedRoute,
     private navCtrl: NavController,

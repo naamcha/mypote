@@ -7,12 +7,14 @@
         "lat": 43.475611,
         "lon": 5.378759
       },
-      "phone": "+334.00.00.00.00",
+      "phone": "08 2003 2008",
       "address": "430 rue Pierre Simon Laplace",
-      "addressDetail": "",
-      "zipCode": "13592",
+      "addressDetail": [],
+      "zipCode": "13 592",
       "city": "Aix-en-Provence",
-      "map": []
+      "image": "assets/images/aix001.jpg",
+      "map": [],
+      "parkings": []
     },
   {
     "id": "35",
@@ -21,13 +23,26 @@
       "lat": 48.093130,
       "lon": -1.704204
     },
-    "phone": "+332.00.00.00.11",
+    "phone": "08 2003 2008",
     "address": "Immeuble Cap Courrouze, bât. 3",
-    "addressDetail": "ZAC de la Courrouze, Secteur Dominos 1C rue Louis Braille",
-    "zipCode": "35136",
+    "addressDetail": [
+      "ZAC de la Courrouze",
+      "Secteur Dominos 1C rue Louis Braille"
+    ],
+    "zipCode": "35 136",
     "city": "Saint-Jacques de la Lande",
+    "image": "assets/images/rennes001.png",
     "homeWifiBSSID": "64:7c:34:70:0a:cd",
-    "map": []
+    "map": [],
+    "parkings": [
+      {
+        "name": "Parking Indigo",
+        "image": "assets/images/parking-r1.png",
+        "address": "Rue des Lilas",
+        "zipCode": "35 136",
+        "city": "Saint-Jacques-de-la-Lande"
+      }
+    ]
   },
   {
     "id": "75",
@@ -36,11 +51,12 @@
       "lat": 48.835662,
       "lon": 2.372687
     },
-    "phone": "+334.00.00.00.00",
-    "adress": "15 rue Fernand Braudel",
-    "adressDetail": "",
-    "zipCode": "75013",
+    "phone": "08 2003 2008",
+    "address": "15 rue Fernand Braudel",
+    "addressDetail": [],
+    "zipCode": "75 013",
     "city": "Paris",
+    "image": "assets/images/paris001.jpg",
     "homeWifiBSSID": "64:7c:34:70:0a:ce",
     "map": [
       {
@@ -93,21 +109,29 @@
             "zone": "1"
           }
         },{
-          "lastName":"Senel",
-          "firstName":"Sophie",
-          "localization":{
-            "building":"braudel",
-            "floor":"8",
-            "zone":"1"
+          "lastName": "Senel",
+          "firstName": "Sophie",
+          "localization": {
+            "building": "braudel",
+            "floor": "8",
+            "zone": "1"
           }
-        },{
-          "lastName":"Penel",
-          "firstName":"Sylvie",
-          "localization":{
-            "building":"braudel",
-            "floor":"8",
-            "zone":"1"
-          }
+        }
+      ],
+      "parkings": [
+        {
+          "name": "Parking Indigo",
+          "image": "assets/images/parking1.png",
+          "address": "21 Rue Abel Gance",
+          "zipCode": "75 013",
+          "city": "Paris"
+        },
+        {
+          "name": "Parking Yespark",
+          "image": "assets/images/parking2.png",
+          "address": "42 Boulevard Vincent Auriol",
+          "zipCode": "75 013",
+          "city": "Paris"
         }
       ]
     }

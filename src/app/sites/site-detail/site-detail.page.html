@@ -3,33 +3,110 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/sites"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ site.name }} : Détail</ion-title>
+    <ion-title>Site de {{ site.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row padding>
-      <ion-col>
-
-        <p>{{ site.id }}</p>
-        <p>{{ site.position | json }}</p>
-        <p>{{ site.address }}</p>
-        <p>{{ site.zipCode }}</p>
-
-        <ion-button
-          shape="round"
-          margin-top
-          (click)="onSetSite(site.id)">Choisir ce site</ion-button>
-
-      </ion-col>
-    </ion-row>
-
+  <ion-grid no-padding>
     <ion-row>
-      <ion-col>
-        <ion-button  [routerLink]="['/taxi']"><ion-icon slot="start" name="car"></ion-icon> Taxi</ion-button>
+      <ion-col no-padding class="image-wrapper">
+        <img [src]="site.image" [alt]="'Site de ' + site.name">
       </ion-col>
     </ion-row>
+  </ion-grid>
+
+  <ion-grid no-padding>
+    <ion-row text-center padding>
+      <ion-col no-padding class="city-header">
+        <h1>{{ site.name }}</h1>
+        <ion-button
+          size="small"
+          shape="round"
+          (click)="onSetSite(site.id)">Choisir ce site</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row padding class="secondary-bg">
+      <ion-col>
+        <p class="type no-margin">Adresse</p>
+        <div class="address">
+          <p>{{ site.address }}</p>
+          <div *ngIf="site.addressDetail">
+            <p *ngFor="let detail of site.addressDetail">{{ detail }}</p>
+          </div>
+          <p>{{ site.zipCode }} {{ site.city }}</p>
+        </div>
+
+        <p class="type">Standard</p>
+        <p>{{ site.phone }}</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row padding class="light-bg">
+      <ion-col>
+        <p class="type no-margin">Me rendre sur le site</p>
+
+        <div class="navigate-buttons">
+          <div>
+            <ion-button
+              class="is-round"
+              shape="round"
+              color="tertiary">
+              <ion-icon name="navigate" slot="icon-only"></ion-icon>
+            </ion-button>
+            <span>En Voiture</span>
+          </div>
+
+          <div>
+            <ion-button
+              class="is-round"
+              shape="round"
+              color="tertiary">
+              <ion-icon name="walk" slot="icon-only"></ion-icon>
+            </ion-button>
+            <span>A Pied</span>
+          </div>
+        </div>
+
+
+        <div class="navigate-buttons">
+          <div>
+            <ion-button
+              [routerLink]="['/taxi']"
+              class="is-round"
+              shape="round"
+              color="tertiary">
+              <ion-icon name="car" slot="icon-only"></ion-icon>
+            </ion-button>
+            <span>En taxi</span>
+          </div>
+        </div>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="site.parkings.length" padding>
+      <ion-col>
+        <p class="type no-margin">Les parkings à proximité</p>
+        <div *ngFor="let parking of site.parkings" margin-top class="parking-wrapper">
+          <img [src]="parking.image" [alt]="parking.name">
+          <div class="address">
+            <p>{{ parking.address }}</p>
+            <p>{{ parking.zipCode }} {{ parking.city }}</p>
+            <div class="nav-to-button">
+              <ion-button
+                class="is-round"
+                shape="round"
+                color="primary">
+                <ion-icon name="navigate" slot="icon-only"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
 
   </ion-grid>
 </ion-content>
