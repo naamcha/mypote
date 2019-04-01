@@ -11,7 +11,7 @@
 
   <ion-item-sliding #slidingMeeting *ngIf="!closed" @fadeOut>
     <ion-item-options side="start">
-      <ion-item-option color="secondary" (click)="postpone(slidingMeeting)">
+      <ion-item-option class="postpone-button" (click)="postpone(slidingMeeting)">
         <ion-icon name="alarm" slot="icon-only"></ion-icon>
       </ion-item-option>
     </ion-item-options>

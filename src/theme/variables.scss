@@ -76,16 +76,20 @@
   /** Custom variables **/
   --ion-font-family: 'Ubuntu', 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --ion-border-color: #efefef;
+  //--ion-backdrop-color: var(--ion-color-tertiary-shade);
 
   /** Application colors **/
   //--ion-toolbar-background: var(--ion-color-primary);
   //--ion-toolbar-color: var(--ion-color-primary-contrast);
   //--ion-toolbar-border-color: var(--ion-color-primary-shade);
-  //--ion-tab-bar-background: var(--ion-color-primary);
-  //--ion-tab-bar-background-focused: var(--ion-color-primary-shade);
-  //--ion-tab-bar-border-color: var(--ion-color-primary);
-  //--ion-tab-bar-color: var(--ion-color-primary-contrast);
-  //--ion-tab-bar-color-activated: var(--ion-color-primary-contrast);
+
+  //--ion-tab-bar-background: var(--ion-color-tertiary);
+  //--ion-tab-bar-background-focused: var(--ion-color-tertiary-shade);
+  //--ion-tab-bar-color: #c58be0;
+  //--ion-tab-bar-color-activated: var(--ion-color-tertiary-contrast);
+
+  --ion-tab-bar-color: var(--ion-color-tertiary-tint);
+  --ion-tab-bar-color-activated: var(--ion-color-tertiary-tint);
 }
 
 // Devices overrides

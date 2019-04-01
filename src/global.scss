@@ -35,3 +35,16 @@ ion-button {
   background: var(--ion-color-secondary);
   color: white;
 }
+
+ion-toolbar {
+  --background: var(--ion-color-tertiary);
+  --color: var(--ion-color-tertiary-contrast);
+}
+
+ion-tab-button {
+  border-bottom: 4px solid transparent;
+
+  &.tab-selected {
+    border-bottom: 4px solid var(--ion-color-tertiary-tint);
+  }
+}

@@ -23,6 +23,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../find/find.module#FindPageModule',
+          },
+          {
+            path: 'room',
+            loadChildren: '../find/room/room.module#RoomPageModule'
           }
         ]
       },

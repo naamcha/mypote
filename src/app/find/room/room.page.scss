@@ -1,0 +1,57 @@
+.card-content {
+  padding: 5px 5px 0 5px;
+  line-height: 1.5;
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.card-action {
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.capacity {
+  font-size: 0.925em;
+}
+
+.title {
+  font-size: 1.4em;
+  color: black;
+  font-weight: 300;
+}
+
+.book-room {
+  background: var(--ion-color-primary);
+  color: white;
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+$icon-size: 36px;
+.status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: $icon-size;
+  height: $icon-size;
+
+  &.is-free {
+    background: var(--ion-color-success);
+  }
+
+  &.is-booked {
+    background: var(--ion-color-danger);
+  }
+
+  ion-icon {
+    width: calc(#{$icon-size} - 6px);
+    height: calc(#{$icon-size} - 6px);
+    margin: 3px;
+    color: white;
+  }
+}

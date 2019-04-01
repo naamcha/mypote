@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab-bar/find"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Salles de réunion sur le site</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col no-padding size="6" *ngFor="let room of activeSite.rooms">
+
+        <ion-card text-center>
+          <div class="image-wrapper">
+            <img [src]="room.image" [alt]="room.name">
+            <div class="status" [ngClass]="{'is-free': !room.isBooked, 'is-booked': room.isBooked}">
+              <ion-icon *ngIf="!room.isBooked" name="checkmark" slot="icon-only"></ion-icon>
+              <ion-icon *ngIf="room.isBooked" name="close" slot="icon-only"></ion-icon>
+            </div>
+          </div>
+
+          <div class="card-content">
+            <div class="ion-justify-content-between">
+              <div class="capacity">Capacité : {{ room.capacity }}</div>
+              <div class="title">{{ room.name }}</div>
+            </div>
+
+            <div class="card-action" text-center>
+              <ion-button *ngIf="!room.isBooked" shape="round" size="small">Réserver</ion-button>
+              <div *ngIf="room.isBooked">Salle indisponible</div>
+            </div>
+          </div>
+        </ion-card>
+
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

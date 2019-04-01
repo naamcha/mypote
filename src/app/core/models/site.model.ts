@@ -13,7 +13,8 @@ export class Site implements Deserializable {
   public city: string;
   public people: any;
   public map: Map;
-  public parkings: string[];
+  public parkings: [];
+  public rooms: [];
   public homeWifiBSSID: string;
 
   deserialize(input: any): this {

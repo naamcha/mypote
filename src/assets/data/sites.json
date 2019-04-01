@@ -14,7 +14,54 @@
       "city": "Aix-en-Provence",
       "image": "assets/images/aix001.jpg",
       "map": [],
-      "parkings": []
+      "parkings": [],
+      "rooms": [
+        {
+          "name": "Salle 1",
+          "floor": "1",
+          "capacity": "6",
+          "image": "assets/images/salle1.jpg",
+          "bookable": true,
+          "isBooked": false,
+          "furniture": []
+        },
+        {
+          "name": "Salle 35",
+          "floor": "1",
+          "capacity": "22",
+          "image": "assets/images/salle2.jpg",
+          "bookable": true,
+          "isBooked": true,
+          "furniture": []
+        },
+        {
+          "name": "Salle 44",
+          "floor": "1",
+          "capacity": "14",
+          "image": "assets/images/salle3.jpg",
+          "bookable": true,
+          "isBooked": false,
+          "furniture": []
+        },
+        {
+          "name": "Salle 49",
+          "floor": "1",
+          "capacity": "6",
+          "image": "assets/images/salle4.jpg",
+          "bookable": true,
+          "isBooked": false,
+          "furniture": []
+        },
+        {
+          "name": "Salle 68",
+          "floor": "1",
+          "capacity": "12",
+          "image": "assets/images/salle5.jpg",
+          "bookable": true,
+          "isBooked": false,
+          "furniture": []
+        }
+      ]
     },
   {
     "id": "35",
@@ -41,6 +88,53 @@
         "address": "Rue des Lilas",
         "zipCode": "35 136",
         "city": "Saint-Jacques-de-la-Lande"
+      }
+    ],
+    "rooms": [
+      {
+        "name": "Salle 1",
+        "floor": "1",
+        "capacity": "6",
+        "image": "assets/images/salle1.jpg",
+        "bookable": true,
+        "isBooked": false,
+        "furniture": []
+      },
+      {
+        "name": "Salle 35",
+        "floor": "1",
+        "capacity": "22",
+        "image": "assets/images/salle2.jpg",
+        "bookable": true,
+        "isBooked": true,
+        "furniture": []
+      },
+      {
+        "name": "Salle 44",
+        "floor": "1",
+        "capacity": "14",
+        "image": "assets/images/salle3.jpg",
+        "bookable": true,
+        "isBooked": false,
+        "furniture": []
+      },
+      {
+        "name": "Salle 49",
+        "floor": "1",
+        "capacity": "6",
+        "image": "assets/images/salle4.jpg",
+        "bookable": true,
+        "isBooked": false,
+        "furniture": []
+      },
+      {
+        "name": "Salle 68",
+        "floor": "1",
+        "capacity": "12",
+        "image": "assets/images/salle5.jpg",
+        "bookable": true,
+        "isBooked": false,
+        "furniture": []
       }
     ]
   },
@@ -132,6 +226,53 @@
           "address": "42 Boulevard Vincent Auriol",
           "zipCode": "75 013",
           "city": "Paris"
+        }
+      ],
+      "rooms": [
+        {
+          "name": "Salle 1",
+          "floor": "1",
+          "capacity": "6",
+          "image": "assets/images/salle1.jpg",
+          "bookable": true,
+          "isBooked": false,
+          "furniture": []
+        },
+        {
+          "name": "Salle 35",
+          "floor": "1",
+          "capacity": "22",
+          "image": "assets/images/salle2.jpg",
+          "bookable": true,
+          "isBooked": true,
+          "furniture": []
+        },
+        {
+          "name": "Salle 44",
+          "floor": "1",
+          "capacity": "14",
+          "image": "assets/images/salle3.jpg",
+          "bookable": true,
+          "isBooked": false,
+          "furniture": []
+        },
+        {
+          "name": "Salle 49",
+          "floor": "1",
+          "capacity": "6",
+          "image": "assets/images/salle4.jpg",
+          "bookable": true,
+          "isBooked": false,
+          "furniture": []
+        },
+        {
+          "name": "Salle 68",
+          "floor": "1",
+          "capacity": "12",
+          "image": "assets/images/salle5.jpg",
+          "bookable": true,
+          "isBooked": false,
+          "furniture": []
         }
       ]
     }

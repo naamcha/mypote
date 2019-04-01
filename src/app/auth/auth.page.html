@@ -12,9 +12,14 @@
     <form>
       <ion-row>
         <ion-col size-md="6" offset-md="3">
-          <ion-item lines="none">
-            <ion-label position="floating">Mon site</ion-label>
-            <ion-select [ngModel]="'75'" name="location-select" (ngModelChange)="onChangeSite($event)">
+          <ion-item
+            lines="none"
+            padding-horizontal>
+            <ion-label position="floating">Je sélectionne mon site</ion-label>
+            <ion-select
+              [ngModel]="'75'"
+              name="location-select"
+              (ngModelChange)="onChangeSite($event)">
               <ion-select-option value="13">Aix-en-Provence</ion-select-option>
               <ion-select-option value="35">Rennes</ion-select-option>
               <ion-select-option value="75">Paris</ion-select-option>

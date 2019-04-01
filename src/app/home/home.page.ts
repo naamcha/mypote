@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, style, animate, transition } from '@angular/animations';
 import { IonItemSliding, LoadingController } from '@ionic/angular';
 import { AuthService } from '../auth/auth.service';
 import { SitesService } from '../sites/sites.service';
@@ -62,28 +62,48 @@ export class HomePage implements OnInit {
     this.distanceToSite = 0;
     let watch = this.geolocation.watchPosition();
     watch.subscribe((data) => {
-      console.log(data);
+      console.log('watchPosition', data);
       let currentCoordinate = new Coordinate(data.coords.latitude,data.coords.longitude);
       this.distanceToSite = site.getDistanceToSite(currentCoordinate);
       let nearestSite = this.sitesService.getSites().getNearestSite(currentCoordinate);
-      if(this.activeSite !== nearestSite && this.proposedOnce !== true){
-        this.presentAlertMultipleButtons(nearestSite).then(success =>{
-          this.sitesService.setSite(nearestSite.id);
-          this.proposedOnce = true;
-        })
+      if (this.activeSite !== nearestSite && this.proposedOnce !== true) {
+        this.presentAlertMultipleButtons(nearestSite).then(
+          success => {
+            this.proposedOnce = true;
+          },
+          error => {
+            console.log(`error`, error);
+          }
+        );
       }
 
     });
   }
 
   async presentAlertMultipleButtons(site:Site) {
-    const alert = await this.alertController.create({
+    this.alertController.create({
       header: 'Etes-vous au bon endroit ?',
       subHeader: '',
       message: `Le site de ${site.name} semble plus proche de vous, voulez-vous changer ?`,
-      buttons: ['Annuler', 'Changer de Site']
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          handler: () => {
+            this.proposedOnce = true;
+          }
+        },
+        {
+          text: 'Changer de Site',
+          handler: () => {
+            this.sitesService.setSite(site.id);
+          }
+        }
+      ]
+    })
+    .then(alert => {
+      alert.present();
     });
-    await alert.present();
   }
 
 }
