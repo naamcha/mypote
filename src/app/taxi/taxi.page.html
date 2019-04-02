@@ -15,10 +15,19 @@
       <ion-thumbnail  slot="start">
         <img src="../../assets/images/logo-uber.jpg">
       </ion-thumbnail>
-      <ion-label><h3>{{ taxi.name }}</h3>
-        <p>{{taxi.description}}</p>
-        <ion-button color="success" [href]="'tel:'+taxi.phone" expand="full"><ion-icon slot="start" name="call"></ion-icon>Téléphoner</ion-button>
-        <ion-button color="warning" [href]="" expand="full"><ion-icon slot="start" name="phone-portrait"></ion-icon>Application</ion-button>
+      <ion-label><h1>taxi.name </h1>
+        <p>taxi.description</p>
+        <div><ion-button  [href]="'tel:'+taxi.phone" 
+          class="is-round"
+          shape="round" 
+          color="tertiary"
+          size="small"><ion-icon slot="start" name="call"></ion-icon>Téléphoner</ion-button>
+        <ion-button  [href]="" 
+          shape="round" 
+          class="is-round"
+          size="small"><ion-icon slot="start" name="phone-portrait"></ion-icon>Application</ion-button>
+        </div>
+        
       </ion-label>
     </ion-item>
   </div>

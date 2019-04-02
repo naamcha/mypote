@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { SitesService } from '../sites.service';
-import { AuthService } from '../../auth/auth.service';
 import { Coordinate } from 'tsgeo/Coordinate';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
+import { Site } from '../../core/models/site.model';
 
 @Component({
   selector: 'app-site-detail',
@@ -12,7 +12,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx'
   styleUrls: ['./site-detail.page.scss'],
 })
 export class SiteDetailPage implements OnInit, OnDestroy {
-  site: import('../../core/models/site.model').Site;
+  site: Site;
   distanceToSite: number;
 
   constructor(
@@ -20,7 +20,8 @@ export class SiteDetailPage implements OnInit, OnDestroy {
     private navCtrl: NavController,
     private sitesService: SitesService,
     private router: Router,
-    private geolocation : Geolocation
+    private geolocation : Geolocation,
+    private platform: Platform
   ) { }
 
   ngOnInit() {
@@ -37,6 +38,20 @@ export class SiteDetailPage implements OnInit, OnDestroy {
   onSetSite(site) {
     this.sitesService.setSite(site);
     this.router.navigateByUrl('/tabs/tab-bar/home');
+  }
+
+  navigateTo(position) {
+    // console.log(`navigateTo`, position.lat, position.lng);
+    const latitude = this.site.position.lat;
+    const longitude = this.site.position.lng;
+    let destination = latitude + ',' + longitude;
+
+    if (this.platform.is('ios')) {
+      window.open('maps://?q=' + destination, '_system');
+    } else {
+      let label = encodeURI('site de ' + this.site.name);
+      window.open('geo:0,0?q=' + destination,  + '(' + label + ')', '_system');
+    }
   }
 
   watchDistanceToSite(): void{

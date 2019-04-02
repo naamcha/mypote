@@ -52,7 +52,8 @@
             <ion-button
               class="is-round"
               shape="round"
-              color="tertiary">
+              color="tertiary"
+              (click)="navigateTo(site.position)">
               <ion-icon name="navigate" slot="icon-only"></ion-icon>
             </ion-button>
             <span>En Voiture</span>
@@ -73,7 +74,7 @@
         <div class="navigate-buttons">
           <div>
             <ion-button
-              [routerLink]="['/taxi']"
+              [routerLink]="['/' , 'taxi' , site.id]"
               class="is-round"
               shape="round"
               color="tertiary">
