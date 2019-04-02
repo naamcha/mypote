@@ -3,7 +3,6 @@ import * as sitesData from '../../assets/data/sites.json';
 import { Taxi } from '../core/models/taxi.model';
 import { Site } from '../core/models/site.model';
 import { Sites } from '../core/models/sites.model';
-import { SitesService } from '../sites/sites.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +18,9 @@ export class TaxiService {
   public getSite(id): Site {
     return this.getSites().sites.find(site => site.id === id);
   }
-  getTaxi(id):Taxi{
+
+  // public getTaxi(id):Taxi{
    
-    
-  }
+  // return 
+  // }
 }
