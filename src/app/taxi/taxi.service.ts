@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as sitesData from '../../assets/data/sites.json';
 import { Taxi } from '../core/models/taxi.model';
+import { Site } from '../core/models/site.model';
+import { Sites } from '../core/models/sites.model';
 import { SitesService } from '../sites/sites.service';
 
 @Injectable({
@@ -10,7 +12,15 @@ export class TaxiService {
 
   constructor() { }
 
+  public getSites(): Sites {
+    return new Sites().deserialize(sitesData.sites);
+  }
+
+  public getSite(id): Site {
+    return this.getSites().sites.find(site => site.id === id);
+  }
   getTaxi(id):Taxi{
+   
     
   }
 }
