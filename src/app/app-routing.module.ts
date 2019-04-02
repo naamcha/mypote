@@ -39,7 +39,28 @@ const routes: Routes = [
   {
     path: 'journey',
     canLoad: [AuthGuard],
-    loadChildren: './journey/journey.module#JourneyPageModule'
+    children: [
+      {
+        path: '',
+        loadChildren: './journey/journey.module#JourneyPageModule'
+      },
+      {
+        path: 'tag1',
+        loadChildren: './journey/tag1/tag1.module#Tag1PageModule'
+      },
+      {
+        path: 'tag2',
+        loadChildren: './journey/tag2/tag2.module#Tag2PageModule'
+      },
+      {
+        path: 'tag3',
+        loadChildren: './journey/tag3/tag3.module#Tag3PageModule'
+      },
+      {
+        path: 'tag4',
+        loadChildren: './journey/tag4/tag4.module#Tag4PageModule'
+      }
+    ]
   }
 ];
 
