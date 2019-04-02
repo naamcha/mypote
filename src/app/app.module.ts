@@ -26,7 +26,7 @@ import { SitesService } from './sites/sites.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   entryComponents: [],
   imports: [

@@ -34,7 +34,6 @@ export class AppComponent {
     private router: Router,
     private storage: Storage,
     private toast: Toast,
-    // private ibeacon: IBeacon,
     private nfc: NFC,
     private hotspot: Hotspot,
     private siteService: SitesService,

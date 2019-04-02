@@ -40,7 +40,8 @@ const routes: Routes = [
     path: 'journey',
     canLoad: [AuthGuard],
     loadChildren: './journey/journey.module#JourneyPageModule'
-  }
+  },  { path: 'dysfunction', loadChildren: './find/room/dysfunction/dysfunction.module#DysfunctionPageModule' }
+
 ];
 
 @NgModule({
