@@ -11,16 +11,17 @@ export class TaxiService {
 
   constructor() { }
 
-  public getSites(): Sites {
+    // récupère le json et le transforme en objet
+   public getSites(): Sites {
     return new Sites().deserialize(sitesData.sites);
-  }
-
+ }
+  // recherche au sein de l'objet le site comportant l'id voulu
   public getSite(id): Site {
-    return this.getSites().sites.find(site => site.id === id);
+  return this.getSites().sites.find(site => site.id === id);
   }
-
-  // public getTaxi(id):Taxi{
+   // créer un objet taxi 
+   public getTaxi(id):Taxi{
    
-  // return 
-  // }
+  return this.getSites().sites.find(site=> site.id === id).taxi;
+  }
 }

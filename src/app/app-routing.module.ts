@@ -32,7 +32,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'taxi',
+    path: 'taxi/:siteId',
     canLoad: [AuthGuard],
     loadChildren: './taxi/taxi.module#TaxiPageModule'
   },

@@ -1,6 +1,7 @@
 import { Deserializable } from './deserializable.model';
 import { Coordinate } from 'tsgeo/Coordinate';
 import { Vincenty }   from "tsgeo/Distance/Vincenty";
+import { Taxi } from './taxi.model';
 
 export class Site implements Deserializable {
   public id: string;
@@ -16,7 +17,7 @@ export class Site implements Deserializable {
   public parkings: [];
   public rooms: [];
   public homeWifiBSSID: string;
-  public taxi: [];
+  public taxi: Taxi ;
 
   deserialize(input: any): this {
     // console.log('input', input,input.position);
