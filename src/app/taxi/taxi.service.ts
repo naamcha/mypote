@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as sitesData from '../../assets/data/sites.json';
-import { Taxi } from '../core/models/taxi.model';
+
 import { Site } from '../core/models/site.model';
 import { Sites } from '../core/models/sites.model';
 
@@ -9,7 +9,9 @@ import { Sites } from '../core/models/sites.model';
 })
 export class TaxiService {
 
-  constructor() { }
+  constructor() { 
+    let sites : Sites = this.getSites();
+  }
 
     // récupère le json et le transforme en objet
    public getSites(): Sites {
@@ -19,9 +21,5 @@ export class TaxiService {
   public getSite(id): Site {
   return this.getSites().sites.find(site => site.id === id);
   }
-   // créer un objet taxi 
-   public getTaxi(id):Taxi{
-   
-  return this.getSites().sites.find(site=> site.id === id).taxi;
-  }
+  
 }

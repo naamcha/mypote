@@ -2,21 +2,21 @@ import { Component, OnInit } from '@angular/core';
 
 import { TaxiService } from './taxi.service';
 import { Site } from '../core/models/site.model';
-import {Taxi } from '../core/models/taxi.model'
-import { NavParams } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-taxi',
   templateUrl: './taxi.page.html',
   styleUrls: ['./taxi.page.scss'],
 })
 export class TaxiPage implements OnInit {
-  taxis :Taxi[];
+  taxis: [] ;
 
-  constructor( private TaxiService: TaxiService) { }
+  constructor( private TaxiService: TaxiService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-  
-    //this.taxis = this.TaxiService.getTaxi(this.navParams.get('userParams'));
+   const id= this.route.snapshot.params['id'];
+   console.log(id);
+    this.taxis = this.TaxiService.getSite(+id).taxi;
   }
 
 }
