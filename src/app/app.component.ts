@@ -45,23 +45,22 @@ export class AppComponent {
   }
 
   initializeApp() {
-    this.sitesService.currentSiteId.subscribe(siteId => {
-      this.activeSite = this.sitesService.getSite(siteId);
-      console.log('initializeApp', siteId);
-      // watch position
-      let watch = this.geolocation.watchPosition();
-      // watch for known wifi mac address
-      interval(3000).subscribe((data) => {
-        this.scanWifi();
-      });
-    });
+    
 
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      // this.initBeacon();
+      this.sitesService.currentSiteId.subscribe(siteId => {
+        this.activeSite = this.sitesService.getSite(siteId);
+        console.log('initializeApp', siteId);
+        // watch position
+        let watch = this.geolocation.watchPosition();     
+      });
       this.initNfc();
-      this.scanWifi();
+       // watch for known wifi mac address
+      interval(4000).subscribe((data) => {
+        this.scanWifi();
+      });
     });
   }
 
@@ -79,11 +78,11 @@ export class AppComponent {
 
   scanWifi(): void{
     this.hotspot.scanWifi().then((networks: HotspotNetwork[]) => {
-      console.log(networks);
+      // console.log(networks);
       this.siteService.currentSiteId.subscribe(siteId => {
-        console.log(this.siteService.getSite(siteId));
+        // console.log(this.siteService.getSite(siteId));
         let site = this.siteService.getSite(siteId);
-        console.log(site.map.getZonesFromScannedWifi(networks));
+        // console.log(site.map.getZonesFromScannedWifi(networks));
         this.wifiScannedZone = site.map.getZonesFromScannedWifi(networks)[0];
       })
     });

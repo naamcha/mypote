@@ -59,7 +59,7 @@ class Map implements Deserializable {
     let sortedZones = sortedWifi.map(wifi=> {
       console.log(this.getZoneFromWifi(wifi))
       return this.getZoneFromWifi(wifi)
-    });
+    }).filter(zone => zone !== undefined);
     return sortedZones;
   }
 
