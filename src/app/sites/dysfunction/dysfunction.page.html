@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Signaler un dysfonctionnement</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding id="">
+  <ion-list id="lesSitesITCE-list1">
+    <ion-item  *ngFor="let img of images; index as pos" color="none" id="dysfonctionnements">
+      <ion-thumbnail item-left>
+        <img [src]="img.path">
+      </ion-thumbnail>
+      <h2>{{ img.name }}</h2>
+      <button ion-button fill="clear" expand="full" color="light" (click)="deleteImage(img, index+1)">
+        <ion-icon item-right name="trash"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-content>
+  <!-- fab placed to the top end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="selectImage()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+<ion-footer>
+
+</ion-footer>

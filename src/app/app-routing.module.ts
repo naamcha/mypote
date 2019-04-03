@@ -28,6 +28,10 @@ const routes: Routes = [
       {
         path: ':siteId',
         loadChildren: './sites/site-detail/site-detail.module#SiteDetailPageModule'
+      },
+      {
+        path: ':siteId/dysfunction',
+        loadChildren: './sites/dysfunction/dysfunction.module#DysfunctionPageModule'
       }
     ]
   },

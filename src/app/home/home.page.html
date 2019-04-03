@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Mon site <small>({{ activeSite.name }} {{distanceToSite | distanceDisplay}}) </small></ion-title>
+    <ion-title>Mon site <small>( {{ activeSite.name }} {{distanceToSite | distanceDisplay}} ) </small></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -51,5 +51,19 @@
   </section>
 
 
-
+  <!-- fab placed in the center of the content with a list on each side -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="light">
+      <ion-icon name="add"  ></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button><ion-icon name="medical"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="start">
+      <ion-fab-button><ion-icon name="construct" [routerLink]="['/sites', activeSite.id, 'dysfunction']"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="end">
+      <ion-fab-button><ion-icon name="information-circle-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
