@@ -45,10 +45,6 @@ const routes: Routes = [
     canLoad: [AuthGuard],
     children: [
       {
-        path: '',
-        loadChildren: './journey/journey.module#JourneyPageModule'
-      },
-      {
         path: 'tag1',
         loadChildren: './journey/tag1/tag1.module#Tag1PageModule'
       },

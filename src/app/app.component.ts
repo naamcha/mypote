@@ -8,13 +8,14 @@ import { Hotspot, HotspotNetwork } from '@ionic-native/hotspot/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 
 import { Storage } from '@ionic/storage';
-import { Platform } from '@ionic/angular';
+import { Platform, AlertController } from '@ionic/angular';
+import { interval } from 'rxjs';
 
 import { AuthService } from './auth/auth.service';
-import { Site } from './core/models/site.model';
 import { SitesService } from './sites/sites.service';
 import { Coordinate } from 'tsgeo/Coordinate';
 import { Sites } from './core/models/sites.model';
+import { Site } from './core/models/site.model';
 // import { IBeacon } from '@ionic-native/IBeacon/ngx';
 
 @Component({
@@ -24,6 +25,7 @@ import { Sites } from './core/models/sites.model';
 })
 export class AppComponent {
   activeSite: Site;
+  wifiScannedZone;
 
   constructor(
     private platform: Platform,
@@ -45,7 +47,13 @@ export class AppComponent {
   initializeApp() {
     this.sitesService.currentSiteId.subscribe(siteId => {
       this.activeSite = this.sitesService.getSite(siteId);
-      console.log('initializeApp', siteId)
+      console.log('initializeApp', siteId);
+      // watch position
+      let watch = this.geolocation.watchPosition();
+      // watch for known wifi mac address
+      interval(3000).subscribe((data) => {
+        this.scanWifi();
+      });
     });
 
     this.platform.ready().then(() => {
@@ -62,8 +70,9 @@ export class AppComponent {
     .subscribe(data => {
         // vérifier le site
         let sites : Sites = this.siteService.getSites();
-        console.log('nearestNfc',sites.getSiteFromScannedNFC(data.tag));
+        console.log('nearestNfc',data,sites.getSiteFromScannedNFC(data.tag));
         this.sitesService.setSite(sites.getSiteFromScannedNFC(data.tag).id);
+        this.router.navigateByUrl('journey/tag1');
     });
   }
 
@@ -71,8 +80,12 @@ export class AppComponent {
   scanWifi(): void{
     this.hotspot.scanWifi().then((networks: HotspotNetwork[]) => {
       console.log(networks);
-      let sites : Sites = this.siteService.getSites();
-      console.log(sites.getSiteFromScannedWifi(networks));
+      this.siteService.currentSiteId.subscribe(siteId => {
+        console.log(this.siteService.getSite(siteId));
+        let site = this.siteService.getSite(siteId);
+        console.log(site.map.getZonesFromScannedWifi(networks));
+        this.wifiScannedZone = site.map.getZonesFromScannedWifi(networks)[0];
+      })
     });
   }
 

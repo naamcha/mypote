@@ -54,15 +54,29 @@ class Map implements Deserializable {
     return filteredZones[0];
   }
 
+  getZonesFromScannedWifi(networks):Zone[]{
+    let sortedWifi = networks.sort((a, b) => b.level - a.level)
+    let sortedZones = sortedWifi.map(wifi=> {
+      console.log(this.getZoneFromWifi(wifi))
+      return this.getZoneFromWifi(wifi)
+    });
+    return sortedZones;
+  }
+
+  getZoneFromWifi(wifi):Zone{
+    return this.zones.find( zone => zone.wifiBSSID == wifi.BSSID );
+  }
 }
 
 class Zone implements Deserializable  {
   public id: number;
+  public name: string;
   public planLink: string;
   public nfcTagId: string[4];
   public bleUuid: string;
   public bleMinor: string;
   public bleMajor: string;
+  public wifiBSSID: string;
   public linkedZones: Zone[];
 
   deserialize(input: any): this {

@@ -3,7 +3,7 @@
     <name>MyApp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.70:8101" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -90,4 +90,6 @@
     <allow-navigation href="http://192.168.1.70:8100" sessionid="c03788e9" />
     <plugin name="cordova-plugin-x-toast" spec="2.7.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="~3.1.2" />
+    <plugin name="cordova-plugin-tts" spec="0.2.3" />
+    <allow-navigation href="http://192.168.1.70:8101" sessionid="04a5e0de" />
 </widget>
