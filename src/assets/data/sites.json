@@ -154,7 +154,9 @@
     "homeWifiBSSID": "64:7c:34:70:0a:ce",
     "map": [
       {
-        "id": "1",
+        "id": "0",
+        "name": "Accueil site Braudel",
+        "wifiBSSID": "64:7c:34:70:0a:cc",
         "stageNumber": 0,
         "planLink": "",
         "nfcTagId": [34,-116,-40,-66],
@@ -164,26 +166,30 @@
         "relatedPage": "ParisNiv0Accueil",
         "linkedZonesId":  []
       },
-        {
-          "id": "1",
-          "stageNumber": 0,
-          "planLink": "",
-          "nfcTagId": [34,-116,-40,-66],
-          "bleUuid": "",
-          "bleMinor": "",
-          "bleMajor": "",
-          "linkedZonesId":  []
-        },
-        {
-          "id": "2",
-          "stageNumber": 0,
-          "planLink": "",
-          "nfcTagId": [36,-116,-50,-66],
-          "bleUuid": "",
-          "bleMinor": "",
-          "bleMajor": "",
-          "linkedZonesId":  []
-        }
+      {
+        "id": "1",
+        "name": "Ascensseur niv 0 Braudel",
+        "wifiBSSID": "60:1d:91:cb:49:c7",
+        "stageNumber": 0,
+        "planLink": "",
+        "nfcTagId": [34,-116,-40,-66],
+        "bleUuid": "",
+        "bleMinor": "",
+        "bleMajor": "",
+        "linkedZonesId":  []
+      },
+      {
+        "id": "2",
+        "name": "Ascensseur niv 8 Braudel",
+        "wifiBSSID": "e2:b6:58:a7:00:6f",
+        "stageNumber": 1,
+        "planLink": "",
+        "nfcTagId": [36,-116,-50,-66],
+        "bleUuid": "",
+        "bleMinor": "",
+        "bleMajor": "",
+        "linkedZonesId":  []
+      }
       ],
       "people": [
         {
@@ -283,7 +289,7 @@
             "appli":"",
             "img":""
         }
-    ]
+      ]
     }
   ]
 }

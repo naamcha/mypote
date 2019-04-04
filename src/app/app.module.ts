@@ -8,9 +8,9 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NFC, Ndef } from '@ionic-native/nfc/ngx';
-import { File } from '@ionic-native/file/ngx';
+import { File } from '@ionic-native/File/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
-import { Camera } from '@ionic-native/camera/ngx';
+import { Camera } from '@ionic-native/Camera/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
 // import { IBeacon } from '@ionic-native/IBeacon/ngx';
 import { Hotspot } from '@ionic-native/hotspot/ngx';
@@ -23,10 +23,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { SitesService } from './sites/sites.service';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   entryComponents: [],
   imports: [
@@ -48,6 +49,7 @@ import { SitesService } from './sites/sites.service';
     NFC,
     Ndef,
     Toast,
+    WebView,
     // IBeacon,
     Hotspot,
     Geolocation,

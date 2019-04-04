@@ -28,6 +28,10 @@ const routes: Routes = [
       {
         path: ':siteId',
         loadChildren: './sites/site-detail/site-detail.module#SiteDetailPageModule'
+      },
+      {
+        path: ':siteId/dysfunction',
+        loadChildren: './sites/dysfunction/dysfunction.module#DysfunctionPageModule'
       }
     ]
   },
@@ -40,10 +44,6 @@ const routes: Routes = [
     path: 'journey',
     canLoad: [AuthGuard],
     children: [
-      {
-        path: '',
-        loadChildren: './journey/journey.module#JourneyPageModule'
-      },
       {
         path: 'tag1',
         loadChildren: './journey/tag1/tag1.module#Tag1PageModule'
