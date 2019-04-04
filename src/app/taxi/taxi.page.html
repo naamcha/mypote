@@ -10,10 +10,10 @@
   </ion-header>
 
 <ion-content padding>
-  <div>
+  <div *ngFor="let taxi of taxis">
     <ion-item >
       <ion-thumbnail  slot="start">
-        <img src="../../assets/images/logo-uber.jpg">
+        <img [src]="taxi.img">
       </ion-thumbnail>
       <ion-label><h1>{{taxi.name}} </h1>
         <p>{{taxi.description}}</p>

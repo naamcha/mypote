@@ -61,6 +61,15 @@
           "isBooked": false,
           "furniture": []
         }
+      ],
+      "taxi":[
+        {
+            "name":"Uber",
+            "phone":"06 98 85 28 14", 
+            "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
+            "appli":"",
+            "img":"../../assets/images/logo-uber.jpg"
+        }
       ]
     },
   {
@@ -135,6 +144,15 @@
         "bookable": true,
         "isBooked": false,
         "furniture": []
+      }
+    ],
+    "taxi":[
+      {
+          "name":"Uber",
+          "phone":"06 98 85 28 14", 
+          "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
+          "appli":"",
+          "img":"../../assets/images/logo-uber.jpg"
       }
     ]
   },
@@ -283,11 +301,11 @@
       ],
       "taxi":[
         {
-            "nom":"Uber",
+            "name":"Uber",
             "phone":"06 98 85 28 14", 
             "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
             "appli":"",
-            "img":""
+            "img":"../../assets/images/logo-uber.jpg"
         }
       ]
     }
