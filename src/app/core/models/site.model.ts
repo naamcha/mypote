@@ -34,7 +34,7 @@ export class Site implements Deserializable {
   }
 }
 
-class Map implements Deserializable {
+export class Map implements Deserializable {
 
   public zones: Zone[]
 
@@ -44,20 +44,14 @@ class Map implements Deserializable {
     return this;
   }
 
-  getZoneFromScannedNFCTag(tag):Zone{
-    let filteredZones = this.zones.filter(zone=>
-        {
-            if(tag.id = zone.nfcTagId) return true;
-            return false;
-        }
-    );
-    return filteredZones[0];
+  getZoneFromScannedNFCTag(tagId):Zone{
+    return this.zones.find(zone => tagId == zone.nfcTagId);
   }
 
   getZonesFromScannedWifi(networks):Zone[]{
     let sortedWifi = networks.sort((a, b) => b.level - a.level)
     let sortedZones = sortedWifi.map(wifi=> {
-      console.log(this.getZoneFromWifi(wifi))
+      console.log('site.model - getZonesFromScannedWifi', this.getZoneFromWifi(wifi))
       return this.getZoneFromWifi(wifi)
     }).filter(zone => zone !== undefined);
     return sortedZones;
@@ -68,15 +62,16 @@ class Map implements Deserializable {
   }
 }
 
-class Zone implements Deserializable  {
+export class Zone implements Deserializable  {
   public id: number;
   public name: string;
   public planLink: string;
-  public nfcTagId: string[4];
+  public wifiBSSID: string;
+  public nfcTagId: string;
+  public navRouting: string;
   public bleUuid: string;
   public bleMinor: string;
   public bleMajor: string;
-  public wifiBSSID: string;
   public linkedZones: Zone[];
 
   deserialize(input: any): this {

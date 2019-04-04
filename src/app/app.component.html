@@ -11,7 +11,7 @@
       <ion-list>
 
         <ion-menu-toggle class="change-site">
-           <p>Mon site : <span>{{ activeSite.name }}</span> - {{ wifiScannedZone.name }}</p>
+           <p>Mon site : <span>{{ activeSite.name || "" }}</span><!--  - {{ wifiScannedZone.name || "" }} --></p>
           <ion-button color="primary" shape="round" size="small" routerLink="/sites">Changer de site</ion-button>
         </ion-menu-toggle>
 
