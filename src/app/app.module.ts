@@ -12,10 +12,10 @@ import { File } from '@ionic-native/File/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { Camera } from '@ionic-native/Camera/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
-// import { IBeacon } from '@ionic-native/IBeacon/ngx';
 import { Hotspot } from '@ionic-native/hotspot/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 import { Vibration } from '@ionic-native/vibration/ngx';
+// import { IBeacon } from '@ionic-native/IBeacon/ngx';
 
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -26,6 +26,7 @@ import { ComponentsModule } from './components/components.module';
 import { SitesService } from './sites/sites.service';
 import { JourneyService } from './journey/journey.service'
 import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { MicroLocalisation } from './core/models/microlocalisation.model';
 
 @NgModule({
   declarations: [
