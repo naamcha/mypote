@@ -13,7 +13,7 @@
       "zipCode": "13 592",
       "city": "Aix-en-Provence",
       "image": "assets/images/aix001.jpg",
-      "map": [],
+      "quarters": [],
       "parkings": [],
       "rooms": [
         {
@@ -89,7 +89,7 @@
     "city": "Saint-Jacques de la Lande",
     "image": "assets/images/rennes001.png",
     "homeWifiBSSID": "64:7c:34:70:0a:cd",
-    "map": [],
+    "quarters": [],
     "parkings": [
       {
         "name": "Parking Indigo",
@@ -170,61 +170,77 @@
     "city": "Paris",
     "image": "assets/images/paris001.jpg",
     "homeWifiBSSID": "64:7c:34:70:0a:ce",
-    "map": [
+    "quarters": [
       {
-        "id": "0",
-        "name": "Accueil site Braudel",
+        "id": 0,
+        "name": "Accueil Braudel",
         "wifiBSSID": "64:7c:34:70:0a:cc",
-        "nfcTagId": "0446ebd2ba5d81",
-        "navRouting": "journey/tag1",
-        "stageNumber": 0,
         "planLink": "",
-        "bleUuid": "",
-        "bleMinor": "",
-        "bleMajor": "",
-        "relatedPage": "ParisNiv0Accueil",
-        "linkedZonesId":  []
+        "map":  [
+          {
+            "id": "0",
+            "name": "Accueil site Braudel",
+            
+            "nfcTagId": "0446ebd2ba5d81",
+            "navRouting": "journey/tag1",
+            "stageNumber": 0,
+            "planLink": "",
+            "bleUuid": "",
+            "bleMinor": "",
+            "bleMajor": "",
+            "relatedPage": "ParisNiv0Accueil",
+            "linkedZonesId":  []
+          },
+          {
+            "id": "1",
+            "name": "Ascensseur niv 0 Braudel",
+            "wifiBSSID": "60:1d:91:cb:49:c7",
+            "nfcTagId": "046db542295e81", 
+            "navRouting": "journey/tag2",
+            "stageNumber": 0,
+            "planLink": "",
+            "bleUuid": "",
+            "bleMinor": "",
+            "bleMajor": "",
+            "linkedZonesId":  []
+          }
+        ]
       },
       {
-        "id": "1",
-        "name": "Ascensseur niv 0 Braudel",
-        "wifiBSSID": "60:1d:91:cb:49:c7",
-        "nfcTagId": "046db542295e81", 
-        "navRouting": "journey/tag2",
-        "stageNumber": 0,
+        "id": 1,
+        "name": "Niveau 8 Braudel",
+        "wifiBSSID": "64:7c:34:70:0a:cc",
         "planLink": "",
-        "bleUuid": "",
-        "bleMinor": "",
-        "bleMajor": "",
-        "linkedZonesId":  []
-      },
-      {
-        "id": "2",
-        "name": "Ascensseur niv 8 Braudel",
-        "wifiBSSID": "e2:b6:58:a7:00:6f",
-        "nfcTagId": "044eebd2ba5d81",
-        "navRouting": "journey/tag3",
-        "stageNumber": 1,
-        "planLink": "",
-        "bleUuid": "",
-        "bleMinor": "",
-        "bleMajor": "",
-        "linkedZonesId":  []
-      },
-      {
-        "id": "2",
-        "name": "Mediascape niv 8 Braudel",
-        "wifiBSSID": "e2:b6:58:a7:00:6f",
-        "nfcTagId": "044eecd2ba5d81",
-        "navRouting": "journey/tag4",
-        "stageNumber": 1,
-        "planLink": "",
-        "bleUuid": "",
-        "bleMinor": "",
-        "bleMajor": "",
-        "linkedZonesId":  []
+        "map":  [ 
+          {
+            "id": "2",
+            "name": "Ascensseur niv 8 Braudel",
+            "wifiBSSID": "e2:b6:58:a7:00:6f",
+            "nfcTagId": "044eebd2ba5d81",
+            "navRouting": "journey/tag3",
+            "stageNumber": 1,
+            "planLink": "",
+            "bleUuid": "",
+            "bleMinor": "",
+            "bleMajor": "",
+            "linkedZonesId":  []
+          },
+          {
+            "id": "2",
+            "name": "Mediascape niv 8 Braudel",
+            "wifiBSSID": "e2:b6:58:a7:00:6f",
+            "nfcTagId": "044eecd2ba5d81",
+            "navRouting": "journey/tag4",
+            "stageNumber": 1,
+            "planLink": "",
+            "bleUuid": "",
+            "bleMinor": "",
+            "bleMajor": "",
+            "linkedZonesId":  []
+          }
+        ]
       }
-      ],
+    ],
       "people": [
         {
           "lastName": "Panel",

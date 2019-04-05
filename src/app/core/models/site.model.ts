@@ -13,7 +13,7 @@ export class Site implements Deserializable {
   public zipCode: string;
   public city: string;
   public people: any;
-  public map: Map;
+  public quarters: Quarters;
   public parkings: [];
   public rooms: [];
   public homeWifiBSSID: string;
@@ -23,7 +23,7 @@ export class Site implements Deserializable {
     // console.log('input', input,input.position);
     Object.assign(this, input);
     this.position = new Coordinate(input.position.lat,input.position.lon)
-    this.map = new Map().deserialize(input.map);
+    this.quarters = new Quarters().deserialize(input.quarters);
     return this;
   }
 
@@ -34,31 +34,55 @@ export class Site implements Deserializable {
   }
 }
 
-export class Map implements Deserializable {
+export class Quarters implements Deserializable {
 
-  public zones: Zone[]
+  public quarters: Quarter[]
 
   deserialize(input: any): this {
-    // console.log(input)
-    this.zones = input.map(zone => new Zone().deserialize(zone));
+    Object.assign(this, input);
+    if (input.quarters) {
+      this.quarters = input.quarters.map(quart => new Quarter().deserialize(quart));
+    }
     return this;
-  }
-
-  getZoneFromScannedNFCTag(tagId):Zone{
-    return this.zones.find(zone => tagId == zone.nfcTagId);
   }
 
   getZonesFromScannedWifi(networks):Zone[]{
     let sortedWifi = networks.sort((a, b) => b.level - a.level)
     let sortedZones = sortedWifi.map(wifi=> {
-      console.log('site.model - getZonesFromScannedWifi', this.getZoneFromWifi(wifi))
-      return this.getZoneFromWifi(wifi)
+      return this.getQuarterFromWifi(wifi)
     }).filter(zone => zone !== undefined);
     return sortedZones;
   }
 
-  getZoneFromWifi(wifi):Zone{
-    return this.zones.find( zone => zone.wifiBSSID == wifi.BSSID );
+  getQuarterFromWifi(wifi):Quarter{
+    return this.quarters.find( q => q.wifiBSSID == wifi.BSSID );
+  }
+
+  getZoneFromScannedNFCTag(tagId):Zone{
+    let quarter:Quarter = this.quarters.find(q => q.getZoneFromScannedNFCTag(tagId) !== undefined)[0];
+    if(quarter){
+      return quarter.map.find(z=>z.nfcTagId ==tagId)
+    }
+  }
+}
+
+export class Quarter implements Deserializable  {
+  public id: number;
+  public name: string;
+  public wifiBSSID: string;
+  public planLink: string;
+  public map: Zone[];
+
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    if (input.linkedZones) {
+      this.map = input.zones.map(zone => new Zone().deserialize(zone));
+    }
+    return this;
+  }
+
+  getZoneFromScannedNFCTag(tagId):Zone{
+    return this.map.find(zone => tagId == zone.nfcTagId);
   }
 }
 

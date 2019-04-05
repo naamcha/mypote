@@ -7,16 +7,13 @@
         </ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content padding-horizontal>
+    <ion-content padding-horizontal *ngIf="activeSite">
       <ion-list>
-
         <ion-menu-toggle class="change-site">
            <p>Mon site : <span>{{ activeSite.name || "" }}</span><!--  - {{ wifiScannedZone.name || "" }} --></p>
           <ion-button color="primary" shape="round" size="small" routerLink="/sites">Changer de site</ion-button>
         </ion-menu-toggle>
-
         <div class="separation"></div>
-
         <ion-menu-toggle>
           <ion-item lines="none" routerLink="/sites">
             <ion-icon name="business" slot="start"></ion-icon>
@@ -24,7 +21,7 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item lines="none" routerLink="/journey">
+          <ion-item lines="none" routerLink="/journey-history">
             <ion-icon name="walk" slot="start"></ion-icon>
             <ion-label>Mon Parcours</ion-label>
           </ion-item>
@@ -58,7 +55,12 @@
         </ion-menu-toggle>
 
         <div class="separation"></div>
-
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/conf" detail>
+            <ion-icon name="cog" slot="start"></ion-icon>
+            <ion-label>Configuration</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
         <ion-menu-toggle>
           <ion-item lines="none" (click)="onLogout()" button>
             <ion-icon name="exit" slot="start"></ion-icon>

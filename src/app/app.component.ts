@@ -11,6 +11,8 @@ import { JourneyService } from './journey/journey.service';
 import { MicroLocalisationService } from './micro-localisation.service';
 import { Site, Zone } from './core/models/site.model';
 import { MicroLocalisation } from './core/models/microlocalisation.model';
+import { from } from 'rxjs';
+import { Hotspot } from '@ionic-native/hotspot/ngx';
 // import { Coordinate } from 'tsgeo/Coordinate';
 // import { IBeacon } from '@ionic-native/IBeacon/ngx';
 
@@ -33,7 +35,8 @@ export class AppComponent {
     private journeyService: JourneyService,
     private microLocalisationService: MicroLocalisationService,
     private router: Router,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private hotspot: Hotspot
   ) {
     this.initializeApp();
   }
@@ -42,14 +45,21 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.sitesService.currentSiteId.subscribe(siteId => {
+/*       this.sitesService.currentSiteId.subscribe(siteId => {
         this.activeSite = this.sitesService.getSite(siteId);
         console.log('initializeApp', siteId);
-      });
-      
-      this.microLocalisationService.watchAll(this.sitesService.getSites()).subscribe((microloc) => {
-        console.log(microloc);
-      })
+      }); */
+      // const scanWifi = from(this.hotspot.startWifiPeriodicallyScan(3000,30));
+      // scanWifi.then(res => console.log('scanWifi',res));
+      let sites = this.sitesService.getSites();
+      this.microLocalisationService.watchAll(sites);
+
+      // this.microLocalisationService.scanNfc(sites).subscribe((microlocation: MicroLocalisation) => {
+      //   console.log(microlocation);
+      // },
+      // error =>{
+      //   console.log(error)
+      // })
     });
   }
 

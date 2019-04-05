@@ -48,7 +48,7 @@ export class Sites implements Deserializable {
   getSiteFromScannedNFC(tagId):Site{
     let filteredSites = this.sites.filter(site=>
         {
-            if(site.map.getZoneFromScannedNFCTag(tagId)) return true;
+            if(site.quarters.getZoneFromScannedNFCTag(tagId)) return true;
             return false;
         }
     );

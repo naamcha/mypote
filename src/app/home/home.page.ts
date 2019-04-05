@@ -65,6 +65,7 @@ export class HomePage implements OnInit {
       console.log('watchPosition', data);
       let currentCoordinate = new Coordinate(data.coords.latitude,data.coords.longitude);
       this.distanceToSite = site.getDistanceToSite(currentCoordinate);
+      console.log(this.distanceToSite)
       let nearestSite = this.sitesService.getSites().getNearestSite(currentCoordinate);
       if (this.activeSite !== nearestSite && this.proposedOnce !== true) {
         this.presentAlertMultipleButtons(nearestSite).then(
