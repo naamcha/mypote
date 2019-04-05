@@ -15,6 +15,7 @@ import { Toast } from '@ionic-native/toast/ngx';
 // import { IBeacon } from '@ionic-native/IBeacon/ngx';
 import { Hotspot } from '@ionic-native/hotspot/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -23,6 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { SitesService } from './sites/sites.service';
+import { JourneyService } from './journey/journey.service'
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 
 @NgModule({
@@ -53,7 +55,9 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
     // IBeacon,
     Hotspot,
     Geolocation,
+    Vibration,
     SitesService,
+    JourneyService,
     // Coordinate,
     // Vincenty,
     {

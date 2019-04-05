@@ -2,20 +2,21 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { NFC } from '@ionic-native/nfc/ngx';
+import { NFC, Ndef } from '@ionic-native/nfc/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
 import { Hotspot, HotspotNetwork } from '@ionic-native/hotspot/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 
 import { Storage } from '@ionic/storage';
-import { Platform, AlertController } from '@ionic/angular';
+import { Platform, AlertController, NavController } from '@ionic/angular';
 import { interval } from 'rxjs';
 
 import { AuthService } from './auth/auth.service';
 import { SitesService } from './sites/sites.service';
-import { Coordinate } from 'tsgeo/Coordinate';
+import { JourneyService } from './journey/journey.service';
 import { Sites } from './core/models/sites.model';
 import { Site } from './core/models/site.model';
+// import { Coordinate } from 'tsgeo/Coordinate';
 // import { IBeacon } from '@ionic-native/IBeacon/ngx';
 
 @Component({
@@ -33,20 +34,21 @@ export class AppComponent {
     private statusBar: StatusBar,
     private authService: AuthService,
     private sitesService: SitesService,
+    private journeyService: JourneyService,
     private router: Router,
     private storage: Storage,
     private toast: Toast,
     private nfc: NFC,
+    private ndef: Ndef,
     private hotspot: Hotspot,
     private siteService: SitesService,
-    private geolocation: Geolocation
+    private geolocation: Geolocation,
+    private navCtrl: NavController
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
-    
-
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
@@ -65,13 +67,18 @@ export class AppComponent {
   }
 
   initNfc(): void{
-    this.nfc.addTagDiscoveredListener( nfcEvent => this.sesReadNFC(nfcEvent))
-    .subscribe(data => {
-        // vérifier le site
+      this.nfc.addNdefListener( nfcEvent => this.sesReadNFC(nfcEvent))
+      .subscribe(data => {
         let sites : Sites = this.siteService.getSites();
-        console.log('nearestNfc',data,sites.getSiteFromScannedNFC(data.tag));
-        this.sitesService.setSite(sites.getSiteFromScannedNFC(data.tag).id);
-        this.router.navigateByUrl('journey/tag1');
+        // vérifier le site
+        let tagId = this.nfc.bytesToHexString(data.tag.id);
+        let site = sites.getSiteFromScannedNFC(tagId);
+        this.sitesService.setSite(site.id);
+        let tagZone = site.map.getZoneFromScannedNFCTag(tagId);
+        console.log('app.componnent',tagId, tagZone, tagZone.navRouting);
+        this.router.initialNavigation();
+        this.navCtrl.navigateRoot('home');
+        this.router.navigateByUrl(tagZone.navRouting);
     });
   }
 
@@ -82,7 +89,7 @@ export class AppComponent {
       this.siteService.currentSiteId.subscribe(siteId => {
         // console.log(this.siteService.getSite(siteId));
         let site = this.siteService.getSite(siteId);
-        // console.log(site.map.getZonesFromScannedWifi(networks));
+        console.log(site.map.getZonesFromScannedWifi(networks));
         this.wifiScannedZone = site.map.getZonesFromScannedWifi(networks)[0];
       })
     });

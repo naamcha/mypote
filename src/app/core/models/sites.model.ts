@@ -45,10 +45,10 @@ export class Sites implements Deserializable {
     return filteredSites[0];
   }
 
-  getSiteFromScannedNFC(tag):Site{
+  getSiteFromScannedNFC(tagId):Site{
     let filteredSites = this.sites.filter(site=>
         {
-            if(site.map.getZoneFromScannedNFCTag(tag)) return true;
+            if(site.map.getZoneFromScannedNFCTag(tagId)) return true;
             return false;
         }
     );
