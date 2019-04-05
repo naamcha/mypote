@@ -22,12 +22,12 @@ export class TaxiPage implements OnInit {
     
  }
 //  fonction ouvrant l'appli voulu 
- redirectTo(event,idtaxi){
+ redirectTo(event){
   const id= this.route.snapshot.params['id'];
    const latitude=this.TaxiService.getSite(id).position.lat;
    const longitude=this.TaxiService.getSite(id).position.lng; 
 
-   //on récupère les variables 
+   //on récupère les variables
    const url1= "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=";
    const url2= "&dropoff[longitude]=";
    const url3="&dropoff[nickname]=ITCE/";
