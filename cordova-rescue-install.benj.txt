@@ -12,4 +12,5 @@ cordova plugin add cordova-plugin-vibration
 cordova plugin add cordova-plugin-whitelist
 cordova plugin add cordova-plugin-statusbar
 cordova plugin add cordova-plugin-splashscreen
+cordova plugin add cordova-plugin-hotspot
 cordova plugin add phonegap-nfc
