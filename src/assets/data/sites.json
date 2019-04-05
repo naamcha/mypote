@@ -320,9 +320,22 @@
             "name":"Uber",
             "phone":"06 98 85 28 14", 
             "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
-            "appli":"https://m.uber.com/ul/action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=48.835662&dropoff[longitude]=2.372687&dropoff[nickname]=ITCE",
+            "appli":true,
+            "url1":"https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
+            "url2":"&dropoff[longitude]=",
+            "url3":"&dropoff[nickname]=ITCE/",
             "img":"../../assets/images/logo-uber.jpg"
-        }
+        },
+        {
+          "name":"Uber",
+          "phone":"06 98 85 28 14", 
+          "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
+          "appli":false,
+          "url1":"https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
+          "url2":"&dropoff[longitude]=",
+          "url3":"&dropoff[nickname]=ITCE/",
+          "img":"../../assets/images/logo-uber.jpg"
+      }
       ]
     }
   ]

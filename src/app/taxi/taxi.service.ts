@@ -21,5 +21,7 @@ export class TaxiService {
     let test = this.getSites().sites.find(site => site.id === id);
     return test;
   }
-  
+   public getTaxi(id,idtaxi){
+     let test = this.getSite(id).taxi.find(taxi => taxi.idtaxi == idtaxi)
+   }
 }
