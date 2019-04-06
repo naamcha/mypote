@@ -9,13 +9,17 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'auth',
-    loadChildren: './auth/auth.module#AuthPageModule'
-  },
-  {
     path: 'tabs',
     loadChildren: './tabs/tabs.module#TabsPageModule',
     canLoad: [AuthGuard]
+  },
+  {
+    path: 'conf',
+    loadChildren: './conf/conf.module#ConfPageModule'
+  },
+  {
+    path: 'auth',
+    loadChildren: './auth/auth.module#AuthPageModule'
   },
   {
     path: 'sites',
@@ -61,7 +65,11 @@ const routes: Routes = [
         loadChildren: './journey/tag4/tag4.module#Tag4PageModule'
       }
     ]
-  }
+  },
+  { path: 'journey-history', canLoad: [AuthGuard], loadChildren: './journey-history/journey-history.module#JourneyHistoryPageModule' },
+  { path: 'conf', canLoad: [AuthGuard], loadChildren: './conf/conf.module#ConfPageModule' }
+
+
 ];
 
 @NgModule({
