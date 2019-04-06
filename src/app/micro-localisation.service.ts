@@ -38,13 +38,13 @@ export class MicroLocalisationService {
       this.priorityManager('distObs', microloc);
     });
     let wifiObs = interval(4000).subscribe(data => {
-         this.scanWifi(sites).subscribe(
-           microloc => {
-             console.log("watchAll wifiObs", microloc);
-             this.priorityManager('wifiObs', microloc);
-           }
-         )
-       });
+      this.scanWifi(sites).subscribe(
+        microloc => {
+          console.log("watchAll wifiObs", microloc);
+          this.priorityManager('wifiObs', microloc);
+        }
+      )
+    });
   }
 
   priorityManager(eventType: string, microlocation: MicroLocalisation) {
@@ -65,9 +65,9 @@ export class MicroLocalisationService {
           else {
             this.microlocation.subscribe(microloc => {
               // console.log(microloc.quarter.wifiBSSID,microlocation.quarter.wifiBSSID) 
-              if (microloc && microloc !== microlocation){
+              if (microloc && microloc !== microlocation) {
                 this.microlocation.next(microlocation);
-              } 
+              }
             })
           }
           break;
@@ -119,11 +119,11 @@ export class MicroLocalisationService {
       (networks: HotspotNetwork[]) => {
         networks = networks.sort((a, b) => a.level - b.level);
         let site = sites.getSiteFromScannedWifi(networks);
-        if(site){
+        if (site) {
           let quarter = site.quarters.getQuarterFromScannedWifi(networks);
           return new MicroLocalisation(site, quarter, undefined, 0);
         }
-        else{
+        else {
           return undefined;
         }
       })

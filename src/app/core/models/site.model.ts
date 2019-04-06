@@ -21,8 +21,6 @@ export class Site implements Deserializable {
   public taxi: [] ;
   
   deserialize(input: any): this {
-    console.log(input);
-    // console.log('input', input,input.position);
     Object.assign(this, input);
     this.position = new Coordinate(input.position.lat,input.position.lon)
     this.quarters = new Quarters().deserialize(input.quarters);
@@ -30,7 +28,6 @@ export class Site implements Deserializable {
   }
 
   getQuartersFromScannedNfc(tagId: any) {
-    console.log('getQuartersFromScannedNfc',this.quarters.getQuarterFromScannedNfc(tagId))
     return this.quarters.getQuarterFromScannedNfc(tagId);
   }
 
@@ -90,7 +87,6 @@ export class Quarter implements Deserializable  {
   public map: Zone[];
   
   deserialize(input: any): this {
-    console.log(input)
     Object.assign(this, input);
     this.map = input.map.map(zone => new Zone().deserialize(zone));
     return this;

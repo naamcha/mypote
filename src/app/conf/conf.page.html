@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Configuration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Wifi</ion-label>
+      <ion-toggle [(ngModel)]="wifi"></ion-toggle>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>NFC</ion-label>
+      <ion-toggle [(ngModel)]="nfc"></ion-toggle>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Geolocalisation</ion-label>
+      <ion-toggle [(ngModel)]="geolocalisation"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Scan Wifi</ion-label>
+      <ion-toggle [(ngModel)]="scanwifi"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <div class="separation"></div>
+  <ion-list *ngIf="scanwifi == true">
+    <ion-item *ngFor="let wifi of networks " >
+      <small>{{wifi.SSID}}//</small>
+      <small>{{wifi.BSSID}}//</small>
+      <small>{{wifi.level}}</small>    
+    </ion-item>
+  </ion-list>
+
+</ion-content>
