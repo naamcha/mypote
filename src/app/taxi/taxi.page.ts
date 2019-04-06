@@ -34,8 +34,8 @@ export class TaxiPage implements OnInit {
    //const url1=this.TaxiService.getSite(id).taxi.find(idtaxi === idtaxi).url1;
     // on récupère les différentes urls depuis la page html et on crée des variables
    console.log(url1);
-   const url= url1+ latitude + url2 + longitude + url3;
-   window.open(url,'_system');
+  //  const url= url1+ latitude + url2 + longitude + url3;
+  //  window.open(url,'_system');
  }
 
 }
