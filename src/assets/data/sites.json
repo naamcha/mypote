@@ -126,13 +126,25 @@
           "furniture": []
         }
       ],
-      "taxi": [{
-        "name": "Uber",
-        "phone": "06 98 85 28 14",
-        "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
-        "appli": "",
-        "img": "../../assets/images/logo-uber.jpg"
-      }]
+      "taxi":[
+        {
+            "name":"Uber",
+            "phone":"06 98 85 28 14", 
+            "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
+            "appli":"",
+            "img":"../../assets/images/logo-uber.jpg"
+        },
+        {
+          "name":"G7",
+          "phone":"36 07", 
+          "description": "Déteste uber",
+          "appli":false,
+          "url1":"https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
+          "url2":"&dropoff[longitude]=",
+          "url3":"&dropoff[nickname]=ITCE/",
+          "img":"../../assets/images/logo-G7.png"
+      }
+      ]
     },
     {
       "id": "35",
@@ -158,60 +170,81 @@
         "address": "Rue des Lilas",
         "zipCode": "35 136",
         "city": "Saint-Jacques-de-la-Lande"
-      }],
-      "rooms": [{
-          "name": "Salle 1",
-          "floor": "1",
-          "capacity": "6",
-          "image": "assets/images/salle1.jpg",
-          "bookable": true,
-          "isBooked": false,
-          "furniture": []
-        },
-        {
-          "name": "Salle 35",
-          "floor": "1",
-          "capacity": "22",
-          "image": "assets/images/salle2.jpg",
-          "bookable": true,
-          "isBooked": true,
-          "furniture": []
-        },
-        {
-          "name": "Salle 44",
-          "floor": "1",
-          "capacity": "14",
-          "image": "assets/images/salle3.jpg",
-          "bookable": true,
-          "isBooked": false,
-          "furniture": []
-        },
-        {
-          "name": "Salle 49",
-          "floor": "1",
-          "capacity": "6",
-          "image": "assets/images/salle4.jpg",
-          "bookable": true,
-          "isBooked": false,
-          "furniture": []
-        },
-        {
-          "name": "Salle 68",
-          "floor": "1",
-          "capacity": "12",
-          "image": "assets/images/salle5.jpg",
-          "bookable": true,
-          "isBooked": false,
-          "furniture": []
-        }
-      ],
-      "taxi": [{
-        "name": "Uber",
-        "phone": "06 98 85 28 14",
-        "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
-        "appli": "",
-        "img": "../../assets/images/logo-uber.jpg"
-      }]
+      }
+    ],
+    "rooms": [
+      {
+        "name": "Salle 1",
+        "floor": "1",
+        "capacity": "6",
+        "image": "assets/images/salle1.jpg",
+        "bookable": true,
+        "isBooked": false,
+        "furniture": []
+      },
+      {
+        "name": "Salle 35",
+        "floor": "1",
+        "capacity": "22",
+        "image": "assets/images/salle2.jpg",
+        "bookable": true,
+        "isBooked": true,
+        "furniture": []
+      },
+      {
+        "name": "Salle 44",
+        "floor": "1",
+        "capacity": "14",
+        "image": "assets/images/salle3.jpg",
+        "bookable": true,
+        "isBooked": false,
+        "furniture": []
+      },
+      {
+        "name": "Salle 49",
+        "floor": "1",
+        "capacity": "6",
+        "image": "assets/images/salle4.jpg",
+        "bookable": true,
+        "isBooked": false,
+        "furniture": []
+      },
+      {
+        "name": "Salle 68",
+        "floor": "1",
+        "capacity": "12",
+        "image": "assets/images/salle5.jpg",
+        "bookable": true,
+        "isBooked": false,
+        "furniture": []
+      }
+    ],
+    "taxi":[
+      {
+          "name":"Uber",
+          "phone":"06 98 85 28 14", 
+          "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
+          "appli":"",
+          "img":"../../assets/images/logo-uber.jpg"
+      },
+      {
+        "name":"G7",
+        "phone":"36 07", 
+        "description": "Déteste uber",
+        "appli":false,
+        "url1":"https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
+        "url2":"&dropoff[longitude]=",
+        "url3":"&dropoff[nickname]=ITCE/",
+        "img":"../../assets/images/logo-G7.png"
+    }
+    ]
+  },
+  {
+    "id": "75",
+    "name": "Paris",
+    "position": {
+      "lat": 48.835662,
+      "lon": 2.372687
     },
     {
       "id": "75",
@@ -380,13 +413,28 @@
           "furniture": []
         }
       ],
-      "taxi": [{
-        "name": "Uber",
-        "phone": "06 98 85 28 14",
-        "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
-        "appli": "",
-        "img": "../../assets/images/logo-uber.jpg"
-      }]
+      "taxi":[
+        {
+            "name":"Uber",
+            "phone":"06 98 85 28 14", 
+            "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
+            "appli":true,
+            "url1":"https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
+            "url2":"&dropoff[longitude]=",
+            "url3":"&dropoff[nickname]=ITCE/",
+            "img":"../../assets/images/logo-uber.jpg"
+        },
+        {
+          "name":"G7",
+          "phone":"36 07", 
+          "description": "Déteste uber",
+          "appli":false,
+          "url1":"https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
+          "url2":"&dropoff[longitude]=",
+          "url3":"&dropoff[nickname]=ITCE/",
+          "img":"../../assets/images/logo-G7.png"
+      }
+      ]
     }
   ]
 }
