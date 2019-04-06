@@ -99,7 +99,6 @@ export class MicroLocalisationService {
 
   watchDistanceToSite(sites:Sites): Observable<MicroLocalisation>{
     return this.geolocation.watchPosition().pipe(map((data) => {
-      console.log('watchPosition', data);
       let currentCoordinate = new Coordinate(data.coords.latitude,data.coords.longitude);
       let nearestSite = sites.getNearestSite(currentCoordinate);
       return new MicroLocalisation(nearestSite,undefined,undefined,sites.getDistanceToNearestSite(currentCoordinate)) 
@@ -113,7 +112,7 @@ export class MicroLocalisationService {
       (networks: HotspotNetwork[])  => {
         networks = networks.sort((a,b)=> a.level - b.level);
         let site = sites.getSiteFromScannedWifi(networks);
-        let quarter = site.quarters.getQuarterFromWifi(networks)
+        let quarter = site.quarters.getQuartersFromScannedWifi(networks)[0]
         return new MicroLocalisation(site,quarter,undefined,0);
       })
     )

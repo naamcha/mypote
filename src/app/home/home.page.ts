@@ -62,7 +62,6 @@ export class HomePage implements OnInit {
     this.distanceToSite = 0;
     let watch = this.geolocation.watchPosition();
     watch.subscribe((data) => {
-      console.log('watchPosition', data);
       let currentCoordinate = new Coordinate(data.coords.latitude,data.coords.longitude);
       this.distanceToSite = site.getDistanceToSite(currentCoordinate);
       console.log(this.distanceToSite)
