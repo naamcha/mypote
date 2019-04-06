@@ -18,14 +18,14 @@ export class TaxiPage implements OnInit {
     const id= this.route.snapshot.params['id'];
 
     // créer un tableau taxi à partir de l'objet site récupérer via la fonction getsite
-    this.taxis = this.TaxiService.getSite(id).taxi;
+    // this.taxis = this.TaxiService.getSite(id).taxi;
     
  }
 //  fonction ouvrant l'appli voulu 
  redirectTo(event){
   const id= this.route.snapshot.params['id'];
-   const latitude=this.TaxiService.getSite(id).position.lat;
-   const longitude=this.TaxiService.getSite(id).position.lng; 
+  //  const latitude=this.TaxiService.getSite(id).position.lat;
+  //  const longitude=this.TaxiService.getSite(id).position.lng; 
 
    //on récupère les variables
    const url1= "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=";
