@@ -94,7 +94,6 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="phonegap-nfc" spec="^1.0.3" />
-    <plugin name="cordova-plugin-hotspot" spec="^1.2.10" />
     <allow-navigation href="http://192.168.1.70:8101" sessionid="a6ed28d9" />
     <allow-navigation href="http://192.168.0.32:8100" sessionid="c6a733cf" />
     <engine name="android" spec="7.1.4" />
