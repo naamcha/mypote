@@ -54,6 +54,10 @@ export class AppComponent {
       let sites = this.sitesService.getSites();
       this.microLocalisationService.watchAll(sites);
 
+      this.microLocalisationService.microlocation.subscribe(changeFired =>
+        console.log('changeFired',changeFired)
+      )
+
       // this.microLocalisationService.scanNfc(sites).subscribe((microlocation: MicroLocalisation) => {
       //   console.log(microlocation);
       // },

@@ -2,6 +2,7 @@ import { Deserializable } from './deserializable.model';
 import { Coordinate } from 'tsgeo/Coordinate';
 import { Vincenty }   from "tsgeo/Distance/Vincenty";
 import { Taxi } from './taxi.model';
+import { HotspotNetwork } from '@ionic-native/hotspot/ngx';
 
 export class Site implements Deserializable {
   public id: string;
@@ -35,6 +36,9 @@ export class Site implements Deserializable {
 }
 
 export class Quarters implements Deserializable {
+  getQuarterFromNFCTag(tagId: string) {
+    return this.quarters.find((q:Quarter) => q.getZoneFromScannedNFCTag(tagId)!==undefined);
+  }
 
   public quarters: Quarter[]
 
@@ -54,8 +58,8 @@ export class Quarters implements Deserializable {
     return sortedZones;
   }
 
-  getQuarterFromWifi(wifi):Quarter{
-    return this.quarters.find( q => q.wifiBSSID == wifi.BSSID );
+  getQuarterFromWifi(networks):Quarter{
+    return this.quarters.find( q => networks.find((n:HotspotNetwork)=> n.BSSID == q.wifiBSSID)!==undefined );
   }
 
   getZoneFromScannedNFCTag(tagId):Zone{

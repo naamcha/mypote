@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Site } from './core/models/site.model';
-import { Observable, interval, from, forkJoin, throwError } from 'rxjs';
+import { Observable, interval, from, forkJoin, throwError, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Zone } from './core/models/site.model';
 import { Hotspot, HotspotNetwork } from '@ionic-native/hotspot/ngx';
@@ -15,18 +15,15 @@ import { Coordinate } from 'tsgeo/Coordinate';
   providedIn: 'root'
 })
 export class MicroLocalisationService { 
-  networks: HotspotNetwork[];
-  scannedZones: Zone;
-  distanceToSite: number;
+  
 
   constructor(
     private nfc: NFC, 
     private hotspot: Hotspot, 
-    private sitesService: SitesService,
     private geolocation: Geolocation
   ) {}
 
-  public microlocation: MicroLocalisation;
+  public microlocation = new BehaviorSubject<MicroLocalisation>(undefined); 
   private wifiFired: Boolean;
   private nfcFired: Boolean;
   
@@ -54,9 +51,26 @@ export class MicroLocalisationService {
   priorityManager(eventType:string,microlocation:MicroLocalisation){
     switch(eventType){
       case 'distObs':
-        if(!this.microlocation) this.microlocation = microlocation;
+          if(!this.microlocation) {
+            this.microlocation.next(microlocation);
+            //unsuscribe
+          }
         break;
       case 'wifiObs':
+        if(!this.microlocation){ 
+          this.microlocation.next(microlocation);
+        }
+        else{
+          this.microlocation.pipe(map(m=>{
+            m.quarter=microlocation.quarter
+            return m;
+          })).subscribe(m=>{
+            this.microlocation.next(microlocation);
+          });
+        }
+        break;
+      case 'nfcObs':
+        this.microlocation.next(microlocation);
         break;
     }
   }
@@ -71,11 +85,12 @@ export class MicroLocalisationService {
           let error = new Error('no site found from ncf scanned tag ' )
         }
         else{
+          let quarter = site.quarters.getQuarterFromNFCTag(tagId);
           let tagZone = site.quarters.getZoneFromScannedNFCTag(tagId);
           if(!tagZone){
             let error = new Error('no zone found from ncf scanned tag on site '+site.name );
           }else{
-            return new MicroLocalisation(site,[tagZone],0);
+            return new MicroLocalisation(site,quarter,tagZone,0);
           }
         }
       })
@@ -87,7 +102,7 @@ export class MicroLocalisationService {
       console.log('watchPosition', data);
       let currentCoordinate = new Coordinate(data.coords.latitude,data.coords.longitude);
       let nearestSite = sites.getNearestSite(currentCoordinate);
-      return new MicroLocalisation(nearestSite,undefined,sites.getDistanceToNearestSite(currentCoordinate)) 
+      return new MicroLocalisation(nearestSite,undefined,undefined,sites.getDistanceToNearestSite(currentCoordinate)) 
     }));
   }
   
@@ -98,7 +113,8 @@ export class MicroLocalisationService {
       (networks: HotspotNetwork[])  => {
         networks = networks.sort((a,b)=> a.level - b.level);
         let site = sites.getSiteFromScannedWifi(networks);
-        return new MicroLocalisation(site,site.quarters.getZonesFromScannedWifi(networks),0);
+        let quarter = site.quarters.getQuarterFromWifi(networks)
+        return new MicroLocalisation(site,quarter,undefined,0);
       })
     )
   };
