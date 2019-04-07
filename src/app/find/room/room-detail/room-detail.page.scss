@@ -43,7 +43,8 @@ h1 {
   }
 }
 
-.details {
+.details,
+.furniture-wrapper {
   .description-item {
     display: flex;
     align-items: center;
@@ -57,10 +58,16 @@ h1 {
     width: 30px;
     height: 30px;
     margin-right: 10px;
-    color: #777;
   }
 }
 
+.furniture-wrapper {
+  padding: 16px;
+
+  ion-icon {
+    color: var(--ion-color-secondary);
+  }
+}
 
 .furniture {
   padding: 0 0 0 35px;
@@ -68,14 +75,14 @@ h1 {
   > * {
     display: flex;
     align-items: center;
-    padding: 5px;
+    padding: 8px;
     flex-basis: 50%;
   }
 
   ion-icon,
   img {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
   }
 }

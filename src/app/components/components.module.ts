@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 import { NewsItemComponent } from './news-item/news-item.component';
+import { CalendarItemComponent } from './calendar-item/calendar-item.component';
 
 @NgModule({
   imports: [
@@ -10,10 +11,12 @@ import { NewsItemComponent } from './news-item/news-item.component';
     IonicModule
   ],
   declarations: [
-    NewsItemComponent
+    NewsItemComponent,
+    CalendarItemComponent
   ],
   exports: [
-    NewsItemComponent
+    NewsItemComponent,
+    CalendarItemComponent
   ]
 })
 export class ComponentsModule {}

@@ -12,6 +12,7 @@ import { Site } from '../../../core/models/site.model';
 export class RoomDetailPage implements OnInit {
   site: Site;
   room;
+  cat = 'details';
 
   constructor(
     private route: ActivatedRoute,

@@ -43,24 +43,45 @@
     </ng-container>
   </div>
 
-  <ion-grid class="details">
-    <ion-row>
-      <ion-col>
+
+
+  <ion-segment [(ngModel)]="cat" class="room-info">
+    <ion-segment-button value="details" checked layout="icon-start">
+      <ion-icon name="list"></ion-icon>
+      <ion-label>Détails</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="calendar" layout="icon-start">
+      <ion-icon name="calendar"></ion-icon>
+      <ion-label>Disponibilité</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="cat">
+
+    <div *ngSwitchCase="'details'">
+      <ion-grid class="details" padding>
+        <ion-row>
+          <ion-col>
+            <div class="description-item">
+              <ion-icon name="person" color="secondary"></ion-icon>
+              Capacité : <strong>&nbsp;{{ room.capacity }}&nbsp;</strong> personnes
+            </div>
+            <div class="description-item">
+              <img src="assets/icon/stairs.svg" alt="Etage">
+              Etage : <strong>&nbsp;{{ room.floor }}</strong>
+            </div>
+            <div class="description-item">
+              <img src="assets/icon/pmr.svg" alt="Accès PMR">
+              Accès Personnes à Mobilité Réduite : <strong>&nbsp;{{ room.furniture.pmr ? 'Oui' : 'Non' }}</strong>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div class="light-bg furniture-wrapper">
         <div class="description-item">
-          <ion-icon name="person" color="secondary"></ion-icon>
-          Capacité : <strong>&nbsp;{{ room.capacity }}&nbsp;</strong> personnes
-        </div>
-        <div class="description-item">
-          <img src="assets/icon/stairs.svg" alt="Etage">
-          Etage : <strong>&nbsp;{{ room.floor }}</strong>
-        </div>
-        <div class="description-item">
-          <img src="assets/icon/pmr.svg" alt="Accès PMR">
-          Accès Personnes à Mobilité Réduite : <strong>&nbsp;{{ room.furniture.pmr ? 'Oui' : 'Non' }}</strong>
-        </div>
-        <div class="description-item">
-          <ion-icon name="cube" color="secondary"></ion-icon>
-          Matériel :
+          <ion-icon name="cube"></ion-icon>
+          Matériel
         </div>
 
         <div class="furniture">
@@ -86,88 +107,90 @@
           </div>
           <div *ngIf="room.furniture.video">
             <img src="assets/icon/videoconf.svg" alt="Visio Conférence" />
-            Matériel de Visioconférence
+            Visioconférence
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="description-item">
-          <ion-icon name="calendar" color="secondary"></ion-icon>
-          Disponibilité :
-        </div>
+    <div *ngSwitchCase="'calendar'">
+      <ion-grid text-center padding>
+        <ion-row>
+          <ion-col size="6">
+            <div class="time">08:00 - 08:30</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">08:30 - 09:00</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time not">09:00 - 09:30</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">09:30 - 10:00</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">10:00 - 10:30</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">10:30 - 11:00</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time not">11:00 - 11:30</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time not">11:30 - 12:00</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">12:00 - 12:30</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">12:30 - 13:00</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">13:00 - 13:30</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">13:30 - 14:00</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time not">1400 - 14:30</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time not">14:30 - 15:00</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">15:00 - 15:30</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">15:30 - 16:00</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time not">16:00 - 16:30</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time not">16:30 - 17:00</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">17:00 - 17:30</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">17:30 - 18:00</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">18:00 - 18:30</div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="time">18:30 - 19:00</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
 
-        <ion-grid text-center>
-          <ion-row>
-            <ion-col size="6">
-              <div class="time">08:00 - 08:30</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">08:30 - 09:00</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time not">09:00 - 09:30</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">09:30 - 10:00</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">10:00 - 10:30</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">10:30 - 11:00</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time not">11:00 - 11:30</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time not">11:30 - 12:00</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">12:00 - 12:30</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">12:30 - 13:00</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">13:00 - 13:30</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">13:30 - 14:00</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time not">1400 - 14:30</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time not">14:30 - 15:00</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">15:00 - 15:30</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">15:30 - 16:00</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time not">16:00 - 16:30</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time not">16:30 - 17:00</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">17:00 - 17:30</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">17:30 - 18:00</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">18:00 - 18:30</div>
-            </ion-col>
-            <ion-col size="6">
-              <div class="time">18:30 - 19:00</div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary">
+      <ion-icon name="navigate"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>
