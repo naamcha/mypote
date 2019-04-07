@@ -3,51 +3,27 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Mon site <small>( {{ activeSite.name }} {{distanceToSite | distanceDisplay}} ) </small></ion-title>
+    <ion-title>Mon site <small>({{ activeSite.name }}<span *ngIf="distanceToSite"> {{distanceToSite | distanceDisplay}}</span>)</small></ion-title>
+    <ion-buttons slot="end" [routerLink]="['/', 'sites', activeSite.id]">
+      <ion-button>
+        <ion-icon name="information-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-item-sliding #slidingMeeting *ngIf="!closed" @fadeOut>
-    <ion-item-options side="start">
-      <ion-item-option class="postpone-button" (click)="postpone(slidingMeeting)">
-        <ion-icon name="alarm" slot="icon-only"></ion-icon>
-      </ion-item-option>
-    </ion-item-options>
-
-    <ion-item class="meeting-item">
-      <section class="next-meeting">
-        <div class="title">
-          <span>Ma prochaine réunion</span>
-          <ion-button
-            size="small"
-            shape="round"
-            fill="outline">Détails</ion-button>
-        </div>
-
-        <div class="meeting">
-          <div class="info">
-            <div class="subject">Démonstration de l'assistant collaborateur</div>
-            <div class="place">Salle Médiascape</div>
-          </div>
-          <div class="schedule">
-            14:30
-          </div>
-        </div>
-      </section>
-    </ion-item>
-
-    <ion-item-options side="end" color="danger">
-      <ion-item-option color="success" (click)="cancelReminder(slidingMeeting)">
-        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
-      </ion-item-option>
-    </ion-item-options>
-  </ion-item-sliding>
+  <app-calendar-item></app-calendar-item>
 
   <section class="news">
     <div class="title">L'Actu à {{ activeSite.name }}</div>
     <app-news-item></app-news-item>
+  </section>
+
+
+  <section class="news">
+    <div class="title">Mon Parcours</div>
   </section>
 
 
@@ -57,13 +33,14 @@
       <ion-icon name="add"  ></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
-      <ion-fab-button><ion-icon name="medical"></ion-icon></ion-fab-button>
+      <ion-fab-button><ion-icon name="medkit" [routerLink]="['/sites', activeSite.id, 'security']"></ion-icon></ion-fab-button>
     </ion-fab-list>
     <ion-fab-list side="start">
       <ion-fab-button><ion-icon name="construct" [routerLink]="['/sites', activeSite.id, 'dysfunction']"></ion-icon></ion-fab-button>
     </ion-fab-list>
     <ion-fab-list side="end">
-      <ion-fab-button><ion-icon name="information-circle-outline"></ion-icon></ion-fab-button>
+      <!--<ion-fab-button><ion-icon name="help"></ion-icon></ion-fab-button>-->
+      <ion-fab-button><ion-icon name="keypad" [routerLink]="['/sites', activeSite.id, 'site-numbers']"></ion-icon></ion-fab-button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>

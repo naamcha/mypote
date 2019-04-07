@@ -36,13 +36,16 @@ const routes: Routes = [
       {
         path: ':siteId/dysfunction',
         loadChildren: './sites/dysfunction/dysfunction.module#DysfunctionPageModule'
+      },
+      {
+        path: ':siteId/security',
+        loadChildren: './sites/security/security.module#SecurityPageModule'
+      },
+      {
+        path: ':siteId/site-numbers',
+        loadChildren: './sites/site-numbers/site-numbers.module#SiteNumbersPageModule'
       }
     ]
-  },
-  {
-    path: 'taxi/:id',
-    canLoad: [AuthGuard],
-    loadChildren: './taxi/taxi.module#TaxiPageModule'
   },
   {
     path: 'journey',
@@ -63,13 +66,18 @@ const routes: Routes = [
       {
         path: 'tag4',
         loadChildren: './journey/tag4/tag4.module#Tag4PageModule'
-      }
+      },
+      {
+        path: 'journey-history',
+        loadChildren: './journey/journey-history/journey-history.module#JourneyHistoryPageModule'
+      },
     ]
   },
-  { path: 'journey-history', canLoad: [AuthGuard], loadChildren: './journey-history/journey-history.module#JourneyHistoryPageModule' },
-  { path: 'conf', canLoad: [AuthGuard], loadChildren: './conf/conf.module#ConfPageModule' }
-
-
+  {
+    path: 'conf',
+    canLoad: [AuthGuard],
+    loadChildren: './conf/conf.module#ConfPageModule'
+  }
 ];
 
 @NgModule({

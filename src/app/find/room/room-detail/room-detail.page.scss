@@ -1,0 +1,102 @@
+.image-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-height: 250px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+
+  ion-button {
+    position: absolute;
+    bottom: 10px;
+
+    &.on-right {
+      right: 10px;
+    }
+
+    &.on-left {
+      left: 10px;
+    }
+  }
+}
+
+h1 {
+  margin-bottom: 2px;
+}
+
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ion-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 6px;
+  }
+
+  ion-button {
+    margin-left: 15px;
+  }
+}
+
+.room-info {
+  margin-top: 16px;
+}
+
+.details,
+.furniture-wrapper {
+  .description-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.125em;
+    font-weight: 300;
+    padding: 8px 0;
+  }
+
+  ion-icon,
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+}
+
+.furniture-wrapper {
+  padding: 16px;
+
+  ion-icon {
+    color: var(--ion-color-secondary);
+  }
+}
+
+.furniture {
+  padding: 0 0 0 35px;
+
+  > * {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    flex-basis: 50%;
+  }
+
+  ion-icon,
+  img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+}
+
+.time {
+  background: var(--ion-color-success);
+  padding: 10px 0;
+  color: white;
+
+  &.not {
+    background: var(--ion-color-medium);
+  }
+}

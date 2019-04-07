@@ -6,6 +6,7 @@ import { Site } from '../core/models/site.model';
 import { Sites } from '../core/models/sites.model';
 import { Coordinate } from 'tsgeo/Coordinate';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
+import { Platform } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,10 @@ import { Geolocation } from '@ionic-native/geolocation/ngx'
 export class SitesService {
   public currentSiteId = new BehaviorSubject<string>('75');
 
-  constructor (private geolocation: Geolocation) {
+  constructor (
+    private geolocation: Geolocation,
+    private platform: Platform
+  ) {
     this.geolocation.getCurrentPosition().then(
       (resp) => {
         let coordinate1 = new Coordinate(resp.coords.latitude, resp.coords.longitude);
@@ -36,5 +40,18 @@ export class SitesService {
   public setSite(siteId): void {
     console.log(`setSite with id`, siteId);
     this.currentSiteId.next(siteId);
+  }
+
+  public navigateTo(site) {
+    const latitude = site.position.lat;
+    const longitude = site.position.lng;
+    let destination = latitude + ',' + longitude;
+
+    if (this.platform.is('ios')) {
+      window.open('maps://?q=' + destination, '_system');
+    } else {
+      let label = encodeURI('site de ' + site.name);
+      window.open('geo:0,0?q=' + destination,  + '(' + label + ')', '_system');
+    }
   }
 }

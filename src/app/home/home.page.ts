@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, style, animate, transition } from '@angular/animations';
-import { IonItemSliding, LoadingController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { AuthService } from '../auth/auth.service';
 import { SitesService } from '../sites/sites.service';
 import { Site } from '../core/models/site.model';
@@ -11,20 +10,10 @@ import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
-  animations: [
-    trigger('fadeOut', [
-      transition(':enter', [
-        style({ opacity: 1, transform: 'translateY(0)' }),
-      ]),
-      transition(':leave', [
-        animate('.2s', style({ opacity: 0, marginTop: '-120px', display: 'none' }))
-      ])
-    ])
-  ]
+  styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit {
-  closed = false;
+  // closed = false;
   activeSite: Site;
   distanceToSite: number;
   proposedOnce: any;
@@ -43,20 +32,6 @@ export class HomePage implements OnInit {
       this.watchDistanceToSite(this.activeSite);
     });
   }
-
-  postpone(el: IonItemSliding) {
-    this.closeSlidingElement(el);
-  }
-
-  cancelReminder(el: IonItemSliding) {
-    this.closeSlidingElement(el);
-  }
-
-  closeSlidingElement(element): void {
-    element.closeOpened();
-    this.closed = true;
-  }
-
 
   watchDistanceToSite(site:Site): void{
     this.distanceToSite = 0;

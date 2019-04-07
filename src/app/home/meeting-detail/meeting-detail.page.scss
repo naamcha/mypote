@@ -1,0 +1,71 @@
+.title,
+p {
+  line-height: 1.4;
+}
+
+.meeting-header {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin-top: 10px;
+  font-size: 1.4em;
+  font-weight: 600;
+  color: var(--ion-color-secondary);
+  display: inline-block;
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px;
+  margin-left: 10px;
+  background: var(--ion-color-secondary);
+  color: white;
+
+  p {
+    margin: 0;
+    line-height: 1.2;
+    font-size: 0.875em;
+    white-space: nowrap;
+  }
+
+  span {
+    font-weight: 300;
+    font-size: 2em;
+  }
+}
+
+p {
+  margin: 5px 0;
+
+  span {
+    font-weight: 500;
+  }
+}
+
+.separation {
+  margin: 5px 0;
+  border-top: 1px solid var(--ion-border-color);
+}
+
+.room {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    flex-grow: 1;
+  }
+}
+
+
+ion-label {
+  margin-left: 10px;
+
+  span {
+    font-weight: 500;
+  }
+}

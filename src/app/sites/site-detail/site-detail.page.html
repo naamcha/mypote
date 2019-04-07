@@ -45,69 +45,26 @@
 
     <ion-row padding class="light-bg">
       <ion-col>
-        <p class="type no-margin">Me rendre sur le site</p>
-
-        <div class="navigate-buttons">
-          <div>
-            <ion-button
-              class="is-round"
-              shape="round"
-              color="tertiary"
-              (click)="navigateTo(site.position)">
-              <ion-icon name="navigate" slot="icon-only"></ion-icon>
-            </ion-button>
-            <span>En Voiture</span>
-          </div>
-
-          <div>
-            <ion-button
-              class="is-round"
-              shape="round"
-              color="tertiary">
-              <ion-icon name="walk" slot="icon-only"></ion-icon>
-            </ion-button>
-            <span>A Pied</span>
-          </div>
-        </div>
-
-
-        <div class="navigate-buttons">
-          <div>
-            <ion-button
-              [routerLink]="['/' , 'taxi' , site.id]"
-              class="is-round"
-              shape="round"
-              color="tertiary">
-              <ion-icon name="car" slot="icon-only"></ion-icon>
-            </ion-button>
-            <span>En taxi</span>
-          </div>
-        </div>
-
+        <p class="type no-margin nav-to-site">Me rendre sur le site
+          <ion-button
+            class="is-round"
+            shape="round"
+            color="tertiary"
+            (click)="onNavigateTo(site.position)">
+            <ion-icon name="navigate" slot="icon-only"></ion-icon>
+          </ion-button>
+        </p>
       </ion-col>
     </ion-row>
 
     <ion-row *ngIf="site.parkings.length" padding>
       <ion-col>
         <p class="type no-margin">Les parkings à proximité</p>
-        <div *ngFor="let parking of site.parkings" margin-top class="parking-wrapper">
-          <img [src]="parking.image" [alt]="parking.name">
-          <div class="address">
-            <p>{{ parking.address }}</p>
-            <p>{{ parking.zipCode }} {{ parking.city }}</p>
-            <div class="nav-to-button">
-              <ion-button
-                class="is-round"
-                shape="round"
-                color="primary">
-                <ion-icon name="navigate" slot="icon-only"></ion-icon>
-              </ion-button>
-            </div>
-          </div>
-        </div>
+        <app-parking-item
+          *ngFor="let parking of site.parkings"
+          [parking]="parking"></app-parking-item>
       </ion-col>
     </ion-row>
-
 
   </ion-grid>
 </ion-content>

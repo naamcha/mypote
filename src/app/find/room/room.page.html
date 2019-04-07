@@ -7,37 +7,72 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <!--<ion-grid padding class="light-bg">-->
+    <!--<ion-row>-->
+      <!--<ion-col>-->
+        <!--<ion-item>-->
+          <!--<ion-label position="floating">-->
+            <!--Rechercher une salle</ion-label>-->
+          <!--<ion-input value="Etage 8"></ion-input>-->
+        <!--</ion-item>-->
+      <!--</ion-col>-->
+    <!--</ion-row>-->
+  <!--</ion-grid>-->
 
-  <ion-grid no-padding>
-    <ion-row>
-      <ion-col no-padding size="6" *ngFor="let room of activeSite.rooms">
 
-        <ion-card text-center>
-          <div class="image-wrapper">
-            <img [src]="room.image" [alt]="room.name">
-            <div class="status" [ngClass]="{'is-free': !room.isBooked, 'is-booked': room.isBooked}">
-              <ion-icon *ngIf="!room.isBooked" name="checkmark" slot="icon-only"></ion-icon>
+  <div *ngFor="let room of activeSite.rooms">
+    <div class="room-item" [ngClass]="{'is-booked': room.isBooked}">
+        <div class="image-wrapper">
+          <img [src]="room.image" [alt]="room.name">
+        </div>
+
+        <div class="content">
+          <div class="space-between">
+            <div class="status is-free" *ngIf="!room.isBooked">
+              <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+              Salle disponible
+            </div>
+
+            <div class="status is-booked" *ngIf="room.isBooked">
               <ion-icon *ngIf="room.isBooked" name="close" slot="icon-only"></ion-icon>
+              Salle indisponible
+            </div>
+
+            <div class="space-between">
+              <div class="capacity">
+                <ion-icon name="person" color="secondary"></ion-icon>
+                {{ room.capacity }}
+              </div>
+
+              <div class="floor">
+                <img src="assets/icon/stairs.svg" alt="Etage" /> {{ room.floor }}
+              </div>
             </div>
           </div>
 
           <div class="card-content">
-            <div class="ion-justify-content-between">
-              <div class="capacity">Capacité : {{ room.capacity }}</div>
-              <div class="title">{{ room.name }}</div>
+            <div class="title">{{ room.name }}</div>
+
+            <div class="furniture">
+              Matériel
+              <img *ngIf="room.furniture.power" src="assets/icon/power.svg" alt="Prises" />
+              <img *ngIf="room.furniture.phone" src="assets/icon/phone1.svg" alt="téléphone" />
+              <img *ngIf="room.furniture.wifi" src="assets/icon/wifi.svg" alt="wifi" />
+              <img *ngIf="room.furniture.ethernet" src="assets/icon/ethernet.svg" alt="Prises ethernet" />
+              <img *ngIf="room.furniture.projector" src="assets/icon/projector.svg" alt="Video Projecteur" />
+              <img *ngIf="room.furniture.video" src="assets/icon/videoconf.svg" alt="Visio Conférence" />
             </div>
 
             <div class="card-action" text-center>
+              <ion-button class="details-button" shape="round" size="small" color="tertiary" [routerLink]="['/', 'tabs', 'tab-bar', 'find', 'room', room.id]">Détails</ion-button>
               <ion-button *ngIf="!room.isBooked" shape="round" size="small">Réserver</ion-button>
-              <div *ngIf="room.isBooked">Salle indisponible</div>
+              <span *ngIf="room.isBooked">Salle indisponible</span>
             </div>
           </div>
-        </ion-card>
+        </div>
 
-      </ion-col>
+    </div>
+  </div>
 
-    </ion-row>
-
-  </ion-grid>
 </ion-content>

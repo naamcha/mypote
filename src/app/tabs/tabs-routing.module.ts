@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
+import { AuthGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../home/home.module#HomePageModule',
+          },
+          {
+            path: 'meeting-detail',
+            loadChildren: '../home/meeting-detail/meeting-detail.module#MeetingDetailPageModule'
           }
         ]
       },
@@ -26,7 +31,20 @@ const routes: Routes = [
           },
           {
             path: 'room',
-            loadChildren: '../find/room/room.module#RoomPageModule'
+            children: [
+              {
+                path: '',
+                loadChildren: '../find/room/room.module#RoomPageModule',
+              },
+              {
+                path: 'room-help',
+                loadChildren: '../find/room/room-help/room-help.module#RoomHelpPageModule'
+              },
+              {
+                path: ':roomId',
+                loadChildren: '../find/room/room-detail/room-detail.module#RoomDetailPageModule'
+              }
+            ]
           }
         ]
       },
@@ -53,7 +71,15 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../travel/travel.module#TravelPageModule',
-          }
+          },
+          {
+            path: ':siteId/parking',
+            loadChildren: '../travel/parking/parking.module#ParkingPageModule'
+          },
+          {
+            path: 'taxi/:id',
+            loadChildren: '../travel/taxi/taxi.module#TaxiPageModule'
+          },
         ]
       },
       {
