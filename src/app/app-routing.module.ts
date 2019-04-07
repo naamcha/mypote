@@ -67,7 +67,9 @@ const routes: Routes = [
     ]
   },
   { path: 'journey-history', canLoad: [AuthGuard], loadChildren: './journey-history/journey-history.module#JourneyHistoryPageModule' },
-  { path: 'conf', canLoad: [AuthGuard], loadChildren: './conf/conf.module#ConfPageModule' }
+  { path: 'conf', canLoad: [AuthGuard], loadChildren: './conf/conf.module#ConfPageModule' },
+  { path: 'security', loadChildren: './sites/security/security.module#SecurityPageModule' },
+  { path: 'site-numbers', loadChildren: './sites/site-numbers/site-numbers.module#SiteNumbersPageModule' }
 
 
 ];

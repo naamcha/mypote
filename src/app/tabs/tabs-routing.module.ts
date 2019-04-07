@@ -26,7 +26,20 @@ const routes: Routes = [
           },
           {
             path: 'room',
-            loadChildren: '../find/room/room.module#RoomPageModule'
+            children: [
+              {
+                path: '',
+                loadChildren: '../find/room/room.module#RoomPageModule',
+              },
+              {
+                path: 'room-help',
+                loadChildren: '../find/room/room-help/room-help.module#RoomHelpPageModule'
+              },
+              {
+                path: ':roomId',
+                loadChildren: '../find/room/room-detail/room-detail.module#RoomDetailPageModule'
+              }
+            ]
           }
         ]
       },

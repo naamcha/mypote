@@ -14,14 +14,14 @@
           <ion-button color="primary" shape="round" size="small" routerLink="/sites">Changer de site</ion-button>
         </ion-menu-toggle>
         <div class="separation"></div>
+        <!--<ion-menu-toggle>-->
+          <!--<ion-item lines="none" routerLink="/sites">-->
+            <!--<ion-icon name="business" slot="start"></ion-icon>-->
+            <!--<ion-label>Liste des Sites</ion-label>-->
+          <!--</ion-item>-->
+        <!--</ion-menu-toggle>-->
         <ion-menu-toggle>
-          <ion-item lines="none" routerLink="/sites">
-            <ion-icon name="business" slot="start"></ion-icon>
-            <ion-label>Liste des Sites</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
-          <ion-item lines="none" routerLink="/journey-history">
+          <ion-item lines="none" routerLink="/journey-history" detail>
             <ion-icon name="walk" slot="start"></ion-icon>
             <ion-label>Mon Parcours</ion-label>
           </ion-item>
@@ -55,6 +55,12 @@
         </ion-menu-toggle>
 
         <div class="separation"></div>
+        <ion-menu-toggle>
+          <ion-item lines="none" detail>
+            <ion-icon name="pulse" color="danger" slot="start"></ion-icon>
+            <ion-label color="danger">Incident de personne</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
         <ion-menu-toggle>
           <ion-item lines="none" routerLink="/conf" detail>
             <ion-icon name="cog" slot="start"></ion-icon>
