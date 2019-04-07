@@ -57,12 +57,16 @@ export class MicroLocalisationService {
             //unsuscribe
           }
           break;
-        case 'wifiObs':         
-
-              if ( this.microlocation.getValue().quarter.id !== microlocation.quarter.id ) {
-                console.log('send microloc event 22',this.microlocation.getValue().quarter.id,microlocation.quarter.id)
-                this.microlocation.next(microlocation);
-              }
+        case 'wifiObs':
+          console.log(microlocation)
+          if (
+            this.microlocation == undefined
+            || this.microlocation.getValue() == undefined
+            || this.microlocation.getValue().quarter.id !== microlocation.quarter.id
+          ) {
+            // console.log('send microloc event 22', this.microlocation.getValue().quarter.id, microlocation.quarter.id)
+            this.microlocation.next(microlocation);
+          }
 
           break;
         case 'nfcObs':
