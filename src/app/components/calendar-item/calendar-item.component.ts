@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonItemSliding } from '@ionic/angular';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-calendar-item',
@@ -20,7 +21,9 @@ import { animate, style, transition, trigger } from '@angular/animations';
 export class CalendarItemComponent implements OnInit {
   closed = false;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {}
 
@@ -35,5 +38,9 @@ export class CalendarItemComponent implements OnInit {
   closeSlidingElement(element): void {
     element.closeOpened();
     this.closed = true;
+  }
+
+  onNavigateToDetail() {
+    this.router.navigateByUrl('/tabs/tab-bar/home/meeting-detail');
   }
 }

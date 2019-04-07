@@ -48,11 +48,6 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'taxi/:id',
-    canLoad: [AuthGuard],
-    loadChildren: './taxi/taxi.module#TaxiPageModule'
-  },
-  {
     path: 'journey',
     canLoad: [AuthGuard],
     children: [
@@ -71,13 +66,18 @@ const routes: Routes = [
       {
         path: 'tag4',
         loadChildren: './journey/tag4/tag4.module#Tag4PageModule'
-      }
+      },
+      {
+        path: 'journey-history',
+        loadChildren: './journey/journey-history/journey-history.module#JourneyHistoryPageModule'
+      },
     ]
   },
-  { path: 'journey-history', canLoad: [AuthGuard], loadChildren: './journey-history/journey-history.module#JourneyHistoryPageModule' },
-  { path: 'conf', canLoad: [AuthGuard], loadChildren: './conf/conf.module#ConfPageModule' }
-
-
+  {
+    path: 'conf',
+    canLoad: [AuthGuard],
+    loadChildren: './conf/conf.module#ConfPageModule'
+  }
 ];
 
 @NgModule({

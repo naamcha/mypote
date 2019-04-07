@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hotspot, HotspotNetwork } from '@ionic-native/hotspot/ngx';
 import { interval } from 'rxjs/internal/observable/interval';
-import { Sites } from '../core/models/sites.model';
-import { Observable, from } from 'rxjs';
-import { MicroLocalisation } from '../core/models/microlocalisation.model';
+import { from } from 'rxjs';
 
 
 @Component({
@@ -13,18 +11,18 @@ import { MicroLocalisation } from '../core/models/microlocalisation.model';
 })
 export class ConfPage implements OnInit {
   networks: HotspotNetwork[];
-  constructor(private hotspot: Hotspot) { 
-    
-  }
+  constructor(
+    private hotspot: Hotspot
+  ) { }
 
   ngOnInit() {
-    interval(4000).subscribe(data => {
+    interval(4000).subscribe(() => {
       this.scanWifi();
     });
   }
   scanWifi(): void {
     const scanWifi = from(this.hotspot.scanWifi()).subscribe(networks => {
-      this.networks=networks;
+      this.networks = networks;
     })
   };
 }

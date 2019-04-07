@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JourneyService } from '../journey/journey.service';
+import { JourneyService } from '../journey.service';
 
 @Component({
   selector: 'app-journey-history',
