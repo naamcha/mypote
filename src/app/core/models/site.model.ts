@@ -21,8 +21,6 @@ export class Site implements Deserializable {
   public taxi: [] ;
   
   deserialize(input: any): this {
-    console.log(input);
-    // console.log('input', input,input.position);
     Object.assign(this, input);
     this.position = new Coordinate(input.position.lat,input.position.lon)
     this.quarters = new Quarters().deserialize(input.quarters);
@@ -30,7 +28,6 @@ export class Site implements Deserializable {
   }
 
   getQuartersFromScannedNfc(tagId: any) {
-    console.log('getQuartersFromScannedNfc',this.quarters.getQuarterFromScannedNfc(tagId))
     return this.quarters.getQuarterFromScannedNfc(tagId);
   }
 
@@ -61,11 +58,16 @@ export class Quarters implements Deserializable {
   }
   
   getQuarterFromScannedWifi(networks:HotspotNetwork[]):Quarter{
+    //console.log('getQuarterFromScannedWifi',networks,this.quarterWifiDetectionStrategy(networks))
     return this.quarterWifiDetectionStrategy(networks)[0];
   }
+
   quarterWifiDetectionStrategy(networks:HotspotNetwork[]):Quarter[]{
     let sortedWifi = networks.sort((a, b) => b.level - a.level);
-    return this.quarters.filter(quart => undefined !== sortedWifi.find(wifi=>wifi.BSSID == quart.wifiBSSID))
+    return sortedWifi.map(wifi=>{
+      let quarter =  this.quarters.find(qu=> qu.wifiBSSID == wifi.BSSID);
+      return quarter;
+    }).filter(q => q != undefined)
     //can be complexified
   }
   
@@ -90,7 +92,6 @@ export class Quarter implements Deserializable  {
   public map: Zone[];
   
   deserialize(input: any): this {
-    console.log(input)
     Object.assign(this, input);
     this.map = input.map.map(zone => new Zone().deserialize(zone));
     return this;

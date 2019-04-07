@@ -10,9 +10,8 @@ import { SitesService } from './sites/sites.service';
 import { JourneyService } from './journey/journey.service';
 import { MicroLocalisationService } from './micro-localisation.service';
 import { Site, Zone } from './core/models/site.model';
-import { MicroLocalisation } from './core/models/microlocalisation.model';
-import { from } from 'rxjs';
 import { Hotspot } from '@ionic-native/hotspot/ngx';
+import { MicrolocToPageService } from './microloc-to-page.service';
 // import { Coordinate } from 'tsgeo/Coordinate';
 // import { IBeacon } from '@ionic-native/IBeacon/ngx';
 
@@ -34,41 +33,36 @@ export class AppComponent {
     private sitesService: SitesService,
     private journeyService: JourneyService,
     private microLocalisationService: MicroLocalisationService,
+    private microlocToPage: MicrolocToPageService,
     private router: Router,
-    private navCtrl: NavController,
-    private hotspot: Hotspot
-  ) {
+    private navCtrl: NavController) {
     this.initializeApp();
   }
+  ngOnInit(){
+    this.sitesService.currentSiteId.subscribe(siteId => {
+      this.activeSite = this.sitesService.getSite(siteId);
+    });
 
+  }
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-/*       this.sitesService.currentSiteId.subscribe(siteId => {
-        this.activeSite = this.sitesService.getSite(siteId);
-        console.log('initializeApp', siteId);
-      }); */
-      // const scanWifi = from(this.hotspot.startWifiPeriodicallyScan(3000,30));
-      // scanWifi.then(res => console.log('scanWifi',res));
+      
       let sites = this.sitesService.getSites();
       this.microLocalisationService.watchAll(sites);
-
-      this.microLocalisationService.microlocation.subscribe(changeFired =>
-        console.log('changeFired',changeFired)
-      )
-
-      // this.microLocalisationService.scanNfc(sites).subscribe((microlocation: MicroLocalisation) => {
-      //   console.log(microlocation);
-      // },
-      // error =>{
-      //   console.log(error)
-      // })
+      this.microLocalisationService.microlocation.subscribe(changeFired => {
+        console.log('changeFired',changeFired)   
+        if(changeFired !== undefined){
+          console.log('microloc to route',this.microlocToPage.getRouteFromMicroLocalisation(changeFired));
+          this.router.navigateByUrl(this.microlocToPage.getRouteFromMicroLocalisation(changeFired));
+        }
+      });
     });
   }
 
-  
-  routeToZone(zone:Zone):void{
+
+  routeToZone(zone: Zone): void {
     this.router.initialNavigation();
     this.navCtrl.navigateRoot('home');
     this.journeyService.pushCheckPoint(zone);
@@ -76,9 +70,8 @@ export class AppComponent {
   }
 
 
-
-    onLogout() {
-      this.authService.logout();
+  onLogout() {
+    this.authService.logout();
     this.router.navigateByUrl('/auth');
   }
 }

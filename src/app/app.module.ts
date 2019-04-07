@@ -26,7 +26,7 @@ import { ComponentsModule } from './components/components.module';
 import { SitesService } from './sites/sites.service';
 import { JourneyService } from './journey/journey.service'
 import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { MicroLocalisation } from './core/models/microlocalisation.model';
+import { MicrolocToPageService } from './microloc-to-page.service';
 
 @NgModule({
   declarations: [
@@ -59,6 +59,7 @@ import { MicroLocalisation } from './core/models/microlocalisation.model';
     Vibration,
     SitesService,
     JourneyService,
+    MicrolocToPageService,
     // Coordinate,
     // Vincenty,
     {

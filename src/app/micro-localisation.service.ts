@@ -37,42 +37,35 @@ export class MicroLocalisationService {
       console.log("watchAll distObs", microloc);
       this.priorityManager('distObs', microloc);
     });
-    let wifiObs = interval(4000).subscribe(data => {
-         this.scanWifi(sites).subscribe(
-           microloc => {
-             console.log("watchAll wifiObs", microloc);
-             this.priorityManager('wifiObs', microloc);
-           }
-         )
-       });
+    let wifiObs = interval(1000).subscribe(data => {
+      this.scanWifi(sites).subscribe(
+        microloc => {
+          //console.log("watchAll wifiObs", microloc);
+          this.priorityManager('wifiObs', microloc);
+        }
+      )
+    });
   }
 
   priorityManager(eventType: string, microlocation: MicroLocalisation) {
-    console.log('priorityManager 0')
     if (microlocation) {
-      console.log('priorityManager 1')
       switch (eventType) {
         case 'distObs':
-          if (!this.microlocation) {
+          if (this.microlocation == undefined) {
             this.microlocation.next(microlocation);
+            console.log('send microloc event 20')
             //unsuscribe
           }
           break;
-        case 'wifiObs':
-          if (!this.microlocation) {
-            this.microlocation.next(microlocation);
-          }
-          else {
-            this.microlocation.subscribe(microloc => {
-              // console.log(microloc.quarter.wifiBSSID,microlocation.quarter.wifiBSSID) 
-              if (microloc && microloc !== microlocation){
+        case 'wifiObs':         
+
+              if ( this.microlocation.getValue().quarter.id !== microlocation.quarter.id ) {
+                console.log('send microloc event 22',this.microlocation.getValue().quarter.id,microlocation.quarter.id)
                 this.microlocation.next(microlocation);
-              } 
-            })
-          }
+              }
+
           break;
         case 'nfcObs':
-          console.log('priorityManager 2')
           this.microlocation.next(microlocation);
           break;
       }
@@ -119,11 +112,11 @@ export class MicroLocalisationService {
       (networks: HotspotNetwork[]) => {
         networks = networks.sort((a, b) => a.level - b.level);
         let site = sites.getSiteFromScannedWifi(networks);
-        if(site){
+        if (site) {
           let quarter = site.quarters.getQuarterFromScannedWifi(networks);
           return new MicroLocalisation(site, quarter, undefined, 0);
         }
-        else{
+        else {
           return undefined;
         }
       })

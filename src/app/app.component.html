@@ -7,10 +7,10 @@
         </ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content padding-horizontal *ngIf="activeSite">
+    <ion-content padding-horizontal>
       <ion-list>
         <ion-menu-toggle class="change-site">
-           <p>Mon site : <span>{{ activeSite.name || "" }}</span><!--  - {{ wifiScannedZone.name || "" }} --></p>
+          <p>Mon site : <span>{{ activeSite.name || "" }}</span><span *ngIf="wifiScannedZone" > {{ wifiScannedZone.name}}</span></p>
           <ion-button color="primary" shape="round" size="small" routerLink="/sites">Changer de site</ion-button>
         </ion-menu-toggle>
         <div class="separation"></div>

@@ -1,0 +1,28 @@
+{
+    "mapping": [{
+        "route": "journey/tag1",
+        "siteId": "75",
+        "quarterId": 750,
+        "zoneId": null
+    }, {
+        "route": "journey/tag2",
+        "siteId": "75",
+        "quarterId": 750,
+        "zoneId": 1
+    }, {
+        "route": "journey/tag3",
+        "siteId": "75",
+        "quarterId": 751,
+        "zoneId": null
+    },{
+        "route": "journey/tag3",
+        "siteId": "75",
+        "quarterId": 751,
+        "zoneId": 1
+    }, {
+        "route": "journey/tag4",
+        "siteId": "75",
+        "quarterId": 751,
+        "zoneId": 2
+    }]
+}
