@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { NewsItemComponent } from './news-item/news-item.component';
 import { CalendarItemComponent } from './calendar-item/calendar-item.component';
+import { ParkingItemComponent } from './parking-item/parking-item.component';
 
 @NgModule({
   imports: [
@@ -12,11 +13,13 @@ import { CalendarItemComponent } from './calendar-item/calendar-item.component';
   ],
   declarations: [
     NewsItemComponent,
-    CalendarItemComponent
+    CalendarItemComponent,
+    ParkingItemComponent
   ],
   exports: [
     NewsItemComponent,
-    CalendarItemComponent
+    CalendarItemComponent,
+    ParkingItemComponent
   ]
 })
 export class ComponentsModule {}

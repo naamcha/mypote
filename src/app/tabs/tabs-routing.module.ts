@@ -66,7 +66,11 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../travel/travel.module#TravelPageModule',
-          }
+          },
+          {
+            path: ':siteId/parking',
+            loadChildren: '../travel/parking/parking.module#ParkingPageModule'
+          },
         ]
       },
       {

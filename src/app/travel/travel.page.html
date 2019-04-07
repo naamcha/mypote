@@ -7,6 +7,51 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+  <h1>Je me déplace :</h1>
+  <div class="app-links" padding-horizontal>
+    <ion-item detail (click)="onNavigateTo()">
+      <ion-avatar slot="start" class="color-5">
+        <ion-icon name="navigate"></ion-icon>
+      </ion-avatar>
+      <ion-label>Me rendre sur le site</ion-label>
+    </ion-item>
+
+    <ion-item detail [routerLink]="['/tabs/tab-bar/travel', activeSite.id, 'parking']">
+      <ion-avatar slot="start" class="color-6">
+        <ion-icon name="locate"></ion-icon>
+      </ion-avatar>
+      <ion-label>Trouver un parking à proximité</ion-label>
+    </ion-item>
+
+    <ion-item detail>
+      <ion-avatar slot="start" class="color-2">
+        <ion-icon name="contacts"></ion-icon>
+      </ion-avatar>
+      <ion-label>Covoiturer avec EcoPartage</ion-label>
+    </ion-item>
+
+    <ion-item detail>
+      <ion-avatar slot="start" class="color-8">
+        <ion-icon name="car"></ion-icon>
+      </ion-avatar>
+      <ion-label>Réservation de Taxi</ion-label>
+    </ion-item>
+
+    <ion-item detail>
+      <ion-avatar slot="start" class="color-3">
+        <ion-icon name="text"></ion-icon>
+      </ion-avatar>
+      <ion-label>Service Voyageurs IT-CE</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start" class="color-1">
+        <ion-icon name="open"></ion-icon>
+      </ion-avatar>
+      <ion-label>Ouvrir l'Application Notilus</ion-label>
+    </ion-item>
+  </div>
 
 </ion-content>

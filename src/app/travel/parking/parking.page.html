@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab-bar/travel"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Parkings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid no-padding>
+    <ion-row *ngIf="site.parkings.length" padding>
+      <ion-col>
+        <p class="type no-margin">Les parkings à proximité du site</p>
+        <app-parking-item
+          *ngFor="let parking of site.parkings"
+          [parking]="parking"></app-parking-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="!site.parkings.length" padding>
+      <p class="type no-margin">
+        <ion-icon name="sad"></ion-icon>
+        Il n'y a aucun parking à proximité renseigné.
+      </p>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

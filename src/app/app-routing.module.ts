@@ -36,6 +36,14 @@ const routes: Routes = [
       {
         path: ':siteId/dysfunction',
         loadChildren: './sites/dysfunction/dysfunction.module#DysfunctionPageModule'
+      },
+      {
+        path: ':siteId/security',
+        loadChildren: './sites/security/security.module#SecurityPageModule'
+      },
+      {
+        path: ':siteId/site-numbers',
+        loadChildren: './sites/site-numbers/site-numbers.module#SiteNumbersPageModule'
       }
     ]
   },
@@ -67,9 +75,7 @@ const routes: Routes = [
     ]
   },
   { path: 'journey-history', canLoad: [AuthGuard], loadChildren: './journey-history/journey-history.module#JourneyHistoryPageModule' },
-  { path: 'conf', canLoad: [AuthGuard], loadChildren: './conf/conf.module#ConfPageModule' },
-  { path: 'security', loadChildren: './sites/security/security.module#SecurityPageModule' },
-  { path: 'site-numbers', loadChildren: './sites/site-numbers/site-numbers.module#SiteNumbersPageModule' }
+  { path: 'conf', canLoad: [AuthGuard], loadChildren: './conf/conf.module#ConfPageModule' }
 
 
 ];

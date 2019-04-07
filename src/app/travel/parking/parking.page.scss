@@ -1,0 +1,11 @@
+
+.type {
+  margin-top: 20px;
+  color: var(--ion-color-secondary);
+  font-weight: 300;
+  font-size: 1.375em;
+
+  &.no-margin {
+    margin-top: 0;
+  }
+}

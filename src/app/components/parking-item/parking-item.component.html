@@ -1,0 +1,15 @@
+<div class="parking-wrapper" margin-top>
+  <img [src]="parking.image" [alt]="parking.name">
+  <div class="address">
+    <p>{{ parking.address }}</p>
+    <p>{{ parking.zipCode }} {{ parking.city }}</p>
+    <div class="nav-to-button">
+      <ion-button
+        class="is-round"
+        shape="round"
+        color="primary">
+        <ion-icon name="navigate" slot="icon-only"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</div>
