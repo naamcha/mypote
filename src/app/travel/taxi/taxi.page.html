@@ -1,4 +1,4 @@
-<!-- <ion-header>
+<ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-back-button defaultHref="/sites"></ion-back-button>
@@ -17,18 +17,14 @@
       </ion-thumbnail>
       <ion-label><h1>{{taxi.name}} </h1>
         <p>{{taxi.description}}</p>
-        <div><ion-button  [href]="'tel:'+taxi.phone" 
-          class="is-round"
-          shape="round" 
+        <div><ion-button  [href]="'tel:'+taxi.phone"   
           color="tertiary"
           size="small"><ion-icon slot="start" name="call"></ion-icon>Téléphoner</ion-button>
         <ion-button  (click)='redirectTo($event)' *ngIf="taxi.appli as true"
-          shape="round" 
-          class="is-round"
           size="small"><ion-icon slot="start" name="phone-portrait"></ion-icon>Application</ion-button>
         </div>
         
       </ion-label>
     </ion-item>
   </div>
-</ion-content> -->
+</ion-content> 

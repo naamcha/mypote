@@ -154,6 +154,7 @@
       },
       "phone": "08 2003 2008",
       "address": "15 rue Fernand Braudel",
+      "formatedAddress":"15%20rue%20Fernand%20Braudel",
       "addressDetail": [],
       "zipCode": "75 013",
       "city": "Paris",

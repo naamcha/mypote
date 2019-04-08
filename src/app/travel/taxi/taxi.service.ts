@@ -12,7 +12,7 @@ export class TaxiService {
   constructor() {
   }
 
-/*     // récupère le json et le transforme en objet
+// récupère le json et le transforme en objet
    public getSites(): Sites {
     return new Sites().deserialize(sitesData.sites);
  }
@@ -21,7 +21,4 @@ export class TaxiService {
     let test = this.getSites().sites.find(site => site.id === id);
     return test;
   }
-   public getTaxi(id,idtaxi){
-     let test = this.getSite(id).taxi.find(taxi => taxi.idtaxi == idtaxi)
-   } */
 }
