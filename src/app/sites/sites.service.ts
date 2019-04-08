@@ -7,6 +7,7 @@ import { Sites } from '../core/models/sites.model';
 import { Coordinate } from 'tsgeo/Coordinate';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 import { Platform } from '@ionic/angular';
+import { IonicStorageModule } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class SitesService {
 
   constructor (
     private geolocation: Geolocation,
-    private platform: Platform
+    private platform: Platform,
+    private stotage: IonicStorageModule
   ) {
     this.geolocation.getCurrentPosition().then(
       (resp) => {

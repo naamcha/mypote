@@ -6,6 +6,9 @@ import { Site } from '../core/models/site.model';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 import { Coordinate } from 'tsgeo/Coordinate';
 import { AlertController } from '@ionic/angular';
+import { JourneyHistoryPage } from '../journey/journey-history/journey-history.page';
+import { JourneyService } from '../journey/journey.service';
+import { MicroLocalisation } from '../core/models/microlocalisation.model';
 
 @Component({
   selector: 'app-home',
@@ -17,18 +20,19 @@ export class HomePage implements OnInit {
   activeSite: Site;
   distanceToSite: number;
   proposedOnce: any;
+  journey: MicroLocalisation[];
 
   constructor(
-    private loadingCtrl: LoadingController,
-    private authService: AuthService,
     private sitesService: SitesService,
     private geolocation : Geolocation,
-    private alertController : AlertController
+    private alertController : AlertController,
+    private journeyService: JourneyService
   ) { }
 
   ngOnInit() {
     this.sitesService.currentSiteId.subscribe(site => {
       this.activeSite = this.sitesService.getSite(site);
+      this.journey = this.journeyService.getNavHistory()
       this.watchDistanceToSite(this.activeSite);
     });
   }
@@ -43,7 +47,7 @@ export class HomePage implements OnInit {
       let nearestSite = this.sitesService.getSites().getNearestSite(currentCoordinate);
       if (this.activeSite !== nearestSite && this.proposedOnce !== true) {
         this.presentAlertMultipleButtons(nearestSite).then(
-          success => {
+          () => {
             this.proposedOnce = true;
           },
           error => {

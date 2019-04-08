@@ -1,6 +1,6 @@
 {
   "sites": [{
-      "id": "13",
+      "id": 13,
       "name": "Aix en Provence",
       "position": {
         "lat": 43.475611,
@@ -18,7 +18,7 @@
           "wifiBSSID": "0000",
           "planLink": "",
           "map": [{
-              "id": 0,
+              "id": 1300,
               "name": "Accueil site Aix",
               "nfcTagId": "",
               "navRouting": "journey/tag1",
@@ -31,7 +31,7 @@
               "linkedZonesId": []
             },
             {
-              "id": 1,
+              "id": 1301,
               "name": "Ascensseur niv 0 Aix Agora",
               "wifiBSSID": "60:1d:91:cb:49:c7",
               "nfcTagId": "",
@@ -48,12 +48,12 @@
         {
           "id": 131,
           "name": "Niveau 2 Aix",
-          "wifiBSSID": "111",
+          "wifiBSSID": "34:fc:b9:95:59:73",
           "planLink": "",
           "map": [{
-              "id": 2,
-              "name": "Ascensseur niv 2 Agora Aix",
-              "wifiBSSID": "e2:b6:58:a7:00:6f",
+              "id": 1311,
+              "name": "niv 2 Port Pin Aix",
+              "wifiBSSID": "34:fc:b9:95:59:73",
               "nfcTagId": "",
               "navRouting": "journey/tag3",
               "stageNumber": 1,
@@ -64,7 +64,7 @@
               "linkedZonesId": []
             },
             {
-              "id": 2,
+              "id": 1312,
               "name": "Ascensseur niv 2 Agora Aix",
               "wifiBSSID": "e2:b6:58:a7:00:6f",
               "nfcTagId": "",
@@ -146,7 +146,7 @@
       ]
     },
     {
-      "id": "75",
+      "id": 75,
       "name": "Paris",
       "position": {
         "lat": 48.835662,
@@ -165,7 +165,7 @@
           "wifiBSSID": "34:27:92:51:5c:43",
           "planLink": "",
           "map": [{
-              "id": 0,
+              "id": 7500,
               "name": "Accueil site Braudel",
               "nfcTagId": "0446ebd2ba5d81",
               "navRouting": "journey/tag1",
@@ -178,7 +178,7 @@
               "linkedZonesId": []
             },
             {
-              "id": 1,
+              "id": 7501,
               "name": "Ascensseur niv 0 Braudel",
               "wifiBSSID": "60:1d:91:cb:49:c7",
               "nfcTagId": "046db542295e81",
@@ -198,7 +198,7 @@
           "wifiBSSID": "b0:fc:36:c4:76:a1",
           "planLink": "",
           "map": [{
-              "id": 1,
+              "id": 7511,
               "name": "Ascensseur niv 8 Braudel",
               "wifiBSSID": "b0:fc:36:c4:76:a1",
               "nfcTagId": "044eebd2ba5d81",
@@ -211,7 +211,7 @@
               "linkedZonesId": []
             },
             {
-              "id": 2,
+              "id": 7512,
               "name": "Mediascape niv 8 Braudel",
               "wifiBSSID": "e2:b6:58:a7:00:6f",
               "nfcTagId": "044eecd2ba5d81",
@@ -268,7 +268,7 @@
       ],
       "rooms": [
         {
-          "id": "2",
+          "id": 2,
           "name": "Salle Mediascape 8.12",
           "floor": "8",
           "capacity": "12",

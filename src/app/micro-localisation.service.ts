@@ -58,7 +58,7 @@ export class MicroLocalisationService {
           }
           break;
         case 'wifiObs':
-          console.log(microlocation)
+          //console.log(microlocation)
           if (
             this.microlocation == undefined
             || this.microlocation.getValue() == undefined
@@ -67,7 +67,6 @@ export class MicroLocalisationService {
             // console.log('send microloc event 22', this.microlocation.getValue().quarter.id, microlocation.quarter.id)
             this.microlocation.next(microlocation);
           }
-
           break;
         case 'nfcObs':
           this.microlocation.next(microlocation);

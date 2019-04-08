@@ -1,0 +1,29 @@
+{
+	"journeys":[
+		{
+			"id":1,
+			"startPoint":[
+				{"siteId": 75,"quarterId": 750, "zoneId": null},
+				{"siteId": 75,"quarterId": 750, "zoneId": 7500},
+				{"siteId": 75,"quarterId": 750, "zoneId": 7501}
+			],
+			"endPoint":[
+				{"siteId": 75,"quarterId": 751, "zoneId": 7512}
+			],
+			"segmentIdChain": [1,2]
+		}
+	],
+	"segments":[
+		{
+			"id":1,
+			"startPoint":	{"siteId": 75,"quarterId": 750, "zoneId": null },
+			"endPoint":	{"siteId": 75,"quarterId": 750, "zoneId": 7502 },
+			"segmentRouterPath": ""
+		},{
+			"id":2,
+			"startPoint":	{"siteId": 75,"quarterId": 751, "zoneId": 7511 },
+			"endPoint":	{"siteId": 75,"quarterId": 751, "zoneId": 7512 },
+			"segmentRouterPath": ""
+		}
+	]
+}

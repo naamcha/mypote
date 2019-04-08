@@ -4,6 +4,7 @@ import { interval } from 'rxjs/internal/observable/interval';
 import { Sites } from '../core/models/sites.model';
 import { Observable, from } from 'rxjs';
 import { MicroLocalisation } from '../core/models/microlocalisation.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,10 @@ import { MicroLocalisation } from '../core/models/microlocalisation.model';
 })
 export class ConfPage implements OnInit {
   networks: HotspotNetwork[];
-  constructor(private hotspot: Hotspot) { 
+  constructor(
+    private hotspot: Hotspot,
+    private router: Router
+    ) { 
     
   }
 
@@ -24,7 +28,10 @@ export class ConfPage implements OnInit {
   }
   scanWifi(): void {
     const scanWifi = from(this.hotspot.scanWifi()).subscribe(networks => {
-      this.networks=networks;
+      this.networks=networks.sort((a,b)=> -a.level+b.level);
     })
   };
+  zonify(wifi:HotspotNetwork):void{
+    this.router.navigateByUrl('associate-wifi/'+wifi.BSSID,)
+  }
 }

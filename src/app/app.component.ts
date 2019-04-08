@@ -12,6 +12,7 @@ import { MicroLocalisationService } from './micro-localisation.service';
 import { Site, Zone } from './core/models/site.model';
 import { Hotspot } from '@ionic-native/hotspot/ngx';
 import { MicrolocToPageService } from './microloc-to-page.service';
+import { MicroLocalisation } from './core/models/microlocalisation.model';
 // import { Coordinate } from 'tsgeo/Coordinate';
 // import { IBeacon } from '@ionic-native/IBeacon/ngx';
 
@@ -54,19 +55,18 @@ export class AppComponent {
       this.microLocalisationService.microlocation.subscribe(changeFired => {
         console.log('changeFired',changeFired)   
         if(changeFired !== undefined){
-          console.log('microloc to route',this.microlocToPage.getRouteFromMicroLocalisation(changeFired));
-          this.router.navigateByUrl(this.microlocToPage.getRouteFromMicroLocalisation(changeFired));
+          // console.log('microloc to route',this.microlocToPage.getRouteFromMicroLocalisation(changeFired));
+          this.routeToZone(changeFired)
         }
       });
     });
   }
 
 
-  routeToZone(zone: Zone): void {
-    this.router.initialNavigation();
+  routeToZone(changeFired: MicroLocalisation): void {
     this.navCtrl.navigateRoot('home');
-    this.journeyService.pushCheckPoint(zone);
-    this.router.navigateByUrl(zone.navRouting);
+    this.journeyService.pushCheckPoint( changeFired );
+    this.router.navigateByUrl(this.microlocToPage.getRouteFromMicroLocalisation(changeFired));
   }
 
 

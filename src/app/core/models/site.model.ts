@@ -5,7 +5,7 @@ import { Taxi } from './taxi.model';
 import { HotspotNetwork } from '@ionic-native/hotspot/ngx';
 
 export class Site implements Deserializable {
-  public id: string;
+  public id: number;
   public name: string;
   public position: Coordinate;
   public phone: string;

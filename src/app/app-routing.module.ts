@@ -77,7 +77,13 @@ const routes: Routes = [
     path: 'conf',
     canLoad: [AuthGuard],
     loadChildren: './conf/conf.module#ConfPageModule'
+  },
+  { 
+    path: 'associate-wifi/:wifiId', 
+    canLoad: [AuthGuard], 
+    loadChildren: './associate-wifi/associate-wifi.module#AssociateWifiPageModule' 
   }
+
 ];
 
 @NgModule({

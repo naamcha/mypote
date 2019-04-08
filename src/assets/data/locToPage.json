@@ -1,28 +1,33 @@
 {
     "mapping": [{
-        "route": "journey/tag1",
-        "siteId": "75",
+        "route": "sites/1",
+        "siteId": 75,
         "quarterId": 750,
         "zoneId": null
+    },{
+        "route": "sites/1",
+        "siteId": 75,
+        "quarterId": 750,
+        "zoneId": 7500
     }, {
         "route": "journey/tag2",
-        "siteId": "75",
+        "siteId": 75,
         "quarterId": 750,
-        "zoneId": 1
+        "zoneId": 7501
     }, {
         "route": "journey/tag3",
-        "siteId": "75",
+        "siteId": 75,
         "quarterId": 751,
         "zoneId": null
     },{
         "route": "journey/tag3",
-        "siteId": "75",
+        "siteId": 75,
         "quarterId": 751,
-        "zoneId": 1
+        "zoneId": 7511
     }, {
-        "route": "journey/tag4",
-        "siteId": "75",
+        "route": "tabs/tab-bar/find/room/2",
+        "siteId": 75,
         "quarterId": 751,
-        "zoneId": 2
+        "zoneId": 7512
     }]
 }

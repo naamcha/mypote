@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JourneyHistoryPage } from './journey-history.page';
+import { AssociateWifiPage } from './associate-wifi.page';
 
-describe('JourneyHistoryPage', () => {
-  let component: JourneyHistoryPage;
-  let fixture: ComponentFixture<JourneyHistoryPage>;
+describe('AssociateWifiPage', () => {
+  let component: AssociateWifiPage;
+  let fixture: ComponentFixture<AssociateWifiPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JourneyHistoryPage ],
+      declarations: [ AssociateWifiPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(JourneyHistoryPage);
+    fixture = TestBed.createComponent(AssociateWifiPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

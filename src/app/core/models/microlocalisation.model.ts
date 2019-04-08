@@ -1,4 +1,5 @@
 import { Site, Zone, Quarter } from './site.model';
+import { Deserializable } from './deserializable.model';
 
 export class MicroLocalisation {
   public site:Site;
@@ -12,5 +13,19 @@ export class MicroLocalisation {
     this.zone = zone;
     this.site = site;
     this.distanceToSite = distanceToSite;
+  }
+
+  toMicrolight(){
+    return new MicrolocLight().deserialize({"siteId": this.site.id, "quarterId": this.quarter.id,"zoneId": this.zone.id})
+  }
+}
+export class MicrolocLight implements Deserializable{
+  public siteId;
+  public quarterId;
+  public zoneId;
+  
+  deserialize(input: any): this {
+      Object.assign(this, input);
+      return this;
   }
 }

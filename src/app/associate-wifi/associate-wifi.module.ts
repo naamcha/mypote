@@ -5,12 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { JourneyHistoryPage } from './journey-history.page';
+import { AssociateWifiPage } from './associate-wifi.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: JourneyHistoryPage
+    component: AssociateWifiPage
   }
 ];
 
@@ -21,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [JourneyHistoryPage]
+  declarations: [AssociateWifiPage]
 })
-export class JourneyHistoryPageModule {}
+export class AssociateWifiPageModule {}
