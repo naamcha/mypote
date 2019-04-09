@@ -53,6 +53,9 @@ export class Quarters implements Deserializable {
     return this;
   }
   
+  getQuarter(quarterId){
+    return this.quarters.find(quarter => quarterId == quarter.id);
+  }
   getQuarterFromScannedNfc(tagId: string) {
     return this.quarters.find(quarter => undefined !== quarter.getZoneFromScannedNfc(tagId));
   }

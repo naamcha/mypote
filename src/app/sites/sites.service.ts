@@ -13,7 +13,7 @@ import { IonicStorageModule } from '@ionic/storage';
   providedIn: 'root'
 })
 export class SitesService {
-  public currentSiteId = new BehaviorSubject<string>('75');
+  public currentSiteId = new BehaviorSubject<number>(75);
 
   constructor (
     private geolocation: Geolocation,

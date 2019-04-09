@@ -12,7 +12,6 @@ import { MicroLocalisationService } from './micro-localisation.service';
 import { Site, Zone } from './core/models/site.model';
 import { Hotspot } from '@ionic-native/hotspot/ngx';
 import { MicrolocToPageService } from './microloc-to-page.service';
-import { MicroLocalisation } from './core/models/microlocalisation.model';
 // import { Coordinate } from 'tsgeo/Coordinate';
 // import { IBeacon } from '@ionic-native/IBeacon/ngx';
 
@@ -41,6 +40,7 @@ export class AppComponent {
   }
   ngOnInit(){
     this.sitesService.currentSiteId.subscribe(siteId => {
+      console.log(siteId)
       this.activeSite = this.sitesService.getSite(siteId);
     });
 
@@ -53,22 +53,23 @@ export class AppComponent {
       let sites = this.sitesService.getSites();
       this.microLocalisationService.watchAll(sites);
       this.microLocalisationService.microlocation.subscribe(changeFired => {
-        console.log('changeFired',changeFired)   
+        console.log('changeFired ==> ',changeFired)   
         if(changeFired !== undefined){
-          // console.log('microloc to route',this.microlocToPage.getRouteFromMicroLocalisation(changeFired));
-          this.routeToZone(changeFired)
+          this.journeyService.pushCheckPoint(changeFired.toMicrolight());
+          let segment = this.journeyService.walkNav(changeFired.toMicrolight());
+          if(segment){
+            let routerPath = segment.segmentRouterPath;
+            console.log('segment',routerPath);
+            this.router.navigateByUrl(routerPath);
+          }else{
+            let routerPath = this.microlocToPage.getRouteFromMicroLocalisation(changeFired)
+            console.log('point',routerPath);
+            this.router.navigateByUrl(routerPath);
+          }
         }
       });
     });
   }
-
-
-  routeToZone(changeFired: MicroLocalisation): void {
-    this.navCtrl.navigateRoot('home');
-    this.journeyService.pushCheckPoint( changeFired );
-    this.router.navigateByUrl(this.microlocToPage.getRouteFromMicroLocalisation(changeFired));
-  }
-
 
   onLogout() {
     this.authService.logout();

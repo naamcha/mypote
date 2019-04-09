@@ -1,55 +1,89 @@
 import { Injectable } from '@angular/core';
-import { MicroLocalisation } from '../core/models/microlocalisation.model';
-import * as navigation from '../../assets/data/navigation.json'
+import { MicrolocLight, MicroLocalisation } from '../core/models/microlocalisation.model';
+import * as navigationData from '../../assets/data/navigation.json'
 import { Navigation, Segment } from '../core/models/navigation.model';
+import { Site } from '../core/models/site.model';
+import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JourneyService {
 
-  private navHistory: MicroLocalisation[];
+  public navHistory: BehaviorSubject<MicrolocLight[]>;
   private navigation: Navigation;
+  public currentNavSegments: Segment[];
 
   constructor() {
-    this.navHistory = [];
-    this.navigation = new Navigation().deserialize(navigation);
+    this.currentNavSegments = [];
+    this.navHistory = new BehaviorSubject([]);
+    this.navigation = new Navigation().deserialize(navigationData.nav);
   }
 
-  computeNavigation(startCheckPoint:MicroLocalisation,endCheckPoint:MicroLocalisation):Segment[]{
-    return this.navigation.getSegmentsFromStartEnd(startCheckPoint,endCheckPoint);
+  startNav(endCheckPoint: MicrolocLight): Segment {
+    // get last checkpoint in navHistory
+    let navhist = this.navHistory.getValue()
+    let startCheckPoint = navhist[navhist.length-1];
+    let segments = this.computeNavigation(startCheckPoint, endCheckPoint);
+    this.currentNavSegments = segments;
+    return this.walkNav(startCheckPoint);
   }
-  getNextSegmentFromStartPoint(startCheckPoint:MicroLocalisation,navigation:Segment[]):Segment{
-    return navigation.find(seg => seg.startPoint == startCheckPoint.toMicrolight());
+  walkNav(currentCheckPoint: MicrolocLight): Segment {
+    let nextSegment = this.getNextCurrentNavSegment();
+    if (nextSegment) {
+      return (currentCheckPoint == nextSegment.startPoint) ? this.currentNavSegments.pop() : undefined;
+    }
+    else {
+      return undefined;
+    }
   }
-  pushCheckPoint(microlocation: MicroLocalisation): void {
-    console.log(microlocation, this.navHistory[this.navHistory.length - 1], microlocation !== this.navHistory[this.navHistory.length - 1]);
-    if (this.navHistory.length == 0) {
+  getNextCurrentNavSegment(): Segment {
+    return (this.currentNavSegments.length > 0) ? this.currentNavSegments[this.currentNavSegments.length - 1] : undefined;
+  }
+  getNextSegmentFromStartPoint(startCheckPoint: MicrolocLight, navigation: Segment[]): Segment {
+    return navigation.find(seg => seg.startPoint == startCheckPoint);
+  }
+  computeNavigation(startCheckPoint: MicrolocLight, endCheckPoint: MicrolocLight): Segment[] {
+    console.log('////// computeNavigation ///////', startCheckPoint, endCheckPoint, this.navigation.getSegmentsFromStartEnd(startCheckPoint, endCheckPoint))
+    return this.navigation.getSegmentsFromStartEnd(startCheckPoint, endCheckPoint);
+  }
+  pushCheckPoint(microlocation: MicrolocLight): void {
+    let navhistoryLength = (this.navHistory)? this.navHistory.getValue().length:0;
+    console.log(microlocation, this.navHistory[navhistoryLength - 1], microlocation !== this.navHistory[navhistoryLength - 1]);
+    if (navhistoryLength == 0) {
       console.log('push checkpoint 0');
-      this.navHistory.push(microlocation);
+      this.pushInNavHistory(microlocation);
     }
-    else if (!this.navHistory[this.navHistory.length - 1].zone) {
-      if (this.navHistory[this.navHistory.length - 1].quarter !== microlocation.quarter){
+    else if (!this.navHistory[navhistoryLength - 1].zoneId) {
+      if (this.navHistory[navhistoryLength - 1].quarterId !== microlocation.quarterId) {
         console.log('push checkpoint 1');
-        this.navHistory.push(microlocation);
+        this.pushInNavHistory(microlocation);
       }
     }
-    else{
-      if (this.navHistory[this.navHistory.length - 1].zone.id !== microlocation.zone.id) {
+    else {
+      if (this.navHistory[navhistoryLength - 1].zoneId !== microlocation.zoneId) {
         console.log('push checkpoint 2');
-        this.navHistory.push(microlocation);
+        this.pushInNavHistory(microlocation);
       }
-    } 
+    }
   }
-  popCheckPoint(): MicroLocalisation {
-    return this.navHistory.pop();
+  private pushInNavHistory(microlight: MicrolocLight): void {
+    console.log('pushInNavHistory 0',microlight)
+    this.navHistory.pipe(map(navhist => {
+      navhist.push(microlight);
+      console.log('pushInNavHistory 1',microlight);
+      this.navHistory.next(navhist);
+    }));
   }
-  getNavHistory(): MicroLocalisation[] {
-    return this.navHistory;
-  }
-  computeCheckPointJourney(startCheckPoint:MicroLocalisation,endCheckPoint:MicroLocalisation):MicroLocalisation[]{
-    let checkPointJourney: MicroLocalisation[];
-    // Works only with a start 
-    return checkPointJourney;
+  journeyFromMicrolightToMicroloc(navhist:MicrolocLight[],site: Site): MicroLocalisation[] {
+    let microloc = navhist.map((navStep: MicrolocLight) => {
+      navStep['site'] = site;
+      navStep['quarter'] = (navStep.quarterId && navStep['site']) ? navStep['site'].quarters.getQuarter(navStep.quarterId) : undefined;
+      navStep['zone'] = (navStep.zoneId && navStep['quarter']) ? navStep['quarter'].map.getZone(navStep.zoneId) : undefined;
+      return new MicroLocalisation(navStep['site'], navStep['quarter'], navStep['zone'], undefined);
+    });
+    console.log('journeyFromMicrolightToMicroloc', microloc, this.navHistory);
+    return microloc;
   }
 }

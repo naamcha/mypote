@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
-import { AuthService } from '../auth/auth.service';
 import { SitesService } from '../sites/sites.service';
 import { Site } from '../core/models/site.model';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 import { Coordinate } from 'tsgeo/Coordinate';
 import { AlertController } from '@ionic/angular';
-import { JourneyHistoryPage } from '../journey/journey-history/journey-history.page';
 import { JourneyService } from '../journey/journey.service';
-import { MicroLocalisation } from '../core/models/microlocalisation.model';
+import { MicrolocLight, MicroLocalisation } from '../core/models/microlocalisation.model';
 
 @Component({
   selector: 'app-home',
@@ -17,35 +14,38 @@ import { MicroLocalisation } from '../core/models/microlocalisation.model';
 })
 export class HomePage implements OnInit {
   // closed = false;
-  activeSite: Site;
+  currentSite: Site;
   distanceToSite: number;
   proposedOnce: any;
   journey: MicroLocalisation[];
+  site: any;
 
   constructor(
     private sitesService: SitesService,
-    private geolocation : Geolocation,
-    private alertController : AlertController,
+    private geolocation: Geolocation,
+    private alertController: AlertController,
     private journeyService: JourneyService
   ) { }
 
   ngOnInit() {
-    this.sitesService.currentSiteId.subscribe(site => {
-      this.activeSite = this.sitesService.getSite(site);
-      this.journey = this.journeyService.getNavHistory()
-      this.watchDistanceToSite(this.activeSite);
+    this.sitesService.currentSiteId.subscribe(currentSiteId => {
+      this.currentSite = this.sitesService.getSite(currentSiteId);
+    });
+    this.journeyService.navHistory.subscribe(navhist => {
+      console.log('navhistory changed -----',navhist)
+      this.journey = this.journeyService.journeyFromMicrolightToMicroloc(navhist, this.currentSite);
     });
   }
 
-  watchDistanceToSite(site:Site): void{
+  watchDistanceToSite(site: Site): void {
     this.distanceToSite = 0;
     let watch = this.geolocation.watchPosition();
     watch.subscribe((data) => {
-      let currentCoordinate = new Coordinate(data.coords.latitude,data.coords.longitude);
+      let currentCoordinate = new Coordinate(data.coords.latitude, data.coords.longitude);
       this.distanceToSite = site.getDistanceToSite(currentCoordinate);
       console.log(this.distanceToSite)
       let nearestSite = this.sitesService.getSites().getNearestSite(currentCoordinate);
-      if (this.activeSite !== nearestSite && this.proposedOnce !== true) {
+      if (this.currentSite !== nearestSite && this.proposedOnce !== true) {
         this.presentAlertMultipleButtons(nearestSite).then(
           () => {
             this.proposedOnce = true;
@@ -58,7 +58,7 @@ export class HomePage implements OnInit {
     });
   }
 
-  async presentAlertMultipleButtons(site:Site) {
+  async presentAlertMultipleButtons(site: Site) {
     this.alertController.create({
       header: 'Etes-vous au bon endroit ?',
       subHeader: '',
@@ -79,9 +79,9 @@ export class HomePage implements OnInit {
         }
       ]
     })
-    .then(alert => {
-      alert.present();
-    });
+      .then(alert => {
+        alert.present();
+      });
   }
 
 }

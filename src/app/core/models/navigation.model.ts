@@ -6,19 +6,20 @@ export class Navigation implements Deserializable {
     public segnemts: Segment[];
 
     deserialize(input: any): this {
-        console.log(input)
-        this.journeys = input.journeys.map((journey) => new Journey().deserialize(journey));
-        this.segnemts = input.segments.map((segnemt) => new Segment().deserialize(segnemt));
+        this.journeys = input.journeys.map((journey: Journey) => new Journey().deserialize(journey));
+        this.segnemts = input.segments.map((segnemt: Segment) => new Segment().deserialize(segnemt));
         return this;
     }
     getSegment(segId):Segment{
         return this.segnemts.find(seg=>seg.segmentId == segId);
     }
-    getSegmentsFromStartEnd(startPoint:MicroLocalisation,endPoint:MicroLocalisation):Segment[]{
-        return this.journeys.find(journey => 
-            undefined !== journey.startPoint.find(microLightStart => microLightStart == startPoint.toMicrolight())
-            && undefined !== journey.endPoint.find(microLightEnd => microLightEnd == endPoint.toMicrolight())
-        ).segmentIdChain.map(segId=>this.getSegment(segId));
+    getSegmentsFromStartEnd(startPoint:MicrolocLight,endPoint:MicrolocLight):Segment[]{
+        let journey =  this.journeys.find(journey => 
+            undefined !== journey.startPoint.find(microLightStart => microLightStart == startPoint)
+            && undefined !== journey.endPoint.find(microLightEnd => microLightEnd == endPoint)
+            )
+            console.log('////// getSegmentsFromStartEnd ///////',startPoint, endPoint,journey)
+            return (journey)? journey.segmentIdChain.map(segId=>this.getSegment(segId)): undefined ;    
     }
 }
 export class Journey implements Deserializable {

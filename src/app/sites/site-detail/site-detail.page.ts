@@ -29,7 +29,7 @@ export class SiteDetailPage implements OnInit, OnDestroy {
         this.navCtrl.navigateBack('/sites');
         return;
       }
-      this.site = this.sitesService.getSite(paramMap.get('siteId'));
+      this.site = this.sitesService.getSite(+paramMap.get('siteId'));
       this.watchDistanceToSite();
     })
   }

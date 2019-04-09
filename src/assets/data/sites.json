@@ -266,9 +266,9 @@
           "city": "Paris"
         }
       ],
-      "rooms": [
-        {
+      "rooms": [{
           "id": 2,
+          "microlocation": {"siteId":75,"quarterId":751,"zoneId":7511},
           "name": "Salle Mediascape 8.12",
           "floor": "8",
           "capacity": "12",
@@ -287,6 +287,7 @@
         },
         {
           "id": "1",
+          "microlocation": {"siteId":75,"quarterId":751,"zoneId":7512},
           "name": "Salle 8.5",
           "floor": "8",
           "capacity": "5",
@@ -305,6 +306,7 @@
         },
         {
           "id": "3",
+          "microlocation": {"siteId":75,"quarterId":751,"zoneId":7513},
           "name": "Salle 8.10 (Visioconférence)",
           "floor": "8",
           "capacity": "10",
@@ -323,6 +325,7 @@
         },
         {
           "id": "4",
+          "microlocation": {"siteId":75,"quarterId":751,"zoneId":7514},
           "name": "Salle 8.8",
           "floor": "8",
           "capacity": "8",
@@ -341,6 +344,7 @@
         },
         {
           "id": "5",
+          "microlocation": {"siteId":75,"quarterId":751,"zoneId":7515},
           "name": "Salle 8.16",
           "floor": "8",
           "capacity": "16",
@@ -359,6 +363,7 @@
         },
         {
           "id": "6",
+          "microlocation": {"siteId":75,"quarterId":751,"zoneId":7516},
           "name": "Salle 4.6",
           "floor": "4",
           "capacity": "6",
@@ -377,6 +382,7 @@
         },
         {
           "id": "7",
+          "microlocation": {"siteId":75,"quarterId":751,"zoneId":7517},
           "name": "Salle 4.10",
           "floor": "4",
           "capacity": "10",
@@ -395,6 +401,7 @@
         },
         {
           "id": "8",
+          "microlocation": {"siteId":75,"quarterId":751,"zoneId":7518},
           "name": "Salle 4.12",
           "floor": "4",
           "capacity": "12",
