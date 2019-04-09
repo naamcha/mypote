@@ -21,6 +21,10 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: './auth/auth.module#AuthPageModule'
   },
+  { path:'taxi/:id',
+  canLoad: [AuthGuard],
+  loadChildren:'./travel/taxi/taxi.module#TaxiPageModule'
+  },
   {
     path: 'sites',
     canLoad: [AuthGuard],

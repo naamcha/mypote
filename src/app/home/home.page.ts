@@ -4,6 +4,7 @@ import { Site } from '../core/models/site.model';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 import { Coordinate } from 'tsgeo/Coordinate';
 import { AlertController } from '@ionic/angular';
+import { NewsService } from '../core/services/news.service';
 import { JourneyService } from '../journey/journey.service';
 import { MicrolocLight, MicroLocalisation } from '../core/models/microlocalisation.model';
 
@@ -20,8 +21,17 @@ export class HomePage implements OnInit {
   journey: MicroLocalisation[];
   site: any;
 
+  siteNews = [];
+  companyNews = [];
+  slideOpts = {
+    effect: 'flip'
+  };
+
   constructor(
     private sitesService: SitesService,
+    private geolocation: Geolocation,
+    private alertController: AlertController,
+    private newsService: NewsService
     private geolocation: Geolocation,
     private alertController: AlertController,
     private journeyService: JourneyService
@@ -35,6 +45,9 @@ export class HomePage implements OnInit {
       console.log('navhistory changed -----',navhist)
       this.journey = this.journeyService.journeyFromMicrolightToMicroloc(navhist, this.currentSite);
     });
+
+    this.siteNews = this.newsService.getSiteNews();
+    this.companyNews = this.newsService.getCompanyNews();
   }
 
   watchDistanceToSite(site: Site): void {

@@ -1,0 +1,36 @@
+{
+  "guides": [
+    {
+      "image": "assets/images/guides/guide-train.jpg",
+      "title": "Guide Train"
+    },
+    {
+      "image": "assets/images/guides/guide-avion.jpg",
+      "title": "Guide Avion"
+    },
+    {
+      "image": "assets/images/guides/guide-hebergement.jpg",
+      "title": "Guide Hébergement"
+    },
+    {
+      "image": "assets/images/guides/guide-voiture.jpg",
+      "title": "Guide Voiture"
+    },
+    {
+      "image": "assets/images/guides/guide-taxi.jpg",
+      "title": "Guide Taxi"
+    },
+    {
+      "image": "assets/images/guides/guide-site.jpg",
+      "title": "Me rendre sur un site"
+    },
+    {
+      "image": "assets/images/guides/guide-restaurant.jpg",
+      "title": "Guide des Restaurants"
+    },
+    {
+      "image": "assets/images/guides/guide-reservation.jpg",
+      "title": "Guide des Réservations"
+    }
+  ]
+}

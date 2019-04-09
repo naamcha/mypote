@@ -10,6 +10,7 @@ export class Site implements Deserializable {
   public position: Coordinate;
   public phone: string;
   public address: string;
+  public formatedAddress:string;
   public addressDetail: string[];
   public zipCode: string;
   public city: string;

@@ -1,9 +1,9 @@
 <ion-img
   class="illustration"
-  src="https://pbs.twimg.com/media/DZhYkYaXcAABCEM.jpg"
+  [src]="item.image"
 ></ion-img>
 
-<div>
-  <div class="title">Le retour de la Station Digitale</div>
-  <div class="description">Rendez-vous en salle Mediascape le 15 Avril à 14h00 !</div>
+<div class="content">
+  <div class="title">{{ item.title }}</div>
+  <div class="description">{{ item.content }}</div>
 </div>

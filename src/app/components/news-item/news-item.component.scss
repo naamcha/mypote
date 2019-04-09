@@ -1,11 +1,19 @@
 :host {
   display: flex;
   align-items: center;
+  padding-bottom: 25px;
+  font-size: 1rem;
+  text-align: left;
 }
 
 .illustration {
-  flex-basis: 40%;
+  width: 25%;
+  height: auto;
   margin-right: 16px;
+}
+
+.content {
+  width: calc(100% - (25% + 16px));
 }
 
 .title {

@@ -82,16 +82,19 @@
       "parkings": [],
       "rooms": [],
       "taxi": [{
-          "name": "Uber",
-          "phone": "06 98 85 28 14",
-          "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
-          "appli": "",
-          "img": "../../assets/images/logo-uber.jpg"
-        },
+        "name": "Uber",
+        "phone": "06 98 85 28 14",
+        "description": "Commandez une course, montez à bord et détendez-vous.",
+        "appli": true,
+        "url1": "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
+        "url2": "&dropoff[longitude]=",
+        "url3": "&dropoff[nickname]=ITCE/",
+        "img": "../../assets/images/logo-taxi-uber.jpg"
+      },
         {
           "name": "G7",
           "phone": "36 07",
-          "description": "Déteste uber",
+          "description": "Quelle que soit votre destination, quels que soient vos besoins, commandez votre G7",
           "appli": false,
           "url1": "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
           "url2": "&dropoff[longitude]=",
@@ -127,16 +130,19 @@
       }],
       "rooms": [],
       "taxi": [{
-          "name": "Uber",
-          "phone": "06 98 85 28 14",
-          "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
-          "appli": "",
-          "img": "../../assets/images/logo-uber.jpg"
-        },
+        "name": "Uber",
+        "phone": "06 98 85 28 14",
+        "description": "Commandez une course, montez à bord et détendez-vous.",
+        "appli": true,
+        "url1": "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
+        "url2": "&dropoff[longitude]=",
+        "url3": "&dropoff[nickname]=ITCE/",
+        "img": "../../assets/images/logo-taxi-uber.jpg"
+      },
         {
           "name": "G7",
           "phone": "36 07",
-          "description": "Déteste uber",
+          "description": "Quelle que soit votre destination, quels que soient vos besoins, commandez votre G7",
           "appli": false,
           "url1": "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
           "url2": "&dropoff[longitude]=",
@@ -154,6 +160,7 @@
       },
       "phone": "08 2003 2008",
       "address": "15 rue Fernand Braudel",
+      "formatedAddress":"15%20rue%20Fernand%20Braudel",
       "addressDetail": [],
       "zipCode": "75 013",
       "city": "Paris",
@@ -422,17 +429,17 @@
       "taxi": [{
           "name": "Uber",
           "phone": "06 98 85 28 14",
-          "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
+          "description": "Commandez une course, montez à bord et détendez-vous.",
           "appli": true,
           "url1": "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
           "url2": "&dropoff[longitude]=",
           "url3": "&dropoff[nickname]=ITCE/",
-          "img": "../../assets/images/logo-uber.jpg"
+          "img": "../../assets/images/logo-taxi-uber.jpg"
         },
         {
           "name": "G7",
           "phone": "36 07",
-          "description": "Déteste uber",
+          "description": "Quelle que soit votre destination, quels que soient vos besoins, commandez votre G7",
           "appli": false,
           "url1": "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
           "url2": "&dropoff[longitude]=",

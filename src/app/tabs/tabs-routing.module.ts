@@ -80,6 +80,10 @@ const routes: Routes = [
             path: 'taxi/:id',
             loadChildren: '../travel/taxi/taxi.module#TaxiPageModule'
           },
+          {
+            path: 'guides',
+            loadChildren: './travel/guides/guides.module#GuidesPageModule'
+          }
         ]
       },
       {
