@@ -20,7 +20,7 @@ export class SiteDetailPage implements OnInit, OnDestroy {
     private navCtrl: NavController,
     private sitesService: SitesService,
     private router: Router,
-    private geolocation : Geolocation
+    private geolocation: Geolocation
   ) { }
 
   ngOnInit() {
@@ -31,7 +31,7 @@ export class SiteDetailPage implements OnInit, OnDestroy {
       }
       this.site = this.sitesService.getSite(+paramMap.get('siteId'));
       this.watchDistanceToSite();
-    })
+    });
   }
 
   onSetSite(site) {

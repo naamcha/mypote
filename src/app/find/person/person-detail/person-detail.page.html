@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab-bar/find/person"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ person.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!--<ion-avatar slot="start" [ngClass]="'color-' + person.id">-->
+    <!--<ion-icon *ngIf="!person.image" name="person"></ion-icon>-->
+    <!--<img *ngIf="person.image" [src]="person.image" [alt]="person.name">-->
+  <!--</ion-avatar>-->
+
+  <img *ngIf="person.image" [src]="person.image" [alt]="person.name">
+  <p>{{ person.name }}</p>
+
+  <p>{{ person.room }}</p>
+  <p>{{ person.position }}</p>
+  <p>{{ person.mail }}</p>
+  <p>{{ person.tel }}</p>
+  <p>{{ person.pole }}</p>
+
+  <ion-item *ngFor="let el of person.what">
+    {{ el }}
+  </ion-item>
+
+</ion-content>
