@@ -6,6 +6,7 @@ import { Site } from '../core/models/site.model';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 import { Coordinate } from 'tsgeo/Coordinate';
 import { AlertController } from '@ionic/angular';
+import { NewsService } from '../core/services/news.service';
 
 @Component({
   selector: 'app-home',
@@ -18,12 +19,19 @@ export class HomePage implements OnInit {
   distanceToSite: number;
   proposedOnce: any;
 
+  siteNews = [];
+  companyNews = [];
+  slideOpts = {
+    effect: 'flip'
+  };
+
   constructor(
     private loadingCtrl: LoadingController,
     private authService: AuthService,
     private sitesService: SitesService,
-    private geolocation : Geolocation,
-    private alertController : AlertController
+    private geolocation: Geolocation,
+    private alertController: AlertController,
+    private newsService: NewsService
   ) { }
 
   ngOnInit() {
@@ -31,6 +39,9 @@ export class HomePage implements OnInit {
       this.activeSite = this.sitesService.getSite(site);
       this.watchDistanceToSite(this.activeSite);
     });
+
+    this.siteNews = this.newsService.getSiteNews();
+    this.companyNews = this.newsService.getCompanyNews();
   }
 
   watchDistanceToSite(site:Site): void{

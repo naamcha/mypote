@@ -1,0 +1,36 @@
+{
+  "site": [
+    {
+      "image": "assets/images/news/news-s1.jpg",
+      "title": "Le retour de la Station Digitale",
+      "content": "Rendez-vous en salle Mediascape le 15 Avril à 14h00 !"
+    },
+    {
+      "image": "assets/images/news/news-s2.png",
+      "title": "Rejoignez l'équipe de running !",
+      "content": "Une nouvelle équipe se constitue pour participer au prochain! semi-marathon..."
+    },
+    {
+      "image": "assets/images/news/news-s3.png",
+      "title": "Participez au prochain coding challenge !",
+      "content": "IT-CE organise un nouvel évènement en partenariat avec plusieurs entreprises..."
+    }
+  ],
+  "itce": [
+    {
+      "image": "assets/images/news/news1.png",
+      "title": "Rejoignez la team basket IT-CE !! ",
+      "content": "Et si IT-CE était représenté lors du 41ème challenge Basket Groupe BPCE Sports ?"
+    },
+    {
+      "image": "assets/images/news/news2.jpg",
+      "title": "Code de conduite et d'éthique Groupe",
+      "content": "Un nouveau document, le Code de conduite et d’éthique, est diffusé ... "
+    },
+    {
+      "image": "assets/images/news/news3.jpg",
+      "title": "Tchat avec Gwilherm, plus de 300 connectés ! ",
+      "content": "Retrouvez l'intégralité des échanges du tchat du 28 mars."
+    }
+  ]
+}

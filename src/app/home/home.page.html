@@ -18,12 +18,25 @@
 
   <section class="news">
     <div class="title">L'Actu à {{ activeSite.name }}</div>
-    <app-news-item></app-news-item>
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let news of siteNews">
+        <app-news-item [item]="news"></app-news-item>
+      </ion-slide>
+    </ion-slides>
   </section>
-
 
   <section class="news">
     <div class="title">Mon Parcours</div>
+  </section>
+
+  <section class="news">
+    <div class="title">Les Actus IT-CE</div>
+
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let news of companyNews">
+        <app-news-item [item]="news"></app-news-item>
+      </ion-slide>
+    </ion-slides>
   </section>
 
 
