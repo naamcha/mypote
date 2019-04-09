@@ -50,11 +50,11 @@ const routes: Routes = [
             children: [
               {
                 path: '',
-                loadChildren: './find/person/person.module#PersonPageModule'
+                loadChildren: '../find/person/person.module#PersonPageModule'
               },
               {
                 path: ':personId',
-                loadChildren: './find/person/person-detail/person-detail.module#PersonDetailPageModule'
+                loadChildren: '../find/person/person-detail/person-detail.module#PersonDetailPageModule'
               }
             ]
           }
