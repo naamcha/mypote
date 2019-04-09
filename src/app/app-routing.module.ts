@@ -21,9 +21,10 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: './auth/auth.module#AuthPageModule'
   },
-  { path:'taxi/:id',
-  canLoad: [AuthGuard],
-  loadChildren:'./travel/taxi/taxi.module#TaxiPageModule'
+  {
+    path: 'taxi/:id',
+    canLoad: [AuthGuard],
+    loadChildren: './travel/taxi/taxi.module#TaxiPageModule'
   },
   {
     path: 'sites',
@@ -75,6 +76,14 @@ const routes: Routes = [
         path: 'journey-history',
         loadChildren: './journey/journey-history/journey-history.module#JourneyHistoryPageModule'
       },
+      {
+        path: 'segment/:segmentId',
+        loadChildren: './journey/segment/segment.module#SegmentPageModule'
+      },
+      {
+        path: 'checkpoint/:checkpointId',
+        loadChildren: './journey/checkpoint/checkpoint.module#CheckpointPageModule'
+      }
     ]
   },
   {

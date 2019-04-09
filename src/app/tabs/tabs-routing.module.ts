@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
-import { AuthGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -45,6 +44,19 @@ const routes: Routes = [
                 loadChildren: '../find/room/room-detail/room-detail.module#RoomDetailPageModule'
               }
             ]
+          },
+          {
+            path: 'person',
+            children: [
+              {
+                path: '',
+                loadChildren: './find/person/person.module#PersonPageModule'
+              },
+              {
+                path: ':personId',
+                loadChildren: './find/person/person-detail/person-detail.module#PersonDetailPageModule'
+              }
+            ]
           }
         ]
       },
@@ -82,7 +94,7 @@ const routes: Routes = [
           },
           {
             path: 'guides',
-            loadChildren: './travel/guides/guides.module#GuidesPageModule'
+            loadChildren: '../travel/guides/guides.module#GuidesPageModule'
           }
         ]
       },

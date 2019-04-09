@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JourneyHistoryPage } from './journey-history.page';
+import { SegmentPage } from './segment.page';
 
-describe('JourneyHistoryPage', () => {
-  let component: JourneyHistoryPage;
-  let fixture: ComponentFixture<JourneyHistoryPage>;
+describe('SegmentPage', () => {
+  let component: SegmentPage;
+  let fixture: ComponentFixture<SegmentPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JourneyHistoryPage ],
+      declarations: [ SegmentPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(JourneyHistoryPage);
+    fixture = TestBed.createComponent(SegmentPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

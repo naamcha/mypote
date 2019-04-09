@@ -1,0 +1,93 @@
+{
+  "people": [
+    {
+      "id": 2,
+      "image": "assets/images/people/2.jpg",
+      "name": "AUBRY Marc",
+      "room": "8007",
+      "position": "A"
+    },
+    {
+      "id": 3,
+      "image": "",
+      "name": "BLACHERE Christelle",
+      "room": "8076",
+      "position": "D"
+    },
+    {
+      "id": 4,
+      "image": "assets/images/people/4.jpg",
+      "name": "DEBON Sophie",
+      "room": "8027",
+      "position": "A"
+    },
+    {
+      "id": 5,
+      "image": "assets/images/people/5.jpg",
+      "name": "EL-MHAMDI Dalila",
+      "room": "8076",
+      "position": "E"
+    },
+    {
+      "id": 6,
+      "image": "",
+      "name": "GARCIA Laura",
+      "room": "8076",
+      "position": "B"
+    },
+    {
+      "id": 10,
+      "image": "",
+      "name": "KERGARAVAT Joséphine",
+      "room": "8061",
+      "position": "A"
+    },
+    {
+      "id": 7,
+      "image": "assets/images/people/7.jpg",
+      "name": "LE DONNE Gwilherm",
+      "room": "8079",
+      "position": "A"
+    },
+    {
+      "id": 8,
+      "image": "assets/images/people/8.jpg",
+      "name": "MARDAY Preety",
+      "room": "8076",
+      "position": "A"
+    },
+    {
+      "id": 1,
+      "image": "assets/images/people/1.jpg",
+      "name": "PENEL Sylvie",
+      "room": "8086",
+      "position": "A",
+      "mail": "sylvie.penel@it-ce.fr",
+      "pole": "RESSOURCES ET TRANSFORMATION INTERNE",
+      "tel": "01.58.40.27.99",
+      "what": [
+        "Administration du personnel",
+        "Animation managériale",
+        "Animation Projet d’entreprise IT-CE 2020",
+        "Carrière",
+        "Communication",
+        "Formation",
+        "Immobilier",
+        "Prospective RH",
+        "Recrutement",
+        "Relations sociales",
+        "Rémunération / Paie",
+        "Services généraux",
+        "SIRH",
+        "Transformation digitale interne"
+      ]
+    },
+    {
+      "id": 9,
+      "image": "",
+      "name": "VILLANUEVA Anne-Marie",
+      "room": "8045",
+      "position": "D"
+    }
+  ]
+}
