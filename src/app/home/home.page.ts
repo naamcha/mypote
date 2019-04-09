@@ -31,9 +31,7 @@ export class HomePage implements OnInit {
     private sitesService: SitesService,
     private geolocation: Geolocation,
     private alertController: AlertController,
-    private newsService: NewsService
-    private geolocation: Geolocation,
-    private alertController: AlertController,
+    private newsService: NewsService,
     private journeyService: JourneyService
   ) { }
 

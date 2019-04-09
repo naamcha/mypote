@@ -11,13 +11,12 @@ import { map } from 'rxjs/operators';
 })
 export class JourneyService {
 
-  public navHistory: BehaviorSubject<MicrolocLight[]>;
+  public navHistory = new BehaviorSubject<MicrolocLight[]>(undefined);
   private navigation: Navigation;
   public currentNavSegments: Segment[];
 
   constructor() {
     this.currentNavSegments = [];
-    this.navHistory = new BehaviorSubject([]);
     this.navigation = new Navigation().deserialize(navigationData.nav);
   }
 
@@ -49,7 +48,7 @@ export class JourneyService {
     return this.navigation.getSegmentsFromStartEnd(startCheckPoint, endCheckPoint);
   }
   pushCheckPoint(microlocation: MicrolocLight): void {
-    let navhistoryLength = (this.navHistory)? this.navHistory.getValue().length:0;
+    let navhistoryLength = (this.navHistory && this.navHistory.getValue())? this.navHistory.getValue().length:0;
     console.log(microlocation, this.navHistory[navhistoryLength - 1], microlocation !== this.navHistory[navhistoryLength - 1]);
     if (navhistoryLength == 0) {
       console.log('push checkpoint 0');
@@ -69,20 +68,20 @@ export class JourneyService {
     }
   }
   private pushInNavHistory(microlight: MicrolocLight): void {
-    console.log('pushInNavHistory 0',microlight)
-    this.navHistory.pipe(map(navhist => {
-      navhist.push(microlight);
-      console.log('pushInNavHistory 1',microlight);
-      this.navHistory.next(navhist);
-    }));
+    console.log('pushInNavHistory 0',microlight,this.navHistory)
+    if(microlight){
+      let tmpNavHist = (this.navHistory.getValue())?this.navHistory.getValue():[];
+      tmpNavHist.push(microlight);
+      this.navHistory.next(tmpNavHist);
+    }
   }
   journeyFromMicrolightToMicroloc(navhist:MicrolocLight[],site: Site): MicroLocalisation[] {
-    let microloc = navhist.map((navStep: MicrolocLight) => {
+    let microloc = (navhist)?navhist.map((navStep: MicrolocLight) => {
       navStep['site'] = site;
       navStep['quarter'] = (navStep.quarterId && navStep['site']) ? navStep['site'].quarters.getQuarter(navStep.quarterId) : undefined;
       navStep['zone'] = (navStep.zoneId && navStep['quarter']) ? navStep['quarter'].map.getZone(navStep.zoneId) : undefined;
       return new MicroLocalisation(navStep['site'], navStep['quarter'], navStep['zone'], undefined);
-    });
+    }):undefined;
     console.log('journeyFromMicrolightToMicroloc', microloc, this.navHistory);
     return microloc;
   }
