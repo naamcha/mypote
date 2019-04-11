@@ -38,11 +38,11 @@ export class AppComponent {
     private navCtrl: NavController) {
     this.initializeApp();
   }
-  ngOnInit(){
+  ngOnInit() {
     this.sitesService.currentSiteId.subscribe(siteId => {
-      console.log('ngOnInit',siteId)
+      console.log('ngOnInit', siteId)
       this.activeSite = this.sitesService.getSite(siteId);
-      console.log('ngOnInit',this.activeSite)
+      console.log('ngOnInit', this.activeSite)
 
     });
 
@@ -51,28 +51,28 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      
-      console.log("wtart getSites")
+
       let sites = this.sitesService.getSites();
-      console.log("end getSites")
       this.microLocalisationService.watchAll(sites);
-      console.log("end watchAll")
       this.microLocalisationService.microlocation.subscribe(changeFired => {
-        console.log('changeFired ==> ',changeFired)   
-        if(changeFired !== undefined){
-          console.log('check microloc to microlight conv', changeFired.toMicrolight())
+        console.log('changeFired ==> ', changeFired)
+        if (changeFired !== undefined) {
           let checkpoint = changeFired.toMicrolight();
           this.journeyService.pushCheckPoint(checkpoint);
           let segment = this.journeyService.walkNav(checkpoint);
-          if(segment){
-            let routerPath = segment.segmentRouterPath;
-            console.log('segment',routerPath);
-            this.router.navigateByUrl(routerPath);
-          }else{
+          if(!segment){
             let routerPath = this.microlocToPage.getRouteFromMicroLocalisation(changeFired)
-            console.log('point',routerPath);
+            console.log('point', routerPath);
             this.router.navigateByUrl(routerPath);
           }
+        }
+      });
+      this.journeyService.navSegment.subscribe(navSeg => {
+        console.log('segment0', navSeg);
+        if (navSeg) {
+          let routerPath = navSeg.segmentRouterPath;
+          console.log('segment--------->', routerPath);
+          this.router.navigateByUrl(routerPath);
         }
       });
     });

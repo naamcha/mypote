@@ -11,7 +11,7 @@
 				"endPoint":[
 					{"siteId":75,"quarterId":751,"zoneId":7512}
 				],
-				"segmentIdChain":[1,2]
+				"segmentChain":[1,2]
 			},{
 				"id": 1,
 				"startPoint": [
@@ -20,35 +20,20 @@
 				"endPoint":[
 					{"siteId":75,"quarterId":751,"zoneId":7512}
 				],
-				"segmentIdChain":[2]
+				"segmentChain":[2]
 			}
 		],
 		"segments": [{
 			"id": 1,
-			"startPoint": {
-				"siteId": 75,
-				"quarterId": 750,
-				"zoneId": null
-			},
-			"endPoint": {
-				"siteId": 75,
-				"quarterId": 750,
-				"zoneId": 7502
-			},
-			"segmentRouterPath": "&&&&&&&&&&&&&& navigation.json"
+			"startPoint": {"siteId": 75,"quarterId": 750,"zoneId": null},
+			"endPoint": {"siteId": 75,"quarterId": 750,"zoneId": 7502},
+			"segmentRouterPath": "journey/segment/1"
 		}, {
 			"id": 2,
-			"startPoint": {
-				"siteId": 75,
-				"quarterId": 751,
-				"zoneId": 7511
+			"startPoint": {"siteId": 75,"quarterId": 751,"zoneId": 7511},
+			"endPoint": {"siteId": 75,"quarterId": 751,"zoneId": 7512
 			},
-			"endPoint": {
-				"siteId": 75,
-				"quarterId": 751,
-				"zoneId": 7512
-			},
-			"segmentRouterPath": "&&&&&&&&&&&&&& navigation.json"
+			"segmentRouterPath": "journey/segment/2"
 		}]
 	}
 }

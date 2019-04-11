@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
 export class JourneyService {
 
   public navHistory = new BehaviorSubject<MicrolocLight[]>(undefined);
+  public navSegment = new BehaviorSubject<Segment>(undefined)
   private navigation: Navigation;
   public currentNavSegments: Segment[];
 
@@ -27,14 +28,17 @@ export class JourneyService {
     let startCheckPoint = navhist[navhist.length-1];
     let segments = this.computeNavigation(startCheckPoint, endCheckPoint);
     this.currentNavSegments = segments;
+    console.log("startNav",this.currentNavSegments);
     return this.walkNav(startCheckPoint);
   }
-  walkNav(currentCheckPoint: MicrolocLight): Segment {
+  walkNav(startCheckPoint: MicrolocLight): Segment {
     let nextSegment = this.getNextCurrentNavSegment();
+    console.log("getNextCurrentNavSegment",nextSegment)
     if (nextSegment) {
-      return (currentCheckPoint == nextSegment.startPoint) ? this.currentNavSegments.pop() : undefined;
+      this.navSegment.next(nextSegment);
+      return nextSegment;
     }
-    else {
+    else{
       return undefined;
     }
   }
