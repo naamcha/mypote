@@ -72,9 +72,21 @@ const routes: Routes = [
             loadChildren: '../eat/add-place/add-place.module#AddPlacePageModule'
           },
           {
-            path: 'place-detail',
-            loadChildren: '../eat/place-detail/place-detail.module#PlaceDetailPageModule'
+            path: 'rie',
+            loadChildren: '../eat/rie/rie.module#RiePageModule'
           },
+          {
+            path: 'places',
+            loadChildren: '../eat/places/places.module#PlacesPageModule'
+          },
+          {
+            path: 'delivery',
+            loadChildren: '../eat/delivery/delivery.module#DeliveryPageModule'
+          },
+          {
+            path: ':placeId',
+            loadChildren: '../eat/place-detail/place-detail.module#PlaceDetailPageModule'
+          }
         ]
       },
       {

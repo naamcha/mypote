@@ -8,7 +8,7 @@
       "position": "A"
     },
     {
-      "id": 3,
+      "id": 6,
       "image": "",
       "name": "BLACHERE Christelle",
       "room": "8076",
@@ -29,22 +29,22 @@
       "position": "E"
     },
     {
-      "id": 6,
-      "image": "",
+      "id": 3,
+      "image": "assets/images/people/6.jpg",
       "name": "GARCIA Laura",
       "room": "8076",
       "position": "B"
     },
     {
       "id": 10,
-      "image": "",
+      "image": "assets/images/people/10.png",
       "name": "KERGARAVAT Joséphine",
       "room": "8061",
       "position": "A"
     },
     {
-      "id": 7,
-      "image": "assets/images/people/7.jpg",
+      "id": 9,
+      "image": "assets/images/people/9.jpg",
       "name": "LE DONNE Gwilherm",
       "room": "8079",
       "position": "A"
@@ -83,7 +83,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": 7,
       "image": "",
       "name": "VILLANUEVA Anne-Marie",
       "room": "8045",

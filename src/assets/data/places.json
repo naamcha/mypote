@@ -1,0 +1,105 @@
+{
+  "places": [
+    {
+      "id": 1,
+      "image": "assets/images/eat/eat01.jpg",
+      "name": "Chez Lili et Marcel",
+      "type": "Restaurant",
+      "description": "Menu bistrotier, dont tartines artisanales, burgers et salades, dans un cadre convivial et chaleureux.",
+      "address": ["1 Quai d'Austerlitz", "75013 Paris"],
+      "phone": "01 45 85 00 08",
+      "schedule": [
+        "tous les jours",
+        "de 06h00 à 01h30"
+      ],
+      "map": "assets/images/eat/eat01.jpg",
+      "delivery": false,
+      "distance": "350m"
+    },
+    {
+      "id": 2,
+      "image": "assets/images/eat/cafe-gourmand.jpg",
+      "name": "Le Café Gourmand",
+      "type": "Restaurant",
+      "description": "Banquettes club et boiseries ornent ce restaurant avec terrasse qui offre happy hours et plats français.",
+      "address": ["192 Avenue de France", "75013 Paris"],
+      "phone": "01 44 23 73 15",
+      "tags": ["végétarien", "sans gluten"],
+      "schedule": [
+        "tous les jours",
+        "de 08h00 à 23h30"
+      ],
+      "map": "assets/images/eat/cafe-gourmand.jpg",
+      "delivery": true,
+      "distance": "76m"
+    },
+    {
+      "id": 3,
+      "image": "assets/images/eat/corso.jpg",
+      "name": "Le Corso",
+      "type": "Restaurant italien",
+      "description": "Mêlant architecture moderne et mobilier confortable, ce café sert des plats simples comme l'osso-buco.",
+      "address": ["160 Avenue de France", "75013 Paris"],
+      "phone": "01 45 85 00 08",
+      "tags": ["italien"],
+      "schedule": [
+        "tous les jours",
+        "de 06h00 à 01h30"
+      ],
+      "map": "assets/images/eat/corso.jpg",
+      "delivery": false,
+      "distance": "300m"
+    },
+    {
+      "id": 4,
+      "image": "assets/images/eat/nieli.jpg",
+      "name": "Nieli",
+      "type": "Restaurant italien",
+      "description": "Ce restaurant sert de fines spécialités italiennes et des desserts maison dans un cadre sobre aux murs pastel.",
+      "address": ["17/19 Rue Louise Weiss", "75013 Paris"],
+      "phone": "01 45 85 00 08",
+      "tags": ["italien", "halal"],
+      "schedule": [
+        "tous les jours",
+        "de 06h00 à 01h30"
+      ],
+      "map": "assets/images/eat/nieli.jpg",
+      "delivery": true,
+      "distance": "500m"
+    },
+    {
+      "id": 5,
+      "image": "assets/images/eat/nix-nox.jpg",
+      "name": "Le Nix Nox",
+      "type": "Restaurant français",
+      "description": "Élégant bateau centenaire amarré ayant été rénové pour fêtes, réunions d'affaires et événements spéciaux.",
+      "address": ["6 Port de la Gare", "75013 Paris"],
+      "phone": "01 44 24 09 00",
+      "tags": ["végétarien"],
+      "schedule": [
+        "tous les jours",
+        "de 11h00 à 22h00"
+      ],
+      "map": "assets/images/people/nix-nox.jpg",
+      "delivery": true,
+      "distance": "500m"
+    },
+    {
+      "id": 6,
+      "image": "assets/images/eat/nouvelle-gare.jpg",
+      "name": "Nouvelle Gare",
+      "type": "Restaurant",
+      "description": "Menu bistrotier, dont tartines artisanales, burgers et salades, dans un cadre convivial et chaleureux.",
+      "address": ["49 Boulevard Vincent Auriol", "75013 Paris"],
+      "phone": "01 45 85 00 08",
+      "tags": [],
+      "schedule": [
+        "tous les jours",
+        "de 06h00 à 01h30"
+      ],
+      "map": "assets/images/eat/nouvelle-gare.jpg",
+      "delivery": false,
+      "distance": "290m"
+    }
+  ]
+}
