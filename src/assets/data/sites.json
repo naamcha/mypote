@@ -165,11 +165,11 @@
       "zipCode": "75 013",
       "city": "Paris",
       "image": "assets/images/paris001.jpg",
-      "homeWifiBSSID": "64:7c:34:70:0a:ce",
+      "homeWifiBSSID": "b0:fc:36:c4:76:a1",
       "quarters": [{
           "id": 750,
           "name": "Accueil Braudel",
-          "wifiBSSID": "34:27:92:51:5c:43",
+          "wifiBSSID": "b0:fc:36:c4:76:a1",
           "planLink": "",
           "map": [{
               "id": 7500,
@@ -202,7 +202,7 @@
         {
           "id": 751,
           "name": "Niveau 8 Braudel",
-          "wifiBSSID": "b0:fc:36:c4:76:a1",
+          "wifiBSSID": "e2:b6:58:a7:00:6f",
           "planLink": "",
           "map": [{
               "id": 7511,
@@ -220,7 +220,7 @@
             {
               "id": 7512,
               "name": "Mediascape niv 8 Braudel",
-              "wifiBSSID": "e2:b6:58:a7:00:6f",
+              "wifiBSSID": "",
               "nfcTagId": "044eecd2ba5d81",
               "navRouting": "journey/tag4",
               "stageNumber": 1,
@@ -275,7 +275,7 @@
       ],
       "rooms": [{
           "id": 2,
-          "microlocation": {"siteId":75,"quarterId":751,"zoneId":7511},
+          "microlocation": {"siteId":75,"quarterId":751,"zoneId":7512},
           "name": "Salle Mediascape 8.12",
           "floor": "8",
           "capacity": "12",

@@ -1,4 +1,4 @@
-import { Site, Zone, Quarter } from './site.model';
+import { Site, Zone,  Quarter } from './site.model';
 import { Deserializable } from './deserializable.model';
 
 export class MicroLocalisation {
@@ -15,13 +15,20 @@ export class MicroLocalisation {
     this.distanceToSite = distanceToSite;
   }
 
-  toMicrolight() {
-    console.log('',this.site,this.quarter,this.zone);
-    return new MicrolocLight().deserialize({ 
-      "siteId": (this.site!==undefined)?this.site.id:undefined, 
-      "quarterId": (this.quarter!==undefined)?this.quarter.id:undefined, 
-      "zoneId": (this.zone!==undefined)? this.zone.id:undefined
-    })
+  toMicrolight() :MicrolocLight{
+    console.log('toMicrolight 0', this);
+    let siteId = (this.site !== undefined) ? this.site.id : null;
+    let quarterId = (this.quarter !== undefined) ? this.quarter.id : null;
+    let zoneId = (this.zone !== undefined) ? this.zone.id : null;
+    const micrlight = new MicrolocLight().deserialize({siteId, quarterId, zoneId});
+    console.log('toMicrolight 1', micrlight);
+    return micrlight;
+  }
+
+  equalsTo(microloc: MicroLocalisation): boolean {
+    return (this.site.id == microloc.site.id)
+      && (this.quarter.id == microloc.quarter.id)
+      && (this.zone.id == microloc.zone.id)
   }
 }
 export class MicrolocLight implements Deserializable {
@@ -32,5 +39,13 @@ export class MicrolocLight implements Deserializable {
   deserialize(input: any): this {
     Object.assign(this, input);
     return this;
+  }
+  equalsTo(micrlight: MicrolocLight):  boolean {
+    return (this.siteId == micrlight.siteId) && (this.quarterId == micrlight.quarterId) && (this.zoneId == micrlight.zoneId);
+  }
+  toMicroloc(site:Site):MicroLocalisation{
+      let quarter = (this.quarterId && site) ? site.quarters.getQuarter(this.quarterId) : undefined;
+      let zone =  (this.zoneId && quarter) ? quarter.getZone(this.zoneId) : undefined;
+      return new MicroLocalisation(site, quarter, zone, undefined);
   }
 }

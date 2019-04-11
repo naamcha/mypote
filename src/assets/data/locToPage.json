@@ -1,11 +1,11 @@
 {
     "mapping": [{
-        "route": "sites/1",
+        "route": "sites/75",
         "siteId": 75,
         "quarterId": 750,
         "zoneId": null
     },{
-        "route": "sites/1",
+        "route": "sites/75",
         "siteId": 75,
         "quarterId": 750,
         "zoneId": 7500

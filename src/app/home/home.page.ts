@@ -18,7 +18,7 @@ export class HomePage implements OnInit {
   currentSite: Site;
   distanceToSite: number;
   proposedOnce: any;
-  journey: MicroLocalisation[];
+  journey: MicrolocLight[];
   site: any;
 
   siteNews = [];
@@ -40,10 +40,8 @@ export class HomePage implements OnInit {
       this.currentSite = this.sitesService.getSite(currentSiteId);
     });
     this.journeyService.navHistory.subscribe(navhist => {
-      console.log('navhistory changed -----',navhist)
-      this.journey = this.journeyService.journeyFromMicrolightToMicroloc(navhist, this.currentSite);
+      this.journey = navhist;
     });
-
     this.siteNews = this.newsService.getSiteNews();
     this.companyNews = this.newsService.getCompanyNews();
   }

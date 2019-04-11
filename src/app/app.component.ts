@@ -40,8 +40,10 @@ export class AppComponent {
   }
   ngOnInit(){
     this.sitesService.currentSiteId.subscribe(siteId => {
-      console.log(siteId)
+      console.log('ngOnInit',siteId)
       this.activeSite = this.sitesService.getSite(siteId);
+      console.log('ngOnInit',this.activeSite)
+
     });
 
   }
@@ -50,13 +52,18 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       
+      console.log("wtart getSites")
       let sites = this.sitesService.getSites();
+      console.log("end getSites")
       this.microLocalisationService.watchAll(sites);
+      console.log("end watchAll")
       this.microLocalisationService.microlocation.subscribe(changeFired => {
         console.log('changeFired ==> ',changeFired)   
         if(changeFired !== undefined){
-          this.journeyService.pushCheckPoint(changeFired.toMicrolight());
-          let segment = this.journeyService.walkNav(changeFired.toMicrolight());
+          console.log('check microloc to microlight conv', changeFired.toMicrolight())
+          let checkpoint = changeFired.toMicrolight();
+          this.journeyService.pushCheckPoint(checkpoint);
+          let segment = this.journeyService.walkNav(checkpoint);
           if(segment){
             let routerPath = segment.segmentRouterPath;
             console.log('segment',routerPath);

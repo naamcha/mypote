@@ -105,6 +105,11 @@ export class Quarter implements Deserializable  {
     // console.log('nfc',this,tagId)
     return this.map.find(zone => tagId == zone.nfcTagId);
   }
+  getZone(id):Zone{
+    // console.log('nfc',this,id)
+    return this.map.find(zone => id == zone.id);
+  }
+
 }
 
 export class Zone implements Deserializable  {

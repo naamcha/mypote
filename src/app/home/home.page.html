@@ -30,7 +30,8 @@
       <ion-list>
         <ion-item-sliding *ngFor="let checkpoint of journey">
           <ion-item>
-            <ion-label>{{checkpoint.quarter.name}}<br><small *ngIf="checkpoint.zone">{{checkpoint.zone.name}}</small></ion-label>
+            <ion-label>{{checkpoint.quarterId}}<br><small *ngIf="checkpoint.zone">{{checkpoint.zone.name}}</small></ion-label>
+            <!-- <ion-label>{{checkpoint.quarter.name}}<br><small *ngIf="checkpoint.zone">{{checkpoint.zone.name}}</small></ion-label> -->
           </ion-item>
           <ion-item-options side="end">
             <ion-item-option (click)="unread(item)">Unread</ion-item-option>

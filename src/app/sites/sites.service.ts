@@ -35,8 +35,9 @@ export class SitesService {
     return new Sites().deserialize(sitesData.sites);
   }
 
-  public getSite(id): Site {
-    return this.getSites().sites.find(site => site.id === id);
+  public getSite(id:number): Site {
+    console.log(id)
+    return this.getSites().sites.find(site => {console.log(site.id,id);return site.id === id});
   }
 
   public setSite(siteId): void {

@@ -23,6 +23,7 @@ export class JourneyService {
   startNav(endCheckPoint: MicrolocLight): Segment {
     // get last checkpoint in navHistory
     let navhist = this.navHistory.getValue()
+    console.log("startNav",navhist)
     let startCheckPoint = navhist[navhist.length-1];
     let segments = this.computeNavigation(startCheckPoint, endCheckPoint);
     this.currentNavSegments = segments;
@@ -74,15 +75,5 @@ export class JourneyService {
       tmpNavHist.push(microlight);
       this.navHistory.next(tmpNavHist);
     }
-  }
-  journeyFromMicrolightToMicroloc(navhist:MicrolocLight[],site: Site): MicroLocalisation[] {
-    let microloc = (navhist)?navhist.map((navStep: MicrolocLight) => {
-      navStep['site'] = site;
-      navStep['quarter'] = (navStep.quarterId && navStep['site']) ? navStep['site'].quarters.getQuarter(navStep.quarterId) : undefined;
-      navStep['zone'] = (navStep.zoneId && navStep['quarter']) ? navStep['quarter'].map.getZone(navStep.zoneId) : undefined;
-      return new MicroLocalisation(navStep['site'], navStep['quarter'], navStep['zone'], undefined);
-    }):undefined;
-    console.log('journeyFromMicrolightToMicroloc', microloc, this.navHistory);
-    return microloc;
   }
 }

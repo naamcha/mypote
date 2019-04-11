@@ -40,7 +40,7 @@ export class MicroLocalisationService {
     let wifiObs = interval(1000).subscribe(data => {
       this.scanWifi(sites).subscribe(
         microloc => {
-          //console.log("watchAll wifiObs", microloc);
+//           console.log("watchAll wifiObs", microloc);
           this.priorityManager('wifiObs', microloc);
         }
       )
@@ -51,9 +51,9 @@ export class MicroLocalisationService {
     if (microlocation) {
       switch (eventType) {
         case 'distObs':
+           console.log('distObs')
           if (this.microlocation == undefined) {
             this.microlocation.next(microlocation);
-            console.log('send microloc event 20')
             //unsuscribe
           }
           break;

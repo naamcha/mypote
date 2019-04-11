@@ -30,6 +30,7 @@ export class SiteDetailPage implements OnInit, OnDestroy {
         return;
       }
       this.site = this.sitesService.getSite(+paramMap.get('siteId'));
+      console.log('SiteDetailPage',+paramMap.get('siteId'),this.site);
       this.watchDistanceToSite();
     });
   }
