@@ -1,5 +1,6 @@
 {
-  "sites": [{
+  "sites": [
+    {
       "id": "13",
       "name": "Aix en Provence",
       "position": {
@@ -12,12 +13,14 @@
       "zipCode": "13 592",
       "city": "Aix-en-Provence",
       "image": "assets/images/aix001.jpg",
-      "quarters": [{
+      "quarters": [
+        {
           "id": 130,
           "name": "Accueil Aix",
           "wifiBSSID": "0000",
           "planLink": "",
-          "map": [{
+          "map": [
+            {
               "id": 0,
               "name": "Accueil site Aix",
               "nfcTagId": "",
@@ -50,7 +53,8 @@
           "name": "Niveau 2 Aix",
           "wifiBSSID": "111",
           "planLink": "",
-          "map": [{
+          "map": [
+            {
               "id": 2,
               "name": "Ascensseur niv 2 Agora Aix",
               "wifiBSSID": "e2:b6:58:a7:00:6f",
@@ -81,16 +85,17 @@
       ],
       "parkings": [],
       "rooms": [],
-      "taxi": [{
-        "name": "Uber",
-        "phone": "06 98 85 28 14",
-        "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
-        "appli": true,
-        "url1": "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
-        "url2": "&dropoff[longitude]=",
-        "url3": "&dropoff[nickname]=ITCE/",
-        "img": "../../assets/images/logo-uber.jpg"
-      },
+      "taxi": [
+        {
+          "name": "Uber",
+          "phone": "06 98 85 28 14",
+          "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
+          "appli": true,
+          "url1": "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
+          "url2": "&dropoff[longitude]=",
+          "url3": "&dropoff[nickname]=ITCE/",
+          "img": "../../assets/images/logo-uber.jpg"
+        },
         {
           "name": "G7",
           "phone": "36 07",
@@ -121,24 +126,27 @@
       "image": "assets/images/rennes001.png",
       "homeWifiBSSID": "64:7c:34:70:0a:cd",
       "quarters": [],
-      "parkings": [{
-        "name": "Parking Indigo",
-        "image": "assets/images/parking-r1.png",
-        "address": "Rue des Lilas",
-        "zipCode": "35 136",
-        "city": "Saint-Jacques-de-la-Lande"
-      }],
+      "parkings": [
+        {
+          "name": "Parking Indigo",
+          "image": "assets/images/parking-r1.png",
+          "address": "Rue des Lilas",
+          "zipCode": "35 136",
+          "city": "Saint-Jacques-de-la-Lande"
+        }
+      ],
       "rooms": [],
-      "taxi": [{
-        "name": "Uber",
-        "phone": "06 98 85 28 14",
-        "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
-        "appli": true,
-        "url1": "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
-        "url2": "&dropoff[longitude]=",
-        "url3": "&dropoff[nickname]=ITCE/",
-        "img": "../../assets/images/logo-uber.jpg"
-      },
+      "taxi": [
+        {
+          "name": "Uber",
+          "phone": "06 98 85 28 14",
+          "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
+          "appli": true,
+          "url1": "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
+          "url2": "&dropoff[longitude]=",
+          "url3": "&dropoff[nickname]=ITCE/",
+          "img": "../../assets/images/logo-uber.jpg"
+        },
         {
           "name": "G7",
           "phone": "36 07",
@@ -160,18 +168,20 @@
       },
       "phone": "08 2003 2008",
       "address": "15 rue Fernand Braudel",
-      "formatedAddress":"15%20rue%20Fernand%20Braudel",
+      "formatedAddress": "15%20rue%20Fernand%20Braudel",
       "addressDetail": [],
       "zipCode": "75 013",
       "city": "Paris",
       "image": "assets/images/paris001.jpg",
       "homeWifiBSSID": "64:7c:34:70:0a:ce",
-      "quarters": [{
+      "quarters": [
+        {
           "id": 750,
           "name": "Accueil Braudel",
           "wifiBSSID": "34:27:92:51:5c:43",
           "planLink": "",
-          "map": [{
+          "map": [
+            {
               "id": 0,
               "name": "Accueil site Braudel",
               "nfcTagId": "0446ebd2ba5d81",
@@ -204,7 +214,8 @@
           "name": "Niveau 8 Braudel",
           "wifiBSSID": "b0:fc:36:c4:76:a1",
           "planLink": "",
-          "map": [{
+          "map": [
+            {
               "id": 1,
               "name": "Ascensseur niv 8 Braudel",
               "wifiBSSID": "b0:fc:36:c4:76:a1",
@@ -233,32 +244,37 @@
           ]
         }
       ],
-      "people": [{
-        "lastName": "Panel",
-        "firstName": "Sylvia",
-        "localization": {
-          "building": "braudel",
-          "floor": "8",
-          "zone": "1"
+      "people": [
+        {
+          "lastName": "Panel",
+          "firstName": "Sylvia",
+          "localization": {
+            "building": "braudel",
+            "floor": "8",
+            "zone": "1"
+          }
+        },
+        {
+          "lastName": "Penel",
+          "firstName": "Sylvie",
+          "localization": {
+            "building": "braudel",
+            "floor": "8",
+            "zone": "1"
+          }
+        },
+        {
+          "lastName": "Senel",
+          "firstName": "Sophie",
+          "localization": {
+            "building": "braudel",
+            "floor": "8",
+            "zone": "1"
+          }
         }
-      }, {
-        "lastName": "Penel",
-        "firstName": "Sylvie",
-        "localization": {
-          "building": "braudel",
-          "floor": "8",
-          "zone": "1"
-        }
-      }, {
-        "lastName": "Senel",
-        "firstName": "Sophie",
-        "localization": {
-          "building": "braudel",
-          "floor": "8",
-          "zone": "1"
-        }
-      }],
-      "parkings": [{
+      ],
+      "parkings": [
+        {
           "name": "Parking Indigo",
           "image": "assets/images/parking1.png",
           "address": "21 Rue Abel Gance",
@@ -419,7 +435,8 @@
           }
         }
       ],
-      "taxi": [{
+      "taxi": [
+        {
           "name": "Uber",
           "phone": "06 98 85 28 14",
           "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
@@ -438,6 +455,22 @@
           "url2": "&dropoff[longitude]=",
           "url3": "&dropoff[nickname]=ITCE/",
           "img": "../../assets/images/logo-G7.png"
+        }
+      ],
+      "lieu": [
+        {
+          "name": "Roissy Charles DeGaules",
+          "position": {
+            "lat": 49.0097,
+            "lon": 2.5479
+          }
+        },
+        {
+          "name": "Gare de Lyon",
+          "position": {
+            "lat": 48.8443,
+            "lon": 2.3744
+          }
         }
       ]
     }

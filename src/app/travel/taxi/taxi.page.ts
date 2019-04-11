@@ -43,12 +43,12 @@ export class TaxiPage implements OnInit {
     this.goTo(latitude, longitude, address);
   }
   // fonction ouvrant l'appli uber pour rejoindre un lieu 
-  goToSomewhere(event) {
-
-    const latitude = ;
-    const longitude = ;
-    const address = ;
-    this.goTo(latitude, longitude, address);
-  }
+  // goToSomewhere(event) {
+  //   const id = this.route.snapshot.params['id'];
+  //   // const latitude = this.siteService.getSite(id).lieux;
+  //   // const longitude = ;
+  //   // const address = ;
+  //   this.goTo(latitude, longitude, address);
+  // }
 
 }
