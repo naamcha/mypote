@@ -14,6 +14,11 @@ import { Router } from '@angular/router';
 })
 export class ConfPage implements OnInit {
   networks: HotspotNetwork[];
+  wifi: boolean;
+  nfc: boolean;
+  geolocalisation: boolean;
+  scanwifi: boolean;
+
   constructor(
     private hotspot: Hotspot,
     private router: Router
@@ -22,6 +27,10 @@ export class ConfPage implements OnInit {
   }
 
   ngOnInit() {
+    this.wifi = true;
+    this.nfc = true;
+    this.geolocalisation = true;
+    this.scanwifi = true;
     interval(4000).subscribe(data => {
       this.scanWifi();
     });
