@@ -6,6 +6,7 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 const STORAGE_KEY = 'my_images';
 
@@ -19,7 +20,7 @@ export class DysfunctionPage implements OnInit {
   constructor(private camera: Camera, private file: File, private http: HttpClient, private webview: WebView,
     private actionSheetController: ActionSheetController, private toastController: ToastController,
     private storage: Storage, private plt: Platform, private loadingController: LoadingController,
-    private ref: ChangeDetectorRef, private filePath: FilePath) { }
+    private ref: ChangeDetectorRef, private filePath: FilePath, private router: Router) { }
 
   public images: any[];
   ngOnInit() {
@@ -67,20 +68,6 @@ export class DysfunctionPage implements OnInit {
   }
 
   takePicture(sourceType: PictureSourceType) {
-    // const options: CameraOptions = {
-    //   quality: 100,
-    //   destinationType: this.camera.DestinationType.FILE_URI,
-    //   encodingType: this.camera.EncodingType.JPEG,
-    //   mediaType: this.camera.MediaType.PICTURE
-    // }
-
-    // this.camera.getPicture(options).then((imageData) => {
-    //  // imageData is either a base64 encoded string or a file URI
-    //  // If it's base64 (DATA_URL):
-    //  let base64Image = 'data:image/jpeg;base64,' + imageData;
-    // }, (err) => {
-    //  // Handle error
-    // });
     var options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
@@ -109,7 +96,6 @@ export class DysfunctionPage implements OnInit {
       newFileName = n + ".jpg";
     return newFileName;
   }
-
   copyFileToLocalDir(namePath, currentName, newFileName) {
     console.log(namePath, currentName, this.file.dataDirectory, newFileName);
     this.file.copyFile(namePath, currentName, this.file.dataDirectory, newFileName).then(success => {
@@ -119,7 +105,6 @@ export class DysfunctionPage implements OnInit {
       console.log(error);
     });
   }
-
   updateStoredImages(name) {
     this.storage.get(STORAGE_KEY).then(images => {
       let arr = JSON.parse(images);
@@ -146,18 +131,18 @@ export class DysfunctionPage implements OnInit {
   }
   deleteImage(imgEntry, position) {
     this.images.splice(position, 1);
-
     this.storage.get(STORAGE_KEY).then(images => {
       let arr = JSON.parse(images);
       let filtered = arr.filter(name => name != imgEntry.name);
       this.storage.set(STORAGE_KEY, JSON.stringify(filtered));
-
       var correctPath = imgEntry.filePath.substr(0, imgEntry.filePath.lastIndexOf('/') + 1);
-
       this.file.removeFile(correctPath, imgEntry.name).then(res => {
         this.presentToast('File removed.');
       });
     });
+  }
+  close() {
+    this.router.initialNavigation();
   }
 }
 

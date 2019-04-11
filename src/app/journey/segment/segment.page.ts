@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./segment.page.scss'],
 })
 export class SegmentPage implements OnInit {
+  segmentId: string;
 
   constructor(
     private navCtrl: NavController,
@@ -21,6 +22,7 @@ export class SegmentPage implements OnInit {
         return;
       } else {
         console.log(`segmentId`, paramMap.get('segmentId'));
+        this.segmentId = paramMap.get('segmentId');
       }
     });
   }

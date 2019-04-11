@@ -8,11 +8,10 @@ import { Coordinate } from 'tsgeo/Coordinate';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Platform } from '@ionic/angular';
-import { IonicStorageModule } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
-})
+})  
 export class SitesService {
   public currentSiteId = new BehaviorSubject<number>(75);
 
@@ -24,20 +23,13 @@ export class SitesService {
     this.geolocation.getCurrentPosition().then(
       (resp) => {
         let coordinate1 = new Coordinate(resp.coords.latitude, resp.coords.longitude);
-        // let coordinate1 = new Coordinate(43.325608, 5.445956);
         let sites: Sites = this.getSites();
-        let currentSiteId = sites.getNearestSite(coordinate1).id;
       }).catch((error) => {
         console.log('Error getting location', error);
       });
   }
 
   public getSites(): Sites {
-    this.nativeStorage.setItem('sites', new Sites().deserialize(sitesData.sites))
-      .then(
-        () => console.log('Stored item!'),
-        error => console.error('Error storing item', error)
-      );
     return new Sites().deserialize(sitesData.sites);
   }
 

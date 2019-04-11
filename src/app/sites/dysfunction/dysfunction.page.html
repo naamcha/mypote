@@ -14,32 +14,26 @@
   <ion-item>
     <ion-textarea rows="6" cols="20" placeholder="Décrivez le dysfonctionnement ici..."></ion-textarea>
   </ion-item>
-  <ion-button expand="block">
+  <ion-button expand="block" (click)="close()">
     <ion-icon name="send" item-left></ion-icon>
     Signaler le dysfonctionnement
   </ion-button>
-
-    <ion-item *ngFor="let img of images; index as pos" color="none" id="dysfonctionnements">
-      <ion-thumbnail item-left>
-        <img [src]="img.path">
-      </ion-thumbnail>
-      <button ion-button (click)="deleteImage(img, index+1)">
-        <ion-ripple-effect></ion-ripple-effect>
-        <ion-icon item-right name="trash"></ion-icon>
-      </button>
-    </ion-item>
 </ion-content>
 <ion-content>
-  <ion-item style="flex-wrap: wrap">
-      <ion-thumbnail item-left *ngFor="let img of images; index as pos" color="none" id="dysfonctionnements">
-          <img [src]="img.path">
-        </ion-thumbnail></ion-item>
+  <ion-item style="flex-wrap: wrap" *ngFor="let img of images; index as pos" >
+    <ion-thumbnail item-left size="" color="none" id="dysfonctionnements">
+      <img [src]="img.path">
+    </ion-thumbnail>
+    <ion-button shape="round" (click)="deleteImage(img, index+1)">
+      <ion-icon item-right name="trash"></ion-icon>
+    </ion-button>
+  </ion-item>
 </ion-content>
 
 
-  <!-- fab placed to the top end -->
-  <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="selectImage()" color="light">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+<!-- fab placed to the top end -->
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="selectImage()" color="light">
+    <ion-icon name="camera"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

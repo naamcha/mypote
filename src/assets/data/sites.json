@@ -12,10 +12,11 @@
       "zipCode": "13 592",
       "city": "Aix-en-Provence",
       "image": "assets/images/aix001.jpg",
-      "quarters": [{
+      "quarters": [
+        {
           "id": 130,
           "name": "Accueil Aix",
-          "wifiBSSID": "0000",
+          "wifiBSSID": "34:fc:b9:95:61:05",
           "planLink": "",
           "map": [{
               "id": 1300,
@@ -29,30 +30,37 @@
               "bleMajor": "",
               "relatedPage": "ParisNiv0Accueil",
               "linkedZonesId": []
-            },
-            {
-              "id": 1301,
-              "name": "Ascensseur niv 0 Aix Agora",
-              "wifiBSSID": "60:1d:91:cb:49:c7",
-              "nfcTagId": "",
-              "navRouting": "journey/tag2",
-              "stageNumber": 0,
-              "planLink": "",
-              "bleUuid": "",
-              "bleMinor": "",
-              "bleMajor": "",
-              "linkedZonesId": []
-            }
-          ]
-        },
+          }]
+        }
+        ,
         {
           "id": 131,
+          "name": "Aix ascensseur 0",
+          "wifiBSSID": "34:fc:b9:95:59:67",
+          "planLink": "",
+          "map": [{
+            "id": 1301,
+            "name": "Ascensseur niv 0 Aix Agora",
+            "wifiBSSID": "60:1d:91:cb:49:c7",
+            "nfcTagId": "",
+            "navRouting": "journey/tag2",
+            "stageNumber": 0,
+            "planLink": "",
+            "bleUuid": "",
+            "bleMinor": "",
+            "bleMajor": "",
+            "linkedZonesId": []
+          }]
+        }
+        ,
+        {
+          "id": 133,
           "name": "Niveau 2 Aix",
-          "wifiBSSID": "",
+          "wifiBSSID": "34:fc:b9:95:59:62",
           "planLink": "",
           "map": [{
               "id": 1311,
-              "name": "niv 2 Port Pin Aix",
+              "name": "niv 2 côté Agora",
               "wifiBSSID": "34:fc:b9:95:59:73",
               "nfcTagId": "",
               "navRouting": "journey/tag3",
@@ -62,8 +70,15 @@
               "bleMinor": "",
               "bleMajor": "",
               "linkedZonesId": []
-            },
-            {
+          }]
+        }
+        ,
+        {
+          "id": 134,
+          "name": "Niveau 2 bureau benj",
+          "wifiBSSID": "34:fc:b9:95:59:62",
+          "planLink": "",
+          "map": [{
               "id": 1312,
               "name": "Ascensseur niv 2 Agora Aix",
               "wifiBSSID": "e2:b6:58:a7:00:6f",
@@ -75,8 +90,7 @@
               "bleMinor": "",
               "bleMajor": "",
               "linkedZonesId": []
-            }
-          ]
+          }]
         }
       ],
       "parkings": [],
