@@ -14,7 +14,6 @@ export class MicroLocalisation {
     this.site = site;
     this.distanceToSite = distanceToSite;
   }
-
   toMicrolight() :MicrolocLight{
     // console.log('toMicrolight 0', this);
     let siteId = (this.site !== undefined) ? this.site.id : null;
@@ -24,7 +23,6 @@ export class MicroLocalisation {
     // console.log('toMicrolight 1', micrlight);
     return micrlight;
   }
-
   equalsTo(microloc: MicroLocalisation): boolean {
     return (this.site.id == microloc.site.id)
       && (this.quarter.id == microloc.quarter.id)
