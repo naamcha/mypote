@@ -23,32 +23,26 @@ export class TaxiPage implements OnInit {
 
   }
 
-  goTo(latitude, longitude, address) {
+  goTo(latitude, longitude, name,address) {
     //on récupère les variables
     const url1 = "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=";
     const url2 = "&dropoff[longitude]=";
-    const url3 = "&dropoff[nickname]=ITCE";
+    const url3 = "&dropoff[nickname]=";
     const url4 = "&dropoff[formatted_address]=";
     //const url1=this.TaxiService.getSite(id).taxi.find(idtaxi === idtaxi).url1;
     // on récupère les différentes urls depuis la page html et on crée des variables
-    const url = url1 + latitude + url2 + longitude + url3 + url4 + address;
+    const url = url1 + latitude + url2 + longitude + url3 + name + url4 + address;
     window.open(url, '_system');
   }
-  //  fonction ouvrant l'appli voulu pour rejoindre un site IT-CE
-  goToSite(event) {
-    const id = this.route.snapshot.params['id'];
-    const latitude = this.siteService.getSite(id).position.lat;
-    const longitude = this.siteService.getSite(id).position.lng;
-    const address = this.siteService.getSite(id).formatedAddress;
-    this.goTo(latitude, longitude, address);
+ 
+  //fonction ouvrant l'appli uber pour rejoindre un lieu 
+  goToSomewhere(event) {
+    
+    const latitude = this.route.snapshot.params['lat'];
+    const longitude = this.route.snapshot.params['lon'];
+    const name = this.route.snapshot.params['name'];
+    const address ='';
+    this.goTo(latitude, longitude,name, address);
   }
-  // fonction ouvrant l'appli uber pour rejoindre un lieu 
-  // goToSomewhere(event) {
-  //   const id = this.route.snapshot.params['id'];
-  //   // const latitude = this.siteService.getSite(id).lieux;
-  //   // const longitude = ;
-  //   // const address = ;
-  //   this.goTo(latitude, longitude, address);
-  // }
 
 }

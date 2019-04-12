@@ -20,7 +20,7 @@ export class Site implements Deserializable {
   public rooms: [];
   public homeWifiBSSID: string;
   public taxi: [] ;
-  public lieux:[];
+  public interest:[];
   
   deserialize(input: any): this {
     Object.assign(this, input);

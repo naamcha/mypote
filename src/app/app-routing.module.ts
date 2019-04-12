@@ -21,9 +21,25 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: './auth/auth.module#AuthPageModule'
   },
-  { path:'taxi/:id',
-  canLoad: [AuthGuard],
-  loadChildren:'./travel/taxi/taxi.module#TaxiPageModule'
+  {
+    path: 'taxi',
+    canLoad: [AuthGuard],
+    
+    children: [
+      {
+        path: ':id',
+        loadChildren: './travel/taxi/taxi.module#TaxiPageModule',
+      },
+      {
+        path: ':id/:lat/:lon/:name',
+        loadChildren:  './travel/taxi/taxi.module#TaxiPageModule',
+      }
+    ]
+  },
+  {
+    path: 'choice/:id',
+    canLoad: [AuthGuard],
+    loadChildren: './travel/choice/choice.module#ChoicePageModule',
   },
   {
     path: 'sites',
@@ -81,7 +97,9 @@ const routes: Routes = [
     path: 'conf',
     canLoad: [AuthGuard],
     loadChildren: './conf/conf.module#ConfPageModule'
-  }
+  },
+  { path: 'choice', loadChildren: './travel/choice/choice.module#ChoicePageModule' }
+
 ];
 
 @NgModule({

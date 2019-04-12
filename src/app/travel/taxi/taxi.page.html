@@ -20,7 +20,7 @@
         <div><ion-button  [href]="'tel:'+taxi.phone"   
           color="tertiary"
           size="small"><ion-icon slot="start" name="call"></ion-icon>Téléphoner</ion-button>
-        <ion-button  (click)='goToSite($event)' *ngIf="taxi.appli as true"
+        <ion-button  (click)='goToSomewhere($event)' *ngIf="taxi.appli as true"
           size="small"><ion-icon slot="start" name="phone-portrait"></ion-icon>Application</ion-button>
         </div>
         

@@ -18,6 +18,10 @@ export class TravelPage implements OnInit {
     this.sitesService.currentSiteId.subscribe(site => {
       this.activeSite = this.sitesService.getSite(site);
     });
+
+
+
+    
   }
 
   onNavigateTo() {
