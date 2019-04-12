@@ -4,7 +4,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/sites"></ion-back-button>
     </ion-buttons>
-    <ion-title>Choix</ion-title>
+    <ion-title>Choisir votre destination</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,7 +12,7 @@
 
   <div class="app-links" padding-horizontal>
     <ion-item detail [routerLink]="['/taxi',activeSite.id,activeSite.position.lat,activeSite.position.lng,activeSite.name]">
-      <ion-avatar slot="start" class="color-8">
+      <ion-avatar slot="start" class="color-1">
         <ion-icon name="car"></ion-icon>
       </ion-avatar>
       <ion-label>Aller vers le site de {{activeSite.name}}</ion-label>
@@ -20,10 +20,10 @@
   </div>
   <div class="app-links" padding-horizontal *ngFor="let interest of interests">
       <ion-item detail [routerLink]="['/taxi',activeSite.id,interest.position.lat,interest.position.lon,interest.name]">
-        <ion-avatar slot="start" class="color-8">
+        <ion-avatar slot="start" [ngClass]="'color-' + interest.id">
           <ion-icon name="car"></ion-icon>
         </ion-avatar>
-        <ion-label>Aller vers le site de {{interest.name}}</ion-label>
+        <ion-label>Aller vers {{interest.name}}</ion-label>
       </ion-item>
     </div>
 </ion-content>

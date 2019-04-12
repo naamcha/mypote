@@ -504,14 +504,16 @@
       ],
       "interest": [
         {
-          "name": "Roissy Charles DeGaules",
+          "id": 4,
+          "name": "Roissy Charles De Gaulle",
           "position": {
             "lat": 49.0097,
             "lon": 2.5479
           }
         },
         {
-          "name": "Gare de Lyon",
+          "id": 7,
+          "name": "la Gare de Lyon",
           "position": {
             "lat": 48.8443,
             "lon": 2.3744
