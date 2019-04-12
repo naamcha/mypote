@@ -40,9 +40,9 @@ export class AppComponent {
   }
   ngOnInit() {
     this.sitesService.currentSiteId.subscribe(siteId => {
-      console.log('ngOnInit', siteId)
+      // console.log('ngOnInit siteId', siteId);
       this.activeSite = this.sitesService.getSite(siteId);
-      console.log('ngOnInit', this.activeSite)
+      // console.log('ngOnInit this.activeSite', this.activeSite)
 
     });
 

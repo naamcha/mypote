@@ -118,7 +118,7 @@
       ]
     },
     {
-      "id": "35",
+      "id": 35,
       "name": "Rennes",
       "position": {
         "lat": 48.093130,
@@ -364,25 +364,6 @@
           }
         },
         {
-          "id": "5",
-          "microlocation": {"siteId":75,"quarterId":751,"zoneId":7515},
-          "name": "Salle 8.16",
-          "floor": "8",
-          "capacity": "16",
-          "image": "assets/images/rooms/rooms6.jpg",
-          "bookable": true,
-          "isBooked": false,
-          "furniture": {
-            "pmr": true,
-            "power": true,
-            "wifi": true,
-            "ethernet": true,
-            "phone": true,
-            "video": true,
-            "projector": true
-          }
-        },
-        {
           "id": "6",
           "microlocation": {"siteId":75,"quarterId":751,"zoneId":7516},
           "name": "Salle 4.6",
@@ -408,25 +389,6 @@
           "floor": "4",
           "capacity": "10",
           "image": "assets/images/rooms/rooms4.jpg",
-          "bookable": true,
-          "isBooked": false,
-          "furniture": {
-            "pmr": true,
-            "power": true,
-            "wifi": true,
-            "ethernet": true,
-            "phone": true,
-            "video": true,
-            "projector": true
-          }
-        },
-        {
-          "id": "8",
-          "microlocation": {"siteId":75,"quarterId":751,"zoneId":7518},
-          "name": "Salle 4.12",
-          "floor": "4",
-          "capacity": "12",
-          "image": "assets/images/rooms/rooms7.jpg",
           "bookable": true,
           "isBooked": false,
           "furniture": {

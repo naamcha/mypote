@@ -20,15 +20,14 @@ export class PersonDetailPage implements OnInit {
   ngOnInit() {
     this.people = peopleData.people;
 
-
     this.route.paramMap.subscribe(paramMap => {
       if (!paramMap.has('personId')) {
         this.navCtrl.navigateBack('/tabs/tab-bar/find/person');
         return;
       } else {
-        console.log(`personId`, paramMap.get('personId'));
+        // console.log(`personId`, paramMap.get('personId'));
         this.person = this.people.find(people => people['id'].toString() === paramMap.get('personId'));
-        console.log(`person name`, this.person.name);
+        // console.log(`person name`, this.person.name);
       }
     });
 
