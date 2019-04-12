@@ -30,7 +30,6 @@ export class HomePage implements OnInit {
 
   constructor(
     private sitesService: SitesService,
-    private geolocation: Geolocation,
     private alertController: AlertController,
     private newsService: NewsService,
     private microloc: MicroLocalisationService,
@@ -61,6 +60,7 @@ export class HomePage implements OnInit {
           text: 'Annuler',
           role: 'cancel',
           handler: () => {
+            this.sitesService.currentSiteId.next(75);
             this.microloc.microlocation.unsubscribe();
           }
         },

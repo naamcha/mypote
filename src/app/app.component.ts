@@ -52,14 +52,14 @@ export class AppComponent {
 
       let sites = this.sitesService.getSites();
       this.microLocalisationService.watchAll(sites);
-      this.microLocalisationService.microlocation.subscribe(changeFired => {
-        console.log('changeFired ==> ', changeFired);
-        if (changeFired !== undefined) {
-          let checkpoint = changeFired.toMicrolight();
+      this.microLocalisationService.microlocation.subscribe(newMicroloc => {
+        console.log('newMicroloc ==> ', newMicroloc);
+        if (newMicroloc !== undefined && newMicroloc.site.id !== this.sitesService.currentSiteId.getValue()) {
+          let checkpoint = newMicroloc.toMicrolight();
           this.journeyService.pushCheckPoint(checkpoint);
           let segment = this.journeyService.walkNav(checkpoint);
           if(!segment){
-            let routerPath = this.microlocToPage.getRouteFromMicroLocalisation(changeFired)
+            let routerPath = this.microlocToPage.getRouteFromMicroLocalisation(newMicroloc)
             console.log('point', routerPath);
             this.router.navigateByUrl(routerPath);
           }

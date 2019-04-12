@@ -17,17 +17,7 @@ export class SitesService {
 
   constructor(
     private geolocation: Geolocation,
-    private platform: Platform,
-    private nativeStorage: NativeStorage
-  ) {
-    this.geolocation.getCurrentPosition().then(
-      (resp) => {
-        let coordinate1 = new Coordinate(resp.coords.latitude, resp.coords.longitude);
-        let sites: Sites = this.getSites();
-      }).catch((error) => {
-        console.log('Error getting location', error);
-      });
-  }
+    private platform: Platform  ) {}
 
   public getSites(): Sites {
     return new Sites().deserialize(sitesData.sites);
