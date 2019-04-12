@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SegmentPage } from './segment.page';
+import { SegTwoPage } from './seg-two.page';
 
-describe('SegmentPage', () => {
-  let component: SegmentPage;
-  let fixture: ComponentFixture<SegmentPage>;
+describe('SegTwoPage', () => {
+  let component: SegTwoPage;
+  let fixture: ComponentFixture<SegTwoPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SegmentPage ],
+      declarations: [ SegTwoPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SegmentPage);
+    fixture = TestBed.createComponent(SegTwoPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

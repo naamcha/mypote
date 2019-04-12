@@ -46,25 +46,25 @@
 			"id": 751,
 			"startPoint": {"siteId": 75,"quarterId": 750,"zoneId": null},
 			"endPoint": {"siteId": 75,"quarterId": 750,"zoneId": 7502},
-			"segmentRouterPath": "journey/segment/1"
+			"segmentRouterPath": "journey/seg-one"
 		}, {
 			"id": 752,
 			"startPoint": {"siteId": 75,"quarterId": 751,"zoneId": 7511},
 			"endPoint": {"siteId": 75,"quarterId": 751,"zoneId": 7512
 			},
-			"segmentRouterPath": "journey/segment/2"
+			"segmentRouterPath": "journey/seg-two"
 		}, {
 			"id": 131,
 			"startPoint": {"siteId": 13,"quarterId": 131,"zoneId": 1311},
 			"endPoint": {"siteId": 13,"quarterId": 131,"zoneId": 1312
 			},
-			"segmentRouterPath": "journey/segment/1"
+			"segmentRouterPath": "journey/seg-one"
 		}, {
 			"id": 132,
 			"startPoint": {"siteId": 13,"quarterId": 131,"zoneId": 1311},
 			"endPoint": {"siteId": 13,"quarterId": 131,"zoneId": 1312
 			},
-			"segmentRouterPath": "journey/segment/2"
+			"segmentRouterPath": "journey/seg-two"
 		}]
 	}
 }
