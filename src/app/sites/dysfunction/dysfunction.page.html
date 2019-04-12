@@ -6,22 +6,26 @@
     <ion-title>Signaler un problème</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content padding id="">
+
+<ion-content padding>
   <!-- Textarea with custom number of rows and cols -->
   <ion-item>
+    <ion-label position="floating">Je suis là</ion-label>
+    <ion-textarea rows="6" cols="20" lines="none" placeholder="Dites nous où vous vous trouvez..."></ion-textarea>
+  </ion-item>
+  <ion-item margin-top>
     <ion-label>Description du dysfonctionnement</ion-label>
   </ion-item>
   <ion-item>
-    <ion-textarea rows="6" cols="20" placeholder="Décrivez le dysfonctionnement ici..."></ion-textarea>
+    <ion-textarea rows="6" cols="20" lines="none" placeholder="Décrivez le dysfonctionnement ici..."></ion-textarea>
   </ion-item>
-  <ion-button expand="block" (click)="close()">
-    <ion-icon name="send" item-left></ion-icon>
+  <ion-button shape="round" expand="block" (click)="close()">
+    <ion-icon name="send" slot="start"></ion-icon>
     Signaler le dysfonctionnement
   </ion-button>
-</ion-content>
-<ion-content>
-  <ion-item style="flex-wrap: wrap" *ngFor="let img of images; index as pos" >
-    <ion-thumbnail item-left size="" color="none" id="dysfonctionnements">
+
+  <ion-item style="flex-wrap: wrap" *ngFor="let img of images; index as pos" lines="none">
+    <ion-thumbnail item-left color="none" id="dysfonctionnements">
       <img [src]="img.path">
     </ion-thumbnail>
     <ion-button shape="round" (click)="deleteImage(img, index+1)">
@@ -32,7 +36,7 @@
 
 
 <!-- fab placed to the top end -->
-<ion-fab vertical="top" horizontal="end" slot="fixed">
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button (click)="selectImage()" color="light">
     <ion-icon name="camera"></ion-icon>
   </ion-fab-button>

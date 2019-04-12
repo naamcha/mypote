@@ -22,9 +22,24 @@ const routes: Routes = [
     loadChildren: './auth/auth.module#AuthPageModule'
   },
   {
-    path: 'taxi/:id',
+    path: 'taxi',
     canLoad: [AuthGuard],
-    loadChildren: './travel/taxi/taxi.module#TaxiPageModule'
+    
+    children: [
+      {
+        path: ':id',
+        loadChildren: './travel/taxi/taxi.module#TaxiPageModule',
+      },
+      {
+        path: ':id/:lat/:lon/:name',
+        loadChildren:  './travel/taxi/taxi.module#TaxiPageModule',
+      }
+    ]
+  },
+  {
+    path: 'choice/:id',
+    canLoad: [AuthGuard],
+    loadChildren: './travel/choice/choice.module#ChoicePageModule',
   },
   {
     path: 'sites',
@@ -77,8 +92,12 @@ const routes: Routes = [
         loadChildren: './journey/journey-history/journey-history.module#JourneyHistoryPageModule'
       },
       {
-        path: 'segment/:segmentId',
-        loadChildren: './journey/segment/segment.module#SegmentPageModule'
+        path: 'seg-one',
+        loadChildren: './journey/seg-one/seg-one.module#SegOnePageModule'
+      },
+      {
+        path: 'seg-two',
+        loadChildren: './journey/seg-two/seg-two.module#SegTwoPageModule'
       },
       {
         path: 'checkpoint/:checkpointId',
@@ -90,7 +109,8 @@ const routes: Routes = [
     path: 'conf',
     canLoad: [AuthGuard],
     loadChildren: './conf/conf.module#ConfPageModule'
-  }
+  },
+  { path: 'choice', loadChildren: './travel/choice/choice.module#ChoicePageModule' }
 
 ];
 
