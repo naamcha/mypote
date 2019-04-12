@@ -51,7 +51,7 @@ export class MicroLocalisationService {
     if (microlocation) {
       switch (eventType) {
         case 'distObs':
-           console.log('distObs')
+          console.log('distObs')
           if (this.microlocation == undefined) {
             this.microlocation.next(microlocation);
             //unsuscribe

@@ -7,6 +7,7 @@ import { AlertController } from '@ionic/angular';
 import { NewsService } from '../core/services/news.service';
 import { JourneyService } from '../journey/journey.service';
 import { MicrolocLight, MicroLocalisation } from '../core/models/microlocalisation.model';
+import { MicroLocalisationService } from '../micro-localisation.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomePage implements OnInit {
   currentSite: Site;
   distanceToSite: number;
   proposedOnce: any;
-  journey: MicrolocLight[];
+  journey: MicroLocalisation[];
   site: any;
 
   siteNews = [];
@@ -32,6 +33,7 @@ export class HomePage implements OnInit {
     private geolocation: Geolocation,
     private alertController: AlertController,
     private newsService: NewsService,
+    private microloc: MicroLocalisationService,
     private journeyService: JourneyService
   ) { }
 
@@ -39,32 +41,14 @@ export class HomePage implements OnInit {
     this.sitesService.currentSiteId.subscribe(currentSiteId => {
       this.currentSite = this.sitesService.getSite(currentSiteId);
     });
+    this.microloc.microlocation.subscribe(ml=>{
+      if(ml.site.id !== this.sitesService.currentSiteId.getValue()) this.presentAlertMultipleButtons(ml.site);
+    })
     this.journeyService.navHistory.subscribe(navhist => {
-      this.journey = navhist;
+      this.journey = (navhist)? navhist.map(nav=>nav.toMicroloc(this.currentSite)):undefined;
     });
     this.siteNews = this.newsService.getSiteNews();
     this.companyNews = this.newsService.getCompanyNews();
-  }
-
-  watchDistanceToSite(site: Site): void {
-    this.distanceToSite = 0;
-    let watch = this.geolocation.watchPosition();
-    watch.subscribe((data) => {
-      let currentCoordinate = new Coordinate(data.coords.latitude, data.coords.longitude);
-      this.distanceToSite = site.getDistanceToSite(currentCoordinate);
-      console.log(this.distanceToSite)
-      let nearestSite = this.sitesService.getSites().getNearestSite(currentCoordinate);
-      if (this.currentSite !== nearestSite && this.proposedOnce !== true) {
-        this.presentAlertMultipleButtons(nearestSite).then(
-          () => {
-            this.proposedOnce = true;
-          },
-          error => {
-            console.log(`error`, error);
-          }
-        );
-      }
-    });
   }
 
   async presentAlertMultipleButtons(site: Site) {
@@ -77,13 +61,15 @@ export class HomePage implements OnInit {
           text: 'Annuler',
           role: 'cancel',
           handler: () => {
-            this.proposedOnce = true;
+            this.microloc.microlocation.unsubscribe();
           }
         },
         {
           text: 'Changer de Site',
           handler: () => {
+            console.log('changeSite to ',site.id);
             this.sitesService.setSite(site.id);
+            this.microloc.microlocation.unsubscribe();
           }
         }
       ]

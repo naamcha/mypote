@@ -20,7 +20,6 @@ export class JourneyService {
     this.currentNavSegments = [];
     this.navigation = new Navigation().deserialize(navigationData.nav);
   }
-
   startNav(endCheckPoint: MicrolocLight): Segment {
     // get last checkpoint in navHistory
     let navhist = this.navHistory.getValue()
@@ -53,20 +52,20 @@ export class JourneyService {
     return this.navigation.getSegmentsFromStartEnd(startCheckPoint, endCheckPoint);
   }
   pushCheckPoint(microlocation: MicrolocLight): void {
-    let navhistoryLength = (this.navHistory && this.navHistory.getValue())? this.navHistory.getValue().length:0;
-    console.log(microlocation, this.navHistory[navhistoryLength - 1], microlocation !== this.navHistory[navhistoryLength - 1]);
+    const navHist = this.navHistory.getValue();
+    let navhistoryLength = (this.navHistory && navHist)? navHist.length:0;
     if (navhistoryLength == 0) {
-      console.log('push checkpoint 0');
+      console.log('push checkpoint 0 - no nav history');
       this.pushInNavHistory(microlocation);
     }
-    else if (!this.navHistory[navhistoryLength - 1].zoneId) {
-      if (this.navHistory[navhistoryLength - 1].quarterId !== microlocation.quarterId) {
-        console.log('push checkpoint 1');
+    else if (!navHist[navhistoryLength - 1].zoneId) {
+      console.log('push checkpoint 1 - ');
+      if (navHist[navhistoryLength - 1].quarterId !== microlocation.quarterId) {
         this.pushInNavHistory(microlocation);
       }
     }
     else {
-      if (this.navHistory[navhistoryLength - 1].zoneId !== microlocation.zoneId) {
+      if (navHist[navhistoryLength - 1].zoneId !== microlocation.zoneId) {
         console.log('push checkpoint 2');
         this.pushInNavHistory(microlocation);
       }

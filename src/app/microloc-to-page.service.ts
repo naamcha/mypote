@@ -12,10 +12,10 @@ export class MicrolocToPageService {
   getRouteFromMicroLocalisation(microloc: MicroLocalisation): string {
 
     let mapMicrolocToRoute = mapping.mapping.find(mapp => {
-      console.log("-------------------------")
-      console.log('siteId', mapp.siteId, microloc.site.id);
-      console.log('quarter', mapp.quarterId,((microloc.quarter)?microloc.quarter.id:null));
-      console.log('zone', mapp.zoneId, ((microloc.zone)?microloc.zone.id:null));
+      // console.log("-------------------------")
+      // console.log('siteId', mapp.siteId, microloc.site.id);
+      // console.log('quarter', mapp.quarterId,((microloc.quarter)?microloc.quarter.id:null));
+      // console.log('zone', mapp.zoneId, ((microloc.zone)?microloc.zone.id:null));
       if(mapp.siteId === microloc.site.id
         && mapp.quarterId === ((microloc.quarter)?microloc.quarter.id:null)
         && mapp.zoneId === ((microloc.zone)?microloc.zone.id:null)){

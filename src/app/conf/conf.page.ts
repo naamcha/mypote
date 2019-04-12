@@ -5,6 +5,8 @@ import { Sites } from '../core/models/sites.model';
 import { Observable, from } from 'rxjs';
 import { MicroLocalisation } from '../core/models/microlocalisation.model';
 import { Router } from '@angular/router';
+import { SitesService } from '../sites/sites.service';
+import { Quarter } from '../core/models/site.model';
 
 
 @Component({
@@ -18,15 +20,20 @@ export class ConfPage implements OnInit {
   nfc: boolean;
   geolocalisation: boolean;
   scanwifi: boolean;
+  currentSiteId: number;
 
   constructor(
     private hotspot: Hotspot,
-    private router: Router
+    private router: Router,
+    private siteService:SitesService
     ) { 
     
   }
 
   ngOnInit() {
+    this.siteService.currentSiteId.subscribe(curSiteId=>{
+      this.currentSiteId = curSiteId;
+    })
     this.wifi = true;
     this.nfc = true;
     this.geolocalisation = true;
@@ -42,5 +49,9 @@ export class ConfPage implements OnInit {
   };
   zonify(wifi:HotspotNetwork):void{
     this.router.navigateByUrl('associate-wifi/'+wifi.BSSID,)
+  }
+  getAssociatedPlace(wifi:HotspotNetwork):Quarter{
+    let site = this.siteService.getSite(this.currentSiteId);
+    return site.getQuarterFromScannedWifi([wifi])
   }
 }

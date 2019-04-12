@@ -179,7 +179,7 @@
       "zipCode": "75 013",
       "city": "Paris",
       "image": "assets/images/paris001.jpg",
-      "homeWifiBSSID": "b0:fc:36:c4:76:a1",
+      "homeWifiBSSID": "",
       "quarters": [{
           "id": 750,
           "name": "Accueil Braudel",

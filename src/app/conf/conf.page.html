@@ -35,6 +35,13 @@
       <ion-label><small>{{wifi.SSID}}//</small></ion-label>
       <ion-label><small>{{wifi.BSSID}}//</small></ion-label>
       <ion-label><small>{{wifi.level}}</small></ion-label>    
+      <br>
+      <ion-label  *ngIf="getAssociatedPlace(wifi) != undefined"  color="primary" item-right>
+        <ion-icon name="home"></ion-icon>
+        <small>
+          {{getAssociatedPlace(wifi).name}}
+        </small>
+      </ion-label>
       <ion-item-options side="end">
         <ion-item-option (click)="zonify(wifi)">associer</ion-item-option>
       </ion-item-options>

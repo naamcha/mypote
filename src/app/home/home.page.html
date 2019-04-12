@@ -25,6 +25,17 @@
       </ion-slides>
     </section>
   
+    
+    <section class="news">
+      <div class="title">Les Actus IT-CE</div>
+      
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let news of companyNews">
+          <app-news-item [item]="news"></app-news-item>
+        </ion-slide>
+      </ion-slides>
+    </section>
+
     <section class="news">
       <div class="title">Mon Parcours</div>
       <ion-list>
@@ -34,22 +45,12 @@
             <!-- <ion-label>{{checkpoint.quarter.name}}<br><small *ngIf="checkpoint.zone">{{checkpoint.zone.name}}</small></ion-label> -->
           </ion-item>
           <ion-item-options side="end">
-            <ion-item-option (click)="unread(item)">Unread</ion-item-option>
+            <ion-item-option (click)="watchAgain(item)">Revoir</ion-item-option>
           </ion-item-options>
         </ion-item-sliding>
       </ion-list>
     </section>
-      
-    <section class="news">
-      <div class="title">Les Actus IT-CE</div>
-  
-      <ion-slides pager="true" [options]="slideOpts">
-        <ion-slide *ngFor="let news of companyNews">
-          <app-news-item [item]="news"></app-news-item>
-        </ion-slide>
-      </ion-slides>
-    </section>
-  
+    
   
     <!-- fab placed in the center of the content with a list on each side -->
     <ion-fab vertical="bottom" horizontal="center" slot="fixed">

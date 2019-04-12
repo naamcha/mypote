@@ -16,12 +16,12 @@ export class MicroLocalisation {
   }
 
   toMicrolight() :MicrolocLight{
-    console.log('toMicrolight 0', this);
+    // console.log('toMicrolight 0', this);
     let siteId = (this.site !== undefined) ? this.site.id : null;
     let quarterId = (this.quarter !== undefined) ? this.quarter.id : null;
     let zoneId = (this.zone !== undefined) ? this.zone.id : null;
     const micrlight = new MicrolocLight().deserialize({siteId, quarterId, zoneId});
-    console.log('toMicrolight 1', micrlight);
+    // console.log('toMicrolight 1', micrlight);
     return micrlight;
   }
 
