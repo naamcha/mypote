@@ -7,6 +7,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+
+
+  <ion-item class="place" *ngFor="let place of places" detail [routerLink]="['/', 'tabs', 'tab-bar', 'eat', place.id]">
+    <div class="illustration">
+      <img *ngIf="place.image" [src]="place.image" [alt]="place.name">
+    </div>
+    <div class="content">
+      <h3>{{ place.name }}</h3>
+      <!--<p class="distance"><ion-icon name="pin" color="medium"></ion-icon>{{ place.distance }}</p>-->
+      <div class="tags" *ngIf="place.tags">
+        <span *ngFor="let tag of place.tags">{{ tag }}</span>
+      </div>
+    </div>
+  </ion-item>
 
 </ion-content>

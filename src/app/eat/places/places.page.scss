@@ -5,6 +5,18 @@ ion-avatar {
   height: 100px;
 }
 
+.illustration {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  margin: 10px 0;
+
+  img {
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
 .place {
   display: flex;
   align-items: center;

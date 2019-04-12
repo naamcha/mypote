@@ -25,10 +25,35 @@ ion-content {
   padding: 16px;
   color: white;
 
+  .image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  &:nth-child(1) .image-wrapper {
+    background: #e44631;
+  }
+
+  &:nth-child(2) .image-wrapper {
+    background: #877cd0;
+  }
+
+  &:nth-child(3) .image-wrapper {
+    background: #17a2b8;
+  }
+
+  &:nth-child(4) .image-wrapper {
+    background: #66CDAA;
+  }
+
   img {
-    height: 60px;
+    height: 50px;
     width: auto;
-    margin-bottom: 5px;
+    //margin-bottom: 5px;
   }
 
   h2 {
