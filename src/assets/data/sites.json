@@ -135,13 +135,15 @@
       "image": "assets/images/rennes001.png",
       "homeWifiBSSID": "64:7c:34:70:0a:cd",
       "quarters": [],
-      "parkings": [{
-        "name": "Parking Indigo",
-        "image": "assets/images/parking-r1.png",
-        "address": "Rue des Lilas",
-        "zipCode": "35 136",
-        "city": "Saint-Jacques-de-la-Lande"
-      }],
+      "parkings": [
+        {
+          "name": "Parking Indigo",
+          "image": "assets/images/parking-r1.png",
+          "address": "Rue des Lilas",
+          "zipCode": "35 136",
+          "city": "Saint-Jacques-de-la-Lande"
+        }
+      ],
       "rooms": [],
       "taxi": [{
         "name": "Uber",
@@ -174,7 +176,7 @@
       },
       "phone": "08 2003 2008",
       "address": "15 rue Fernand Braudel",
-      "formatedAddress":"15%20rue%20Fernand%20Braudel",
+      "formatedAddress": "15%20rue%20Fernand%20Braudel",
       "addressDetail": [],
       "zipCode": "75 013",
       "city": "Paris",
@@ -247,32 +249,37 @@
           ]
         }
       ],
-      "people": [{
-        "lastName": "Panel",
-        "firstName": "Sylvia",
-        "localization": {
-          "building": "braudel",
-          "floor": "8",
-          "zone": "1"
+      "people": [
+        {
+          "lastName": "Panel",
+          "firstName": "Sylvia",
+          "localization": {
+            "building": "braudel",
+            "floor": "8",
+            "zone": "1"
+          }
+        },
+        {
+          "lastName": "Penel",
+          "firstName": "Sylvie",
+          "localization": {
+            "building": "braudel",
+            "floor": "8",
+            "zone": "1"
+          }
+        },
+        {
+          "lastName": "Senel",
+          "firstName": "Sophie",
+          "localization": {
+            "building": "braudel",
+            "floor": "8",
+            "zone": "1"
+          }
         }
-      }, {
-        "lastName": "Penel",
-        "firstName": "Sylvie",
-        "localization": {
-          "building": "braudel",
-          "floor": "8",
-          "zone": "1"
-        }
-      }, {
-        "lastName": "Senel",
-        "firstName": "Sophie",
-        "localization": {
-          "building": "braudel",
-          "floor": "8",
-          "zone": "1"
-        }
-      }],
-      "parkings": [{
+      ],
+      "parkings": [
+        {
           "name": "Parking Indigo",
           "image": "assets/images/parking1.png",
           "address": "21 Rue Abel Gance",
@@ -473,7 +480,8 @@
           }
         }
       ],
-      "taxi": [{
+      "taxi": [
+        {
           "name": "Uber",
           "phone": "06 98 85 28 14",
           "description": "Commandez une course, montez à bord et détendez-vous.",
@@ -492,6 +500,22 @@
           "url2": "&dropoff[longitude]=",
           "url3": "&dropoff[nickname]=ITCE/",
           "img": "../../assets/images/logo-G7.png"
+        }
+      ],
+      "interest": [
+        {
+          "name": "Roissy Charles DeGaules",
+          "position": {
+            "lat": 49.0097,
+            "lon": 2.5479
+          }
+        },
+        {
+          "name": "Gare de Lyon",
+          "position": {
+            "lat": 48.8443,
+            "lon": 2.3744
+          }
         }
       ]
     }
