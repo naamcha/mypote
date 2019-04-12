@@ -25,12 +25,23 @@ export class JourneyService {
     let navhist = this.navHistory.getValue()
     console.log("startNav",navhist)
     let startCheckPoint = navhist[navhist.length-1];
-    let segments = this.computeNavigation(startCheckPoint, endCheckPoint);
-    this.currentNavSegments = segments;
+    this.currentNavSegments = this.computeNavigation(startCheckPoint, endCheckPoint);
     console.log("startNav",this.currentNavSegments);
     return this.walkNav(startCheckPoint);
   }
   walkNav(startCheckPoint: MicrolocLight): Segment {
+    let segment = this.getCurrentNavSegment();
+    console.log("getNextCurrentNavSegment",segment)
+    if (segment) {
+      this.currentNavSegments.pop();
+      this.navSegment.next(segment);
+      return segment;
+    }
+    else{
+      return undefined;
+    }
+  }
+  stepNav(startCheckPoint: MicrolocLight): Segment {
     let nextSegment = this.getNextCurrentNavSegment();
     console.log("getNextCurrentNavSegment",nextSegment)
     if (nextSegment) {
@@ -40,6 +51,9 @@ export class JourneyService {
     else{
       return undefined;
     }
+  }
+  getCurrentNavSegment(): Segment {
+    return (this.currentNavSegments.length > 0) ? this.currentNavSegments[0] : undefined;
   }
   getNextCurrentNavSegment(): Segment {
     return (this.currentNavSegments.length > 0) ? this.currentNavSegments[this.currentNavSegments.length - 1] : undefined;

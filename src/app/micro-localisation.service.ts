@@ -24,7 +24,7 @@ export class MicroLocalisationService {
     private hotspot: Hotspot,
     private geolocation: Geolocation
   ) { }
-
+  
   public watchAll(sites: Sites): void {
     let nfcObs = this.scanNfc(sites).subscribe(microloc => {
       console.log("watchAll nfcObs", microloc);

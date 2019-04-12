@@ -46,23 +46,26 @@ export class AppComponent {
 
   }
   initializeApp() {
+    console.log("initialize App")
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       let sites = this.sitesService.getSites();
       this.microLocalisationService.watchAll(sites);
       this.microLocalisationService.microlocation.subscribe(newMicroloc => {
-
+        if (newMicroloc !== undefined) {
           let checkpoint = newMicroloc.toMicrolight();
           this.journeyService.pushCheckPoint(checkpoint);
           let segment = this.journeyService.walkNav(checkpoint);
-          if(!segment){
+          console.log('app.component ',segment,this.journeyService.currentNavSegments)
+          if (!segment) {
             let routerPath = this.microlocToPage.getRouteFromMicroLocalisation(newMicroloc)
             console.log('point', routerPath);
             this.router.navigateByUrl(routerPath);
           }
-
+        }
       });
+
       this.journeyService.navSegment.subscribe(navSeg => {
         console.log('segment0', navSeg);
         if (navSeg) {
@@ -94,7 +97,7 @@ export class AppComponent {
         {
           text: 'Changer de Site',
           handler: () => {
-            console.log('changeSite to ',site.id);
+            console.log('changeSite to ', site.id);
             this.sitesService.setSite(site.id);
           }
         }

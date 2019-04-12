@@ -25,7 +25,7 @@ export class SitesService {
 
   public getSite(id: number): Site {
     console.log(id)
-    return this.getSites().sites.find(site => { console.log(site.id, id); return site.id === id });
+    return this.getSites().sites.find(site => { return site.id === id });
   }
 
   public setSite(siteId): void {

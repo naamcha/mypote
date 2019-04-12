@@ -16,6 +16,8 @@ import { Hotspot } from '@ionic-native/hotspot/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 import { Vibration } from '@ionic-native/vibration/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 // import { IBeacon } from '@ionic-native/IBeacon/ngx';
 
 import { IonicStorageModule } from '@ionic/storage';
@@ -26,7 +28,6 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { SitesService } from './sites/sites.service';
 import { JourneyService } from './journey/journey.service'
-import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { MicrolocToPageService } from './microloc-to-page.service';
 
 @NgModule({
@@ -62,6 +63,7 @@ import { MicrolocToPageService } from './microloc-to-page.service';
     JourneyService,
     MicrolocToPageService,
     NativeStorage,
+    TextToSpeech,
     // Coordinate,
     // Vincenty,
     {
