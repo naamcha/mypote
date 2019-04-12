@@ -5,56 +5,129 @@
       "image": "assets/images/people/2.jpg",
       "name": "AUBRY Marc",
       "room": "8007",
-      "position": "A"
-    },
-    {
-      "id": 6,
-      "image": "",
-      "name": "BLACHERE Christelle",
-      "room": "8076",
-      "position": "D"
+      "position": "A",
+      "pole": "CLIENTS",
+      "division": "CONDUITE DU CHANGEMENT ET DEPLOY",
+      "mail": "marc.aubry@it-ce.fr",
+      "tel": "01.76.53.68.66",
+      "what": [
+        "Accompagnement",
+        "Conduite du changement",
+        "Conseil",
+        "Déploiement"
+      ]
     },
     {
       "id": 4,
       "image": "assets/images/people/4.jpg",
       "name": "DEBON Sophie",
       "room": "8027",
-      "position": "A"
+      "position": "A",
+      "pole": "CLIENTS",
+      "mail": "sophie.debon@it-ce.fr",
+      "tel": "01.58.40.24.72",
+      "what": [
+        "Accompagnement",
+        "Animation",
+        "Communication",
+        "Conduite du changement",
+        "Direction",
+        "Documentation",
+        "Pilotage",
+        "Qualité",
+        "Recette homologation tests",
+        "Relation Clients"
+      ]
     },
     {
       "id": 5,
       "image": "assets/images/people/5.jpg",
       "name": "EL-MHAMDI Dalila",
+      "pole": "RESSOURCES ET TRANSFORMATION INTERNE",
+      "division": "EMPLOI CARRIERE ET RSE",
       "room": "8076",
-      "position": "E"
+      "position": "E",
+      "mail": "dalila.el-mhamdi@it-ce.fr",
+      "tel": "01.58.40.27.62",
+      "what": [
+        "Accompagnement",
+        "Gestion",
+        "Projet"
+      ]
     },
     {
       "id": 3,
       "image": "assets/images/people/6.jpg",
       "name": "GARCIA Laura",
+      "pole": "RESSOURCES ET TRANSFORMATION INTERNE",
+      "division": "EMPLOI CARRIERE ET RSE",
       "room": "8076",
-      "position": "B"
+      "position": "B",
+      "mail": "laura.garcia@it-ce.fr",
+      "tel": "01.85.34.29.37",
+      "what": [
+        "Accompagnement",
+        "Gestion",
+        "Projet"
+      ]
     },
     {
       "id": 10,
       "image": "assets/images/people/10.png",
       "name": "KERGARAVAT Joséphine",
+      "pole": "RESSOURCES ET TRANSFORMATION INTERNE",
+      "division": "COMMUNICATION",
       "room": "8061",
-      "position": "A"
+      "position": "A",
+      "mail": "josephine.kergaravat@it-ce.fr",
+      "tel": "01.85.34.29.39",
+      "what": [
+        "Accompagnement",
+        "Communication"
+      ]
     },
     {
       "id": 9,
       "image": "assets/images/people/9.jpg",
       "name": "LE DONNE Gwilherm",
       "room": "8079",
-      "position": "A"
+      "position": "A",
+      "pole": "DIRECTION GÉNÉRALE",
+      "mail": "gwilherm.ledonne@it-ce.fr",
+      "tel": "01.85.34.29.09",
+      "what": [
+        "Accompagnement",
+        "Administration",
+        "Animation",
+        "Communication",
+        "Conception",
+        "Conduite du changement",
+        "Conseil",
+        "Direction",
+        "Gestion",
+        "Organisation",
+        "Pilotage",
+        "Qualité",
+        "Relation Clients",
+        "Staffing",
+        "Supervision des services"
+      ]
     },
     {
       "id": 8,
       "image": "assets/images/people/8.jpg",
       "name": "MARDAY Preety",
       "room": "8076",
-      "position": "A"
+      "position": "A",
+      "pole": "RESSOURCES ET TRANSFORMATION INTERNE",
+      "division": "EMPLOI CARRIERE ET RSE",
+      "mail": "preety.marday@it-ce.fr",
+      "tel": "01.85.34.28.86",
+      "what": [
+        "Accompagnement",
+        "Gestion",
+        "Projet"
+      ]
     },
     {
       "id": 1,
@@ -81,13 +154,6 @@
         "SIRH",
         "Transformation digitale interne"
       ]
-    },
-    {
-      "id": 7,
-      "image": "",
-      "name": "VILLANUEVA Anne-Marie",
-      "room": "8045",
-      "position": "D"
     }
   ]
 }
