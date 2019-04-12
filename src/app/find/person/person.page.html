@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab-bar/find"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Chercher une personne</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item *ngFor="let person of people" detail [routerLink]="['/', 'tabs', 'tab-bar', 'find', 'person', person.id]">
+    <ion-avatar slot="start" [ngClass]="'color-' + person.id">
+      <ion-icon *ngIf="!person.image" name="person"></ion-icon>
+      <img *ngIf="person.image" [src]="person.image" [alt]="person.name">
+    </ion-avatar>
+    <ion-label>{{ person.name }}</ion-label>
+  </ion-item>
+
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab-bar/find/person"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ person.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="navigate" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--<ion-avatar slot="start" [ngClass]="'color-' + person.id">-->
+    <!--<ion-icon *ngIf="!person.image" name="person"></ion-icon>-->
+    <!--<img *ngIf="person.image" [src]="person.image" [alt]="person.name">-->
+  <!--</ion-avatar>-->
+
+  <div class="people-header" padding>
+    <ion-thumbnail>
+      <img *ngIf="person.image" [src]="person.image" [alt]="person.name">
+    </ion-thumbnail>
+    <div class="people-info">
+      <h1>{{ person.name }}</h1>
+      <p><span>Pôle </span> {{ person.pole | titlecase }}</p>
+      <p *ngIf="person.division"><span>Division </span> {{ person.division | titlecase }}</p>
+      <p class="room"><span>Position </span>{{ person.room }} {{ person.position }}</p>
+    </div>
+  </div>
+
+  <address class="contact-info">
+    <p>{{ person.mail }}</p>
+    <p>{{ person.tel }}</p>
+
+    <ion-button shape="round" color="tertiary">
+      <ion-icon name="mail" slot="start"></ion-icon>
+      Ecrire
+    </ion-button>
+
+    <ion-button shape="round" color="primary">
+      <ion-icon name="call" slot="start"></ion-icon>
+      Appeler
+    </ion-button>
+  </address>
+
+  <div padding>
+    <p class="activity">Activités</p>
+    <ion-item *ngFor="let el of person.what">
+      {{ el }}
+    </ion-item>
+  </div>
+
+</ion-content>

@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab-bar/travel"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Les Guides du voyageur</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item detail *ngFor="let guide of guides" margin-bottom lines="none">
+    <img [src]="guide.image" [alt]="guide.title">
+    <p>{{ guide.title }}</p>
+  </ion-item>
+
+</ion-content>

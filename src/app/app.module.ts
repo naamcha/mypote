@@ -15,6 +15,7 @@ import { Toast } from '@ionic-native/toast/ngx';
 import { Hotspot } from '@ionic-native/hotspot/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 // import { IBeacon } from '@ionic-native/IBeacon/ngx';
 
 import { IonicStorageModule } from '@ionic/storage';
@@ -60,6 +61,7 @@ import { MicrolocToPageService } from './microloc-to-page.service';
     SitesService,
     JourneyService,
     MicrolocToPageService,
+    NativeStorage,
     // Coordinate,
     // Vincenty,
     {

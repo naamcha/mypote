@@ -91,6 +91,14 @@ const routes: Routes = [
         path: 'journey-history',
         loadChildren: './journey/journey-history/journey-history.module#JourneyHistoryPageModule'
       },
+      {
+        path: 'segment/:segmentId',
+        loadChildren: './journey/segment/segment.module#SegmentPageModule'
+      },
+      {
+        path: 'checkpoint/:checkpointId',
+        loadChildren: './journey/checkpoint/checkpoint.module#CheckpointPageModule'
+      }
     ]
   },
   {

@@ -5,7 +5,7 @@ import { Taxi } from './taxi.model';
 import { HotspotNetwork } from '@ionic-native/hotspot/ngx';
 
 export class Site implements Deserializable {
-  public id: string;
+  public id: number;
   public name: string;
   public position: Coordinate;
   public phone: string;
@@ -55,6 +55,9 @@ export class Quarters implements Deserializable {
     return this;
   }
   
+  getQuarter(quarterId){
+    return this.quarters.find(quarter => quarterId == quarter.id);
+  }
   getQuarterFromScannedNfc(tagId: string) {
     return this.quarters.find(quarter => undefined !== quarter.getZoneFromScannedNfc(tagId));
   }
@@ -103,6 +106,11 @@ export class Quarter implements Deserializable  {
     // console.log('nfc',this,tagId)
     return this.map.find(zone => tagId == zone.nfcTagId);
   }
+  getZone(id):Zone{
+    // console.log('nfc',this,id)
+    return this.map.find(zone => id == zone.id);
+  }
+
 }
 
 export class Zone implements Deserializable  {

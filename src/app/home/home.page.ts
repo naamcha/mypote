@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
-import { AuthService } from '../auth/auth.service';
 import { SitesService } from '../sites/sites.service';
 import { Site } from '../core/models/site.model';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 import { Coordinate } from 'tsgeo/Coordinate';
 import { AlertController } from '@ionic/angular';
+import { NewsService } from '../core/services/news.service';
+import { JourneyService } from '../journey/journey.service';
+import { MicrolocLight, MicroLocalisation } from '../core/models/microlocalisation.model';
+import { MicroLocalisationService } from '../micro-localisation.service';
 
 @Component({
   selector: 'app-home',
@@ -14,47 +16,42 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
   // closed = false;
-  activeSite: Site;
+  currentSite: Site;
   distanceToSite: number;
   proposedOnce: any;
+  journey: MicroLocalisation[];
+  site: any;
+
+  siteNews = [];
+  companyNews = [];
+  slideOpts = {
+    effect: 'flip'
+  };
 
   constructor(
-    private loadingCtrl: LoadingController,
-    private authService: AuthService,
     private sitesService: SitesService,
-    private geolocation : Geolocation,
-    private alertController : AlertController
+    private geolocation: Geolocation,
+    private alertController: AlertController,
+    private newsService: NewsService,
+    private microloc: MicroLocalisationService,
+    private journeyService: JourneyService
   ) { }
 
   ngOnInit() {
-    this.sitesService.currentSiteId.subscribe(site => {
-      this.activeSite = this.sitesService.getSite(site);
-      this.watchDistanceToSite(this.activeSite);
+    this.sitesService.currentSiteId.subscribe(currentSiteId => {
+      this.currentSite = this.sitesService.getSite(currentSiteId);
     });
+    this.microloc.microlocation.subscribe(ml=>{
+      if(ml.site.id !== this.sitesService.currentSiteId.getValue()) this.presentAlertMultipleButtons(ml.site);
+    })
+    this.journeyService.navHistory.subscribe(navhist => {
+      this.journey = (navhist)? navhist.map(nav=>nav.toMicroloc(this.currentSite)):undefined;
+    });
+    this.siteNews = this.newsService.getSiteNews();
+    this.companyNews = this.newsService.getCompanyNews();
   }
 
-  watchDistanceToSite(site:Site): void{
-    this.distanceToSite = 0;
-    let watch = this.geolocation.watchPosition();
-    watch.subscribe((data) => {
-      let currentCoordinate = new Coordinate(data.coords.latitude,data.coords.longitude);
-      this.distanceToSite = site.getDistanceToSite(currentCoordinate);
-      console.log(this.distanceToSite)
-      let nearestSite = this.sitesService.getSites().getNearestSite(currentCoordinate);
-      if (this.activeSite !== nearestSite && this.proposedOnce !== true) {
-        this.presentAlertMultipleButtons(nearestSite).then(
-          success => {
-            this.proposedOnce = true;
-          },
-          error => {
-            console.log(`error`, error);
-          }
-        );
-      }
-    });
-  }
-
-  async presentAlertMultipleButtons(site:Site) {
+  async presentAlertMultipleButtons(site: Site) {
     this.alertController.create({
       header: 'Etes-vous au bon endroit ?',
       subHeader: '',
@@ -64,20 +61,22 @@ export class HomePage implements OnInit {
           text: 'Annuler',
           role: 'cancel',
           handler: () => {
-            this.proposedOnce = true;
+            this.microloc.microlocation.unsubscribe();
           }
         },
         {
           text: 'Changer de Site',
           handler: () => {
+            console.log('changeSite to ',site.id);
             this.sitesService.setSite(site.id);
+            this.microloc.microlocation.unsubscribe();
           }
         }
       ]
     })
-    .then(alert => {
-      alert.present();
-    });
+      .then(alert => {
+        alert.present();
+      });
   }
 
 }

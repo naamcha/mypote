@@ -4,16 +4,15 @@
       <ion-back-button defaultHref="/tabs/tab-bar/find/room"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ room.name }}</ion-title>
-    <ion-buttons slot="end">
+    <ion-buttons slot="end" (click)="startNav()">
       <ion-button>
-        <ion-icon name="help-circle-outline" slot="icon-only"></ion-icon>
+        <ion-icon name="navigate" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
   <ion-grid no-padding>
     <ion-row>
       <ion-col no-padding class="image-wrapper">
@@ -184,11 +183,5 @@
       </ion-grid>
     </div>
   </div>
-
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="primary">
-      <ion-icon name="navigate"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 
 </ion-content>

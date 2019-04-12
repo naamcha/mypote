@@ -40,7 +40,7 @@ export class MicroLocalisationService {
     let wifiObs = interval(1000).subscribe(data => {
       this.scanWifi(sites).subscribe(
         microloc => {
-          //console.log("watchAll wifiObs", microloc);
+//           console.log("watchAll wifiObs", microloc);
           this.priorityManager('wifiObs', microloc);
         }
       )
@@ -51,14 +51,14 @@ export class MicroLocalisationService {
     if (microlocation) {
       switch (eventType) {
         case 'distObs':
+          console.log('distObs')
           if (this.microlocation == undefined) {
             this.microlocation.next(microlocation);
-            console.log('send microloc event 20')
             //unsuscribe
           }
           break;
         case 'wifiObs':
-          console.log(microlocation)
+          //console.log(microlocation)
           if (
             this.microlocation == undefined
             || this.microlocation.getValue() == undefined
@@ -67,7 +67,6 @@ export class MicroLocalisationService {
             // console.log('send microloc event 22', this.microlocation.getValue().quarter.id, microlocation.quarter.id)
             this.microlocation.next(microlocation);
           }
-
           break;
         case 'nfcObs':
           this.microlocation.next(microlocation);

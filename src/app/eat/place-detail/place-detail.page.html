@@ -1,9 +1,56 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>place-detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab-bar/eat/places"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ place.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="call" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col no-padding class="image-wrapper">
+        <img [src]="place.image" [alt]="place.name">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div padding>
+    <div class="place-title">
+     <h1 text-center>{{ place.name }}</h1>
+      <p class="distance"><ion-icon name="pin" color="medium"></ion-icon>{{ place.distance }}</p>
+    </div>
+    <div class="tags">
+      <span *ngFor="let tag of place.tags">{{ tag }}</span>
+    </div>
+
+    <p>{{ place.description }}</p>
+
+    <div class="status" *ngIf="place.delivery">
+      <ion-icon name="checkmark" slot="icon-only" color="success"></ion-icon>
+      <span>Livraison possible</span>
+      <ion-button *ngIf="place.delivery" shape="round" size="small">Commander</ion-button>
+    </div>
+  </div>
+
+  <div padding>
+    <h2>Adresse et téléphone</h2>
+    <div class="address">
+      <p *ngFor="let address of place.address">{{ address }}</p>
+    </div>
+    <p>{{ place.phone }}</p>
+
+    <h2>Horaires</h2>
+    <div class="address">
+      <p *ngFor="let time of place.schedule">{{ time }}</p>
+    </div>
+  </div>
+
 
 </ion-content>

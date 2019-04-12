@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
-import { AuthGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -45,6 +44,19 @@ const routes: Routes = [
                 loadChildren: '../find/room/room-detail/room-detail.module#RoomDetailPageModule'
               }
             ]
+          },
+          {
+            path: 'person',
+            children: [
+              {
+                path: '',
+                loadChildren: '../find/person/person.module#PersonPageModule'
+              },
+              {
+                path: ':personId',
+                loadChildren: '../find/person/person-detail/person-detail.module#PersonDetailPageModule'
+              }
+            ]
           }
         ]
       },
@@ -60,9 +72,21 @@ const routes: Routes = [
             loadChildren: '../eat/add-place/add-place.module#AddPlacePageModule'
           },
           {
-            path: 'place-detail',
-            loadChildren: '../eat/place-detail/place-detail.module#PlaceDetailPageModule'
+            path: 'rie',
+            loadChildren: '../eat/rie/rie.module#RiePageModule'
           },
+          {
+            path: 'places',
+            loadChildren: '../eat/places/places.module#PlacesPageModule'
+          },
+          {
+            path: 'delivery',
+            loadChildren: '../eat/delivery/delivery.module#DeliveryPageModule'
+          },
+          {
+            path: ':placeId',
+            loadChildren: '../eat/place-detail/place-detail.module#PlaceDetailPageModule'
+          }
         ]
       },
       {
@@ -80,6 +104,10 @@ const routes: Routes = [
             path: 'taxi/:id',
             loadChildren: '../travel/taxi/taxi.module#TaxiPageModule'
           },
+          {
+            path: 'guides',
+            loadChildren: '../travel/guides/guides.module#GuidesPageModule'
+          }
         ]
       },
       {

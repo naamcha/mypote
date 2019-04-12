@@ -1,0 +1,70 @@
+{
+	"nav": {
+		"journeys": [
+			{
+				"id": 751,
+				"startPoint": [
+					{"siteId":75,"quarterId":750,"zoneId":null},
+					{"siteId":75,"quarterId":750,"zoneId":7500},
+					{"siteId":75,"quarterId":750,"zoneId":7501}
+				],
+				"endPoint":[
+					{"siteId":75,"quarterId":751,"zoneId":7512}
+				],
+				"segmentChain":[751,752]
+			},{
+				"id": 752,
+				"startPoint": [
+					{"siteId":75,"quarterId":751,"zoneId":null}
+				],
+				"endPoint":[
+					{"siteId":75,"quarterId":751,"zoneId":7512}
+				],
+				"segmentChain":[752]
+			}
+			,{
+				"id": 131,
+				"startPoint": [
+					{"siteId":13,"quarterId":130,"zoneId":null}
+				],
+				"endPoint":[
+					{"siteId":13,"quarterId":131,"zoneId":null}
+				],
+				"segmentChain":[131,132]
+			},{
+				"id": 132,
+				"startPoint": [
+					{"siteId":13,"quarterId":132,"zoneId":null}
+				],
+				"endPoint":[
+					{"siteId":13,"quarterId":133,"zoneId":null}
+				],
+				"segmentChain":[752]
+			}
+		],
+		"segments": [{
+			"id": 751,
+			"startPoint": {"siteId": 75,"quarterId": 750,"zoneId": null},
+			"endPoint": {"siteId": 75,"quarterId": 750,"zoneId": 7502},
+			"segmentRouterPath": "journey/segment/1"
+		}, {
+			"id": 752,
+			"startPoint": {"siteId": 75,"quarterId": 751,"zoneId": 7511},
+			"endPoint": {"siteId": 75,"quarterId": 751,"zoneId": 7512
+			},
+			"segmentRouterPath": "journey/segment/2"
+		}, {
+			"id": 131,
+			"startPoint": {"siteId": 13,"quarterId": 131,"zoneId": 1311},
+			"endPoint": {"siteId": 13,"quarterId": 131,"zoneId": 1312
+			},
+			"segmentRouterPath": "journey/segment/1"
+		}, {
+			"id": 132,
+			"startPoint": {"siteId": 13,"quarterId": 131,"zoneId": 1311},
+			"endPoint": {"siteId": 13,"quarterId": 131,"zoneId": 1312
+			},
+			"segmentRouterPath": "journey/segment/2"
+		}]
+	}
+}

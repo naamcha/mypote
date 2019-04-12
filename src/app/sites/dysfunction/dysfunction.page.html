@@ -7,26 +7,33 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding id="">
-  <ion-list id="lesSitesITCE-list1">
-    <ion-item  *ngFor="let img of images; index as pos" color="none" id="dysfonctionnements">
-      <ion-thumbnail item-left>
-        <img [src]="img.path">
-      </ion-thumbnail>
-      <h2>{{ img.name }}</h2>
-      <button ion-button fill="clear" expand="full" color="light" (click)="deleteImage(img, index+1)">
-        <ion-icon item-right name="trash"></ion-icon>
-      </button>
-    </ion-item>
-  </ion-list>
+  <!-- Textarea with custom number of rows and cols -->
+  <ion-item>
+    <ion-label>Description du dysfonctionnement</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-textarea rows="6" cols="20" placeholder="Décrivez le dysfonctionnement ici..."></ion-textarea>
+  </ion-item>
+  <ion-button expand="block" (click)="close()">
+    <ion-icon name="send" item-left></ion-icon>
+    Signaler le dysfonctionnement
+  </ion-button>
 </ion-content>
 <ion-content>
-  <!-- fab placed to the top end -->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="selectImage()">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  <ion-item style="flex-wrap: wrap" *ngFor="let img of images; index as pos" >
+    <ion-thumbnail item-left size="" color="none" id="dysfonctionnements">
+      <img [src]="img.path">
+    </ion-thumbnail>
+    <ion-button shape="round" (click)="deleteImage(img, index+1)">
+      <ion-icon item-right name="trash"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-content>
 
-<ion-footer>
 
-</ion-footer>
+<!-- fab placed to the top end -->
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="selectImage()" color="light">
+    <ion-icon name="camera"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

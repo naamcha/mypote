@@ -9,8 +9,7 @@ import { AuthService } from './auth/auth.service';
 import { SitesService } from './sites/sites.service';
 import { JourneyService } from './journey/journey.service';
 import { MicroLocalisationService } from './micro-localisation.service';
-import { Site, Zone } from './core/models/site.model';
-import { Hotspot } from '@ionic-native/hotspot/ngx';
+import { Site } from './core/models/site.model';
 import { MicrolocToPageService } from './microloc-to-page.service';
 // import { Coordinate } from 'tsgeo/Coordinate';
 // import { IBeacon } from '@ionic-native/IBeacon/ngx';
@@ -34,13 +33,15 @@ export class AppComponent {
     private journeyService: JourneyService,
     private microLocalisationService: MicroLocalisationService,
     private microlocToPage: MicrolocToPageService,
-    private router: Router,
-    private navCtrl: NavController) {
+    private router: Router) {
     this.initializeApp();
   }
-  ngOnInit(){
+  ngOnInit() {
     this.sitesService.currentSiteId.subscribe(siteId => {
+      console.log('ngOnInit siteId', siteId);
       this.activeSite = this.sitesService.getSite(siteId);
+      console.log('ngOnInit this.activeSite', this.activeSite)
+
     });
 
   }
@@ -48,27 +49,32 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      
+
       let sites = this.sitesService.getSites();
       this.microLocalisationService.watchAll(sites);
       this.microLocalisationService.microlocation.subscribe(changeFired => {
-        console.log('changeFired',changeFired)   
-        if(changeFired !== undefined){
-          console.log('microloc to route',this.microlocToPage.getRouteFromMicroLocalisation(changeFired));
-          this.router.navigateByUrl(this.microlocToPage.getRouteFromMicroLocalisation(changeFired));
+        console.log('changeFired ==> ', changeFired);
+        if (changeFired !== undefined) {
+          let checkpoint = changeFired.toMicrolight();
+          this.journeyService.pushCheckPoint(checkpoint);
+          let segment = this.journeyService.walkNav(checkpoint);
+          if(!segment){
+            let routerPath = this.microlocToPage.getRouteFromMicroLocalisation(changeFired)
+            console.log('point', routerPath);
+            this.router.navigateByUrl(routerPath);
+          }
+        }
+      });
+      this.journeyService.navSegment.subscribe(navSeg => {
+        console.log('segment0', navSeg);
+        if (navSeg) {
+          let routerPath = navSeg.segmentRouterPath;
+          console.log('segment--------->', routerPath);
+          this.router.navigateByUrl(routerPath);
         }
       });
     });
   }
-
-
-  routeToZone(zone: Zone): void {
-    this.router.initialNavigation();
-    this.navCtrl.navigateRoot('home');
-    this.journeyService.pushCheckPoint(zone);
-    this.router.navigateByUrl(zone.navRouting);
-  }
-
 
   onLogout() {
     this.authService.logout();

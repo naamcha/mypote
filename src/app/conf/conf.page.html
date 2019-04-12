@@ -11,31 +11,41 @@
   <ion-list>
     <ion-item>
       <ion-label>Wifi</ion-label>
-      <ion-toggle [(ngModel)]="wifi"></ion-toggle>
+      <ion-toggle [(ngModel)]="wifi"  color="success"></ion-toggle>
     </ion-item>
   
     <ion-item>
       <ion-label>NFC</ion-label>
-      <ion-toggle [(ngModel)]="nfc"></ion-toggle>
+      <ion-toggle [(ngModel)]="nfc"  color="success"></ion-toggle>
     </ion-item>
   
     <ion-item>
       <ion-label>Geolocalisation</ion-label>
-      <ion-toggle [(ngModel)]="geolocalisation"></ion-toggle>
+      <ion-toggle [(ngModel)]="geolocalisation"  color="success"></ion-toggle>
     </ion-item>
     <ion-item>
       <ion-label>Scan Wifi</ion-label>
-      <ion-toggle [(ngModel)]="scanwifi"></ion-toggle>
+      <ion-toggle [(ngModel)]="scanwifi"  color="success"></ion-toggle>
     </ion-item>
   </ion-list>
 
   <div class="separation"></div>
   <ion-list *ngIf="scanwifi == true">
-    <ion-item *ngFor="let wifi of networks " >
-      <small>{{wifi.SSID}}//</small>
-      <small>{{wifi.BSSID}}//</small>
-      <small>{{wifi.level}}</small>    
-    </ion-item>
+    <ion-item-sliding *ngFor="let wifi of networks " >
+      <ion-label><small>{{wifi.SSID}}//</small></ion-label>
+      <ion-label><small>{{wifi.BSSID}}//</small></ion-label>
+      <ion-label><small>{{wifi.level}}</small></ion-label>    
+      <br>
+      <ion-label  *ngIf="getAssociatedPlace(wifi) != undefined"  color="primary" item-right>
+        <ion-icon name="home"></ion-icon>
+        <small>
+          {{getAssociatedPlace(wifi).name}}
+        </small>
+      </ion-label>
+      <ion-item-options side="end">
+        <ion-item-option (click)="zonify(wifi)">associer</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 
 </ion-content>

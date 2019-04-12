@@ -43,6 +43,6 @@ export class AuthPage implements OnInit {
   }
 
   onChangeSite(event) {
-    this.sitesService.setSite(event);
+    this.sitesService.setSite(+event);
   }
 }
