@@ -10,7 +10,7 @@
 				"endPoint":[
 					{"siteId":75,"quarterId":751,"zoneId":7512}
 				],
-				"segmentChain":[751,752]
+				"segmentChain":[751,753,752]
 			},{
 				"id": 752,
 				"startPoint": [
@@ -24,15 +24,13 @@
 			},{
 				"id": 753,
 				"startPoint": [
-					{"siteId":75,"quarterId":750,"zoneId":null},
-					{"siteId":75,"quarterId":750,"zoneId":7500}
-				],
-				"endPoint":[
 					{"siteId":75,"quarterId":750,"zoneId":7501}
 				],
-				"segmentChain":[751]
-			}
-			,{
+				"endPoint":[
+					{"siteId":75,"quarterId":751,"zoneId":7512}
+				],
+				"segmentChain":[753,752]
+			},{
 				"id": 131,
 				"startPoint": [
 					{"siteId":13,"quarterId":130,"zoneId":null}
@@ -63,6 +61,11 @@
 			"endPoint": {"siteId": 75,"quarterId": 751,"zoneId": 7512
 			},
 			"segmentRouterPath": "journey/seg-two"
+		}, {
+			"id": 753,
+			"startPoint": {"siteId": 75,"quarterId": 750,"zoneId": 7501},
+			"endPoint": {"siteId": 75,"quarterId": 751,"zoneId": 7511},
+			"segmentRouterPath": "journey/seg-elevator-one-two"
 		}, {
 			"id": 131,
 			"startPoint": {"siteId": 13,"quarterId": 131,"zoneId": 1311},

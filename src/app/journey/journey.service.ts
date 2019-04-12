@@ -15,38 +15,34 @@ export class JourneyService {
   public navSegment = new BehaviorSubject<Segment>(undefined)
   private navigation: Navigation;
   public currentNavSegments: Segment[];
+  endCheckPoint: MicrolocLight;
 
   constructor() {
     this.currentNavSegments = [];
     this.navigation = new Navigation().deserialize(navigationData.nav);
   }
   startNav(endCheckPoint: MicrolocLight): Segment {
+    this.endCheckPoint = endCheckPoint;
     // get last checkpoint in navHistory
     let navhist = this.navHistory.getValue()
-    console.log("startNav",navhist)
+    console.log("startNav",navhist);
     let startCheckPoint = navhist[navhist.length-1];
-    this.currentNavSegments = this.computeNavigation(startCheckPoint, endCheckPoint);
     console.log("startNav",this.currentNavSegments);
-    return this.walkNav(startCheckPoint);
+    return this.refreshNav(startCheckPoint); 
   }
-  walkNav(startCheckPoint: MicrolocLight): Segment {
-    let segment = this.getCurrentNavSegment();
-    console.log("getNextCurrentNavSegment",segment)
-    if (segment) {
-      this.currentNavSegments.pop();
-      this.navSegment.next(segment);
-      return segment;
-    }
-    else{
+  refreshNav(startCheckPoint:MicrolocLight){
+    if(this.endCheckPoint /* nav already asked */){
+      this.currentNavSegments = this.computeNavigation(startCheckPoint, this.endCheckPoint);
+      return this.walkNav();
+    }else{ /* no nav running */
       return undefined;
     }
   }
-  stepNav(startCheckPoint: MicrolocLight): Segment {
-    let nextSegment = this.getNextCurrentNavSegment();
-    console.log("getNextCurrentNavSegment",nextSegment)
-    if (nextSegment) {
-      this.navSegment.next(nextSegment);
-      return nextSegment;
+  walkNav(): Segment {
+    let segment = this.getCurrentNavSegment();
+    if (segment) {
+      this.navSegment.next(segment);
+      return segment;
     }
     else{
       return undefined;
@@ -73,8 +69,12 @@ export class JourneyService {
       this.pushInNavHistory(microlocation);
     }
     else if (!navHist[navhistoryLength - 1].zoneId) {
-      console.log('push checkpoint 1 - ');
+      console.log('push checkpoint 1 - ',navHist[navhistoryLength - 1].quarterId,microlocation.quarterId);
       if (navHist[navhistoryLength - 1].quarterId !== microlocation.quarterId) {
+        this.pushInNavHistory(microlocation);
+      }
+      //case if moving from a wifi loc (without zone) to nfc loc on same quarter
+      else if(microlocation.zoneId !== undefined){
         this.pushInNavHistory(microlocation);
       }
     }

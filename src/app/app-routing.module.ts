@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'taxi',
     canLoad: [AuthGuard],
-    
+
     children: [
       {
         path: ':id',
@@ -32,7 +32,7 @@ const routes: Routes = [
       },
       {
         path: ':id/:lat/:lon/:name',
-        loadChildren:  './travel/taxi/taxi.module#TaxiPageModule',
+        loadChildren: './travel/taxi/taxi.module#TaxiPageModule',
       }
     ]
   },
@@ -100,6 +100,10 @@ const routes: Routes = [
         loadChildren: './journey/seg-two/seg-two.module#SegTwoPageModule'
       },
       {
+        path: 'seg-elevator-one-two',
+        loadChildren: './journey/seg-elevator-one-two/seg-elevator-one-two.module#SegElevatorOneTwoPageModule'
+      },
+      {
         path: 'checkpoint/:checkpointId',
         loadChildren: './journey/checkpoint/checkpoint.module#CheckpointPageModule'
       }
@@ -111,6 +115,7 @@ const routes: Routes = [
     loadChildren: './conf/conf.module#ConfPageModule'
   },
   { path: 'choice', loadChildren: './travel/choice/choice.module#ChoicePageModule' }
+
 
 ];
 

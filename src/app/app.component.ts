@@ -56,8 +56,8 @@ export class AppComponent {
         if (newMicroloc !== undefined) {
           let checkpoint = newMicroloc.toMicrolight();
           this.journeyService.pushCheckPoint(checkpoint);
-          let segment = this.journeyService.walkNav(checkpoint);
-          console.log('app.component ',segment,this.journeyService.currentNavSegments)
+          console.log('app.component ',checkpoint,this.journeyService.currentNavSegments)
+          let segment = this.journeyService.refreshNav(checkpoint);
           if (!segment) {
             let routerPath = this.microlocToPage.getRouteFromMicroLocalisation(newMicroloc)
             console.log('point', routerPath);
