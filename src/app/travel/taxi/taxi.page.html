@@ -19,9 +19,8 @@
           color="tertiary"
           shape="round"
           size="small"><ion-icon slot="start" name="call"></ion-icon>Téléphoner</ion-button>
-        <ion-button  (click)='redirectTo($event,name)' *ngIf="taxi.appli as true"
-          size="small"
-          shape="round"><ion-icon slot="start" name="phone-portrait"></ion-icon>Application</ion-button>
+        <ion-button  (click)='goToSomewhere($event)' *ngIf="taxi.appli as true"
+          size="small"><ion-icon slot="start" name="phone-portrait"></ion-icon>Application</ion-button>
         </div>
 
       </ion-label>
