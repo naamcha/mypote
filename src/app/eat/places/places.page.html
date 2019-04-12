@@ -11,9 +11,9 @@
 
 
   <ion-item class="place" *ngFor="let place of places" detail [routerLink]="['/', 'tabs', 'tab-bar', 'eat', place.id]">
-    <ion-avatar slot="start">
+    <div class="illustration">
       <img *ngIf="place.image" [src]="place.image" [alt]="place.name">
-    </ion-avatar>
+    </div>
     <div class="content">
       <h3>{{ place.name }}</h3>
       <p class="distance"><ion-icon name="pin" color="medium"></ion-icon>{{ place.distance }}</p>

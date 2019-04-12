@@ -26,6 +26,7 @@
     <div class="people-info">
       <h1>{{ person.name }}</h1>
       <p><span>Pôle </span> {{ person.pole | titlecase }}</p>
+      <p *ngIf="person.division"><span>Division </span> {{ person.division | titlecase }}</p>
       <p class="room"><span>Position </span>{{ person.room }} {{ person.position }}</p>
     </div>
   </div>

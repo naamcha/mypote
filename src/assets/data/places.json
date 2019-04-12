@@ -1,22 +1,6 @@
 {
   "places": [
     {
-      "id": 1,
-      "image": "assets/images/eat/eat01.jpg",
-      "name": "Chez Lili et Marcel",
-      "type": "Restaurant",
-      "description": "Menu bistrotier, dont tartines artisanales, burgers et salades, dans un cadre convivial et chaleureux.",
-      "address": ["1 Quai d'Austerlitz", "75013 Paris"],
-      "phone": "01 45 85 00 08",
-      "schedule": [
-        "tous les jours",
-        "de 06h00 à 01h30"
-      ],
-      "map": "assets/images/eat/eat01.jpg",
-      "delivery": false,
-      "distance": "350m"
-    },
-    {
       "id": 2,
       "image": "assets/images/eat/cafe-gourmand.jpg",
       "name": "Le Café Gourmand",
@@ -32,6 +16,22 @@
       "map": "assets/images/eat/cafe-gourmand.jpg",
       "delivery": true,
       "distance": "76m"
+    },
+    {
+      "id": 1,
+      "image": "assets/images/eat/eat01.jpg",
+      "name": "Chez Lili et Marcel",
+      "type": "Restaurant",
+      "description": "Menu bistrotier, dont tartines artisanales, burgers et salades, dans un cadre convivial et chaleureux.",
+      "address": ["1 Quai d'Austerlitz", "75013 Paris"],
+      "phone": "01 45 85 00 08",
+      "schedule": [
+        "tous les jours",
+        "de 06h00 à 01h30"
+      ],
+      "map": "assets/images/eat/eat01.jpg",
+      "delivery": false,
+      "distance": "350m"
     },
     {
       "id": 3,
