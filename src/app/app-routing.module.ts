@@ -77,8 +77,12 @@ const routes: Routes = [
         loadChildren: './journey/journey-history/journey-history.module#JourneyHistoryPageModule'
       },
       {
-        path: 'segment/:segmentId',
-        loadChildren: './journey/segment/segment.module#SegmentPageModule'
+        path: 'seg-one',
+        loadChildren: './journey/seg-one/seg-one.module#SegOnePageModule'
+      },
+      {
+        path: 'seg-two',
+        loadChildren: './journey/seg-two/seg-two.module#SegTwoPageModule'
       },
       {
         path: 'checkpoint/:checkpointId',
