@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TaxiService } from './taxi.service';
 
 import { ActivatedRoute } from '@angular/router';
 import { SitesService } from 'src/app/sites/sites.service';
+import { Site } from 'src/app/core/models/site.model';
 
 @Component({
   selector: 'app-taxi',
@@ -11,16 +11,18 @@ import { SitesService } from 'src/app/sites/sites.service';
   styleUrls: ['./taxi.page.scss'],
 })
 export class TaxiPage implements OnInit {
+  activeSite:Site;
   taxis: [];
 
-  constructor(private siteService: SitesService, private TaxiService: TaxiService, private route: ActivatedRoute) { }
+  constructor(private sitesService: SitesService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.params['id'];
-
+    this.sitesService.currentSiteId.subscribe(site => {
+      this.activeSite = this.sitesService.getSite(site);
+    });
     // créer un tableau taxi à partir de l'objet site récupérer via la fonction getsite
-    this.taxis = this.siteService.getSite(id).taxi
-
+    this.taxis = this.activeSite.taxi;
+    console.log(this.taxis);
   }
 
   goTo(latitude, longitude, name,address) {

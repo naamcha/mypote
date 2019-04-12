@@ -21,7 +21,7 @@ export class ChoicePage implements OnInit {
     });
 
     this.interests = this.activeSite.interest;
-    
+    console.log(this.activeSite);
   }
 
 }

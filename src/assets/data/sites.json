@@ -106,16 +106,6 @@
         "img": "../../assets/images/logo-taxi-uber.jpg"
       },
         {
-          "name": "Uber",
-          "phone": "06 98 85 28 14",
-          "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
-          "appli": true,
-          "url1": "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
-          "url2": "&dropoff[longitude]=",
-          "url3": "&dropoff[nickname]=ITCE/",
-          "img": "../../assets/images/logo-uber.jpg"
-        },
-        {
           "name": "G7",
           "phone": "36 07",
           "description": "Quelle que soit votre destination, quels que soient vos besoins, commandez votre G7",
@@ -165,16 +155,6 @@
         "url3": "&dropoff[nickname]=ITCE/",
         "img": "../../assets/images/logo-taxi-uber.jpg"
       },
-        {
-          "name": "Uber",
-          "phone": "06 98 85 28 14",
-          "description": "jamais en avance, jamais en retard. Un vrai taxi arrive toujours à l'heure",
-          "appli": true,
-          "url1": "https://m.uber.com/ul/?action=setPickup&pickup[latitude]=my_location&pickup[longitude]=my_location&pickup[nickname]=my_location&dropoff[latitude]=",
-          "url2": "&dropoff[longitude]=",
-          "url3": "&dropoff[nickname]=ITCE/",
-          "img": "../../assets/images/logo-uber.jpg"
-        },
         {
           "name": "G7",
           "phone": "36 07",
