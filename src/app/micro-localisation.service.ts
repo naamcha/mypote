@@ -15,18 +15,15 @@ import { Coordinate } from 'tsgeo/Coordinate';
   providedIn: 'root'
 })
 export class MicroLocalisationService {
-
+  public microlocation = new BehaviorSubject<MicroLocalisation>(undefined);
+  private wifiFired: Boolean;
+  private nfcFired: Boolean;
 
   constructor(
     private nfc: NFC,
     private hotspot: Hotspot,
     private geolocation: Geolocation
   ) { }
-
-  public microlocation = new BehaviorSubject<MicroLocalisation>(undefined);
-  private wifiFired: Boolean;
-  private nfcFired: Boolean;
-
 
   public watchAll(sites: Sites): void {
     let nfcObs = this.scanNfc(sites).subscribe(microloc => {
@@ -40,7 +37,7 @@ export class MicroLocalisationService {
     let wifiObs = interval(1000).subscribe(data => {
       this.scanWifi(sites).subscribe(
         microloc => {
-//           console.log("watchAll wifiObs", microloc);
+          //           console.log("watchAll wifiObs", microloc);
           this.priorityManager('wifiObs', microloc);
         }
       )
@@ -48,25 +45,25 @@ export class MicroLocalisationService {
   }
 
   priorityManager(eventType: string, microlocation: MicroLocalisation) {
-    if (microlocation) {
+    if (microlocation !== undefined) {
       switch (eventType) {
         case 'distObs':
-          console.log('distObs')
-            this.microlocation.next(microlocation);
-            //unsuscribe
+          console.log('distObs next', microlocation);
+          this.microlocation.next(microlocation);
           break;
         case 'wifiObs':
-          //console.log(microlocation)
+          // wifi triggered only when quarter change and only changes quarter
           if (
             this.microlocation == undefined
             || this.microlocation.getValue() == undefined
             || this.microlocation.getValue().quarter.id !== microlocation.quarter.id
           ) {
-            // console.log('send microloc event 22', this.microlocation.getValue().quarter.id, microlocation.quarter.id)
+            console.log('wifiObs next', microlocation);
             this.microlocation.next(microlocation);
           }
           break;
         case 'nfcObs':
+          console.log('nfcObs next', microlocation);
           this.microlocation.next(microlocation);
           break;
       }

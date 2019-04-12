@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { Platform, NavController } from '@ionic/angular';
+import { Platform, NavController, AlertController } from '@ionic/angular';
 
 import { AuthService } from './auth/auth.service';
 import { SitesService } from './sites/sites.service';
@@ -33,6 +33,7 @@ export class AppComponent {
     private journeyService: JourneyService,
     private microLocalisationService: MicroLocalisationService,
     private microlocToPage: MicrolocToPageService,
+    private alertController: AlertController,
     private router: Router) {
     this.initializeApp();
   }
@@ -41,7 +42,6 @@ export class AppComponent {
       console.log('ngOnInit siteId', siteId);
       this.activeSite = this.sitesService.getSite(siteId);
       console.log('ngOnInit this.activeSite', this.activeSite)
-
     });
 
   }
@@ -49,12 +49,10 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-
       let sites = this.sitesService.getSites();
       this.microLocalisationService.watchAll(sites);
       this.microLocalisationService.microlocation.subscribe(newMicroloc => {
-        console.log('newMicroloc ==> ', newMicroloc);
-        if (newMicroloc !== undefined && newMicroloc.site.id !== this.sitesService.currentSiteId.getValue()) {
+
           let checkpoint = newMicroloc.toMicrolight();
           this.journeyService.pushCheckPoint(checkpoint);
           let segment = this.journeyService.walkNav(checkpoint);
@@ -63,7 +61,7 @@ export class AppComponent {
             console.log('point', routerPath);
             this.router.navigateByUrl(routerPath);
           }
-        }
+
       });
       this.journeyService.navSegment.subscribe(navSeg => {
         console.log('segment0', navSeg);
@@ -79,6 +77,32 @@ export class AppComponent {
   onLogout() {
     this.authService.logout();
     this.router.navigateByUrl('/auth');
+  }
+
+  async presentAlertMultipleButtons(site: Site) {
+    this.alertController.create({
+      header: 'Etes-vous au bon endroit ?',
+      subHeader: '',
+      message: `Le site de ${site.name} semble plus proche de vous, voulez-vous changer ?`,
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Changer de Site',
+          handler: () => {
+            console.log('changeSite to ',site.id);
+            this.sitesService.setSite(site.id);
+          }
+        }
+      ]
+    })
+      .then(alert => {
+        alert.present();
+      });
   }
 }
 
