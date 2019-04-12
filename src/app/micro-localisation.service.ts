@@ -30,10 +30,10 @@ export class MicroLocalisationService {
       console.log("watchAll nfcObs", microloc);
       this.priorityManager('nfcObs', microloc);
     });
-    let distObs = this.watchDistanceToSite(sites).subscribe(microloc => {
-      console.log("watchAll distObs", microloc);
-      this.priorityManager('distObs', microloc);
-    });
+    // let distObs = this.watchDistanceToSite(sites).subscribe(microloc => {
+    //   console.log("watchAll distObs", microloc);
+    //   this.priorityManager('distObs', microloc);
+    // });
     let wifiObs = interval(1000).subscribe(data => {
       this.scanWifi(sites).subscribe(
         microloc => {
@@ -47,10 +47,10 @@ export class MicroLocalisationService {
   priorityManager(eventType: string, microlocation: MicroLocalisation) {
     if (microlocation !== undefined) {
       switch (eventType) {
-        case 'distObs':
-          console.log('distObs next', microlocation);
-          this.microlocation.next(microlocation);
-          break;
+        // case 'distObs':
+        //   console.log('distObs next', microlocation);
+        //   this.microlocation.next(microlocation);
+        //   break;
         case 'wifiObs':
           // wifi triggered only when quarter change and only changes quarter
           if (

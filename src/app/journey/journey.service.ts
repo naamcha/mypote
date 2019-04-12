@@ -65,23 +65,26 @@ export class JourneyService {
     const navHist = this.navHistory.getValue();
     let navhistoryLength = (this.navHistory && navHist)? navHist.length:0;
     if (navhistoryLength == 0) {
+      // first location
       console.log('push checkpoint 0 - no nav history');
       this.pushInNavHistory(microlocation);
     }
-    else if (!navHist[navhistoryLength - 1].zoneId) {
-      console.log('push checkpoint 1 - ',navHist[navhistoryLength - 1].quarterId,microlocation.quarterId);
-      if (navHist[navhistoryLength - 1].quarterId !== microlocation.quarterId) {
-        this.pushInNavHistory(microlocation);
-      }
-      //case if moving from a wifi loc (without zone) to nfc loc on same quarter
-      else if(microlocation.zoneId !== undefined){
-        this.pushInNavHistory(microlocation);
-      }
+    //changinq quarter
+    else if(navHist[navhistoryLength - 1].quarterId !== microlocation.quarterId){
+      this.pushInNavHistory(microlocation);
     }
-    else {
+    //changing zone in same quarter
+    else{ 
+      // zone to zone in same quarter
       if (navHist[navhistoryLength - 1].zoneId !== microlocation.zoneId) {
-        console.log('push checkpoint 2');
-        this.pushInNavHistory(microlocation);
+        // zone undefined to zone defined
+        if(navHist[navhistoryLength - 1].zoneId == undefined && microlocation.zoneId !== undefined){
+          this.pushInNavHistory(microlocation);
+        }
+        // zone defined to zone undefined 
+        else{
+          // DO NOTHING (avoid bumping to wifi localisation after fireing nfc)
+        }
       }
     }
   }
