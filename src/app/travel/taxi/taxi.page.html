@@ -1,29 +1,27 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/tabs/tab-bar/travel"></ion-back-button>
-      </ion-buttons>
-      <ion-title>Réserver un Taxi</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab-bar/travel"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Réserver un Taxi</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content padding>
+<ion-content padding-start>
   <div *ngFor="let taxi of taxis">
-    <ion-item >
-      <ion-thumbnail  slot="start">
+    <ion-item>
+      <ion-thumbnail slot="start">
         <img [src]="taxi.img" [alt]="taxi.name">
       </ion-thumbnail>
-      <ion-label><h1>{{ taxi.name }}</h1>
+      <ion-label>
+        <h1>{{ taxi.name }}</h1>
         <p>{{taxi.description}}</p>
-        <div><ion-button [href]="'tel:'+taxi.phone"
-          color="tertiary"
-          shape="round"
-          size="small"><ion-icon slot="start" name="call"></ion-icon>Téléphoner</ion-button>
-        <ion-button  (click)='goToSomewhere($event)' *ngIf="taxi.appli as true"
-          size="small"
-          shape="round"><ion-icon slot="start" name="phone-portrait"></ion-icon>Application</ion-button>
-        </div>
-
+        <ion-button [href]="'tel:'+taxi.phone" color="tertiary" shape="round" size="small">
+          <ion-icon slot="start" name="call"></ion-icon>Téléphoner
+        </ion-button>
+        <ion-button (click)='goToSomewhere($event)' *ngIf="taxi.appli as true" shape="round" size="small">
+          <ion-icon slot="start" name="phone-portrait"></ion-icon>Application
+        </ion-button>
       </ion-label>
     </ion-item>
   </div>
