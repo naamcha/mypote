@@ -11,11 +11,14 @@
 
   .content {
     flex-grow: 1;
+    overflow: hidden;
   }
 }
 
 .image-wrapper img {
   max-height: 110px;
+  max-width: 130px;
+  min-width: 130px;
   width: auto;
   margin-right: 10px;
 }
@@ -35,8 +38,9 @@
 .floor {
   display: flex;
   align-items: center;
-  font-size: 1.125em;
-  margin-left: 18px;
+  font-size: 0.925em;
+  margin-left: 12px;
+  min-width: 30px;
 
   img {
     width: auto;
@@ -75,9 +79,16 @@
   }
 }
 
+.card-content {
+  overflow: hidden;
+}
+
 .title {
-  font-size: 1.25em;
+  font-size: 1.125em;
   line-height: 2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .furniture {

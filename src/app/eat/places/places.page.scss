@@ -7,6 +7,7 @@ ion-avatar {
 
 .illustration {
   width: 100px;
+  min-width: 100px;
   height: 100px;
   overflow: hidden;
   margin: 10px 0;
@@ -23,12 +24,21 @@ ion-avatar {
 
   .content {
     margin-left: 16px;
+    overflow: hidden;
 
     h3,
     p {
       margin: 0;
       line-height: 1.5;
     }
+
+    h3 {
+      font-size: 20px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
   }
 
   .distance {
